@@ -5,17 +5,58 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
+
+        /*Header box layout*/
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/headerbox"
+            android:weightSum="3">
+
+            /*Burger Menu*/
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/menu"
+                android:layout_weight="1"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+            /*Bodega Title*/
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="30dp"
+                android:text="BODEGA"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            /*Profile Icon*/
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/account"
+                android:layout_weight="1"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
 
 
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/itemList"/>
 
     </LinearLayout>
 
