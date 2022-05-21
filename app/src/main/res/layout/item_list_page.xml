@@ -25,8 +25,8 @@
                 android:background="@drawable/menu"
                 android:layout_weight="1"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
 
             /*Bodega Title*/
             <TextView
@@ -42,12 +42,12 @@
             /*Profile Icon*/
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:background="@drawable/account"
                 android:layout_weight="1"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"/>
 
         </LinearLayout>
 
@@ -68,10 +68,13 @@
                 android:padding="10dp"/>
         </LinearLayout>
 
+        /*List View that contains Items for item page*/
         <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/itemList"/>
+            android:id="@+id/itemListView">
+
+        </ListView>
 
     </LinearLayout>
 
