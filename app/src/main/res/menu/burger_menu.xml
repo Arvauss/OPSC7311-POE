@@ -2,18 +2,23 @@
 <!--(geeksforgeeks.org, 2022)-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    tools:showIn='navigation_view'>
+
+    <!--Burger Menu items (Coding in Flow, 2018)-->
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="DASHBOARD" />
 
     <item
-        android:id="@+id/nav_account"
-        android:title="My Account" />
+        android:id="@+id/nav_shopping_list"
+        android:title="SHOPPING LIST" />
 
     <item
-        android:id="@+id/nav_settings"
-        android:title="Settings" />
+        android:id="@+id/nav_graph_screen"
+        android:title="GRAPH SCREEN" />
+</group>
 
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout" />
 
 </menu>

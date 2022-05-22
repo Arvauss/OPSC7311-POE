@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--the root view must be the DrawerLayout-->
+<!--the root view must be the DrawerLayout (geeksforgeeks.org, 2022)-->
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="128dp"
             android:gravity="center"
-            android:text="GeeksforGeeks"
+            android:text="BODEGA"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <!--this is the navigation view which draws
         and shows the navigation drawer-->
-    <!--include the menu created in the menu folder-->
+    <!--include the menu created in the menu folder (geeksforgeeks.org, 2022)-->
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
