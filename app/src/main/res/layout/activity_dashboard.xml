@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard_Activity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <TextView
         android:layout_width="match_parent"
@@ -19,7 +20,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:layout_weight="10">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -29,6 +31,34 @@
             tools:listitem="@layout/category_card_layout">
 
         </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="25sp"
+            android:layout_weight="1"
+            android:id="@+id/DashboardAddButton">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textSize="25sp"
+            android:layout_weight="1"
+            android:id="@+id/DashboardDeleteButton">
+
+        </Button>
     </LinearLayout>
 
 </LinearLayout>
