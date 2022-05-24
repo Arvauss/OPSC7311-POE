@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="20dp"
-    android:layout_margin="5dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="3dp"
     app:cardBackgroundColor="@color/white"
     app:cardMaxElevation="12dp"
     app:cardPreventCornerOverlap="true"
@@ -30,16 +30,33 @@
             android:paddingTop="5dp"
             android:layout_weight="1"/>
 
-        <TextView
-            android:id="@+id/txt_Category_Name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingTop="5dp"
-            android:text="Category Name"
-            android:layout_weight="1"/>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_Category_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:text="Category Name"
+                android:textSize="20dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txt_Category_Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="5dp"
+                android:text="Category Date"
+                android:textSize="14dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
