@@ -9,134 +9,159 @@
     //Information on how to create textViews and editViews(Android Developers, 2021)
     //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
     //background colour (11. HOW TO CHANGE TEXT AND BACKGROUND COLOR IN ANDROID STUDIO | ANDROID APP DEVELOPMENT, 2016).
-    //adding bold font to all text views (Androidride, 2021).
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="271dp"
-        android:layout_height="438dp"
+        android:layout_width="277dp"
+        android:layout_height="453dp"
         android:background="@drawable/box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559"
+        app:layout_constraintVertical_bias="0.636"
         tools:context=".MainActivity">
 
 
         <TextView
-            android:id="@+id/TextColor"
+            android:id="@+id/ItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="64dp"
             android:fontFamily="arial"
-            android:text="@string/please_select_a_color_for_your_category"
+            android:text="@string/please_enter_the_name_of_your_item"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037" />
+            app:layout_constraintVertical_bias="0.036" />
 
-        //added drop down box in view Code (Envato Tuts+, 2022) and (Android Drop Down List Tutorial, 2016).
-        <Spinner
-            android:id="@+id/DropDown"
-            android:layout_width="184dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="68dp"
-            android:textSize="12sp"
-            android:minHeight="48dp"
-
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.107" />
-
-        <TextView
-            android:id="@+id/TextName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
-            android:fontFamily="arial"
-            android:text="@string/please_enter_the_name_of_your_category"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
-
-        //autofill for the name (Android Developers, 2022)
         <EditText
-            android:id="@+id/NameTextBox"
+            android:id="@+id/ItemNameBox"
             android:layout_width="199dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginEnd="60dp"
             android:autofillHints="name"
             android:ems="10"
-            android:hint="Name"
+            android:hint="Item Name"
             android:inputType="textPersonName"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.362" />
+            app:layout_constraintVertical_bias="0.101" />
 
         <TextView
-            android:id="@+id/TextDescription"
+            android:id="@+id/ItemDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="36dp"
             android:fontFamily="arial"
-            android:text="@string/please_provide_a_description_of_this_category"
+            android:text="@string/please_provide_a_description_of_this_item"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.247" />
 
         <EditText
-            android:id="@+id/DescriptionTextBox"
-            android:layout_width="203dp"
+            android:id="@+id/ItemDescTextBox"
+            android:layout_width="199dp"
             android:layout_height="48dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="Description"
             android:inputType="textPersonName"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.294"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.619" />
+            app:layout_constraintVertical_bias="0.333" />
 
         <TextView
-            android:id="@+id/Image"
+            android:id="@+id/ImageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="56dp"
             android:fontFamily="arial"
-            android:text="@string/please_upload_an_icon_of_your_category"
+            android:text="@string/please_upload_an_image_of_your_item"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.736" />
+            app:layout_constraintVertical_bias="0.464" />
 
         <ImageView
-            android:id="@+id/ImageCat"
+            android:id="@+id/ImageItemPic"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:contentDescription="@string/image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.884" />
+            app:layout_constraintVertical_bias="0.56" />
+
+        <TextView
+            android:id="@+id/DateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="arial"
+            android:text="@string/date_of_aquisition"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.677" />
+
+        <TextView
+            android:id="@+id/DatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="112dp"
+            android:ems="10"
+            android:fontFamily="arial"
+            android:hint="Select Date: mm/dd/yyyy"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.734" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            android:fontFamily="arial"
+            android:text="@string/price"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.812" />
+
+        <EditText
+            android:id="@+id/priceTextBox"
+            android:layout_width="203dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="Amount: R0.00"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.938" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -147,7 +172,7 @@
         android:background="@drawable/box"
         android:backgroundTint="#fffdd0"
         android:padding="15dp"
-        android:text="@string/create_category"
+        android:text="@string/add_Item"
         android:textStyle="bold"
         android:fontFamily="arial"
         android:textAlignment="center"
@@ -160,20 +185,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.048" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="MainActivity2"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.915" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">Test</string>
+    //naming conventions for textViews in category page
+    <string name="app_name">BodegaApp</string>
+    <string name="please_select_a_color_for_your_category">Please select a color for your category.</string>
+    <string name="please_enter_the_name_of_your_category">Please enter the name of your category.</string>
+    <string name="please_provide_a_description_of_this_category">Please provide a description of this category.</string>
+    <string name="create_category">CREATE CATEGORY</string>
+    <string name="please_upload_an_icon_of_your_category">Please select an image for your category.</string>
+    <string name="ColoursBox">Select Colour</string>
+    <string name="image">ICON</string>
+
+    //drop-down menu options (Envato Tuts+, 2022) and (Android Drop Down List Tutorial, 2016).
+    <string-array name="Colours" size="15">
+        <item>Green</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Purple</item>
+        <item>Pink</item>
+        <item>Yellow</item>
+    </string-array>
+
+    //naming conventions for textViews in item page
+    <string name="add_Item">ADD ITEM</string>
+    <string name="please_enter_the_name_of_your_item">Please enter the name of your item.</string>
+    <string name="please_provide_a_description_of_this_item">Please provide a description of this item.</string>
+    <string name="please_upload_an_image_of_your_item">Please upload an image of your item.</string>
+    <string name="date_of_aquisition">Please enter the purchase date of this item.</string>
+    <string name="price">Please enter price of your item.</string>
 </resources>
