@@ -2,7 +2,6 @@ package ST10119385.ChloeMoodley;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class MainActivity2 extends AppCompatActivity {
+public class Add_Item_Page extends AppCompatActivity {
 
     //adding second view and class (Add a Second Activity to your App, 2017).
     private static final String TAG = "MainActivity2";
@@ -25,7 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.add_item_ui_page);
 
         /* the datapicker code to allow user to select year, month and day without
         typing it (Android Beginner Tutorial #25  - DatePicker Dialog [Choosing a Date from a Dialog Pop-Up], 2017). */
@@ -45,7 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
                 int day = cal.get(Calendar.DAY_OF_MONTH); //day of month will display
 
                 //already installed in design of calender
-                DatePickerDialog di = new DatePickerDialog (MainActivity2.this,
+                DatePickerDialog di = new DatePickerDialog (Add_Item_Page.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateSetListener,
                         year, month, day);
 

@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/drawable/box.xml" value="0.1" />
         <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/drawable/strings.xml" value="0.178" />
+        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/layout/Add_Item_UI_Page.xml" value="0.25" />
         <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/layout/activity_main3.xml" value="0.25" />
+        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/BodegaApp/app/src/main/res/layout/category_ui_page.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BodegaApp">
         <activity
-            android:name=".MainActivity2"
+            android:name=".Add_Item_Page"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Category_Page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
