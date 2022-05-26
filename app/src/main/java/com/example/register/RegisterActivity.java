@@ -9,18 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button btn_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        btn_register = (Button) findViewById(R.id.registerbtn);
+        username = (EditText) findViewById(R.id.UsernameEditText);
+        password = (EditText) findViewById(R.id.PasswordEditText);
+        btn_register = (Button) findViewById(R.id.RegisterButton);
 
 
         btn_register.setOnClickListener(new View.OnClickListener() {

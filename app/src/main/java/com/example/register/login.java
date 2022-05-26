@@ -25,9 +25,9 @@ public class login extends AppCompatActivity  {
     }
 
     private void setupUI(){
-        Username = findViewById(R.id.username);
-        Password =  findViewById(R.id.password);
-        Register = findViewById(R.id.registerbtn);
+        Username = findViewById(R.id.UsernameEditText);
+        Password =  findViewById(R.id.PasswordEditText);
+    //    Register = findViewById(R.id.registerbtn);
         LoginButton = findViewById(R.id.LoginButton);
     }
 
@@ -78,7 +78,7 @@ public class login extends AppCompatActivity  {
              if(UsernameVal.equals("Testing.com")&& PasswordVal.equals("Password123")){
 
                  //Below intent is used to open new activity after login has been checked
-                 Intent i = new Intent(login.this, MainActivity.class);
+                 Intent i = new Intent(login.this, RegisterActivity.class);
                  startActivity(i);
                  //Finish the activity
                  this.finish();
@@ -98,7 +98,7 @@ public class login extends AppCompatActivity  {
     }
 
     public void myMethod(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 

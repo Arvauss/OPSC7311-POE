@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
-
-    <!-- (Rectfy, 2017) -->
+    tools:context=".RegisterActivity">
 
     <!-- (Rectfy, 2017) -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,9 +14,10 @@
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63">
+        app:layout_constraintVertical_bias="0.628">
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -83,12 +82,12 @@
 
         <!-- (Any Technology, 2017) -->
         <Button
-            android:id="@+id/LoginButton"
-            android:layout_width="133dp"
+            android:id="@+id/RegisterButton"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:background="@drawable/roundbutton"
             android:elevation="20dp"
-            android:text="LOGIN"
+            android:text="REGISTER"
             android:textColor="#8B8000"
             android:textSize="25dp"
             android:textStyle="bold"
@@ -104,7 +103,7 @@
             android:id="@+id/AccountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DON'T HAVE AN ACCOUNT?"
+            android:text="ALREADY HAVE AN ACCOUNT?"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,11 +115,11 @@
 
         <!-- (Phys Whiz, 2016) -->
         <TextView
-            android:id="@+id/RegisterHyperLink"
+            android:id="@+id/LoginHyperLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="myMethod"
             android:text="CLICK HERE"
+            android:onClick= "myMethod"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
@@ -131,6 +130,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- (Rectfy, 2017) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="192dp"
         android:layout_height="59dp"
@@ -148,7 +148,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="REGISTER"
             android:textColor="#8B8000"
             android:textSize="25dp"
             android:textStyle="bold"
