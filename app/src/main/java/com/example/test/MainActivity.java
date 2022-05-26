@@ -1,14 +1,12 @@
 package com.example.test;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-
-import com.example.register.R;
 
 public class MainActivity extends AppCompatActivity {
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
