@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.example.test.R;
+
 import java.util.Calendar;
 
 public class Add_Item_Page extends AppCompatActivity {

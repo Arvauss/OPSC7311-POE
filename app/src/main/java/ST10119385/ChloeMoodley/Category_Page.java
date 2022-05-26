@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.test.R;
 //import android.widget.Toastimport androidx.appcompat.app.AppCompatActivity;
 
 
