@@ -2,16 +2,19 @@ package com.example.register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button btn_register;
+    TextView login_link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.UsernameEditText);
         password = (EditText) findViewById(R.id.PasswordEditText);
         btn_register = (Button) findViewById(R.id.RegisterButton);
-
+        login_link = (TextView) findViewById(R.id.LoginHyperLink);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +33,16 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
+        login_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), login.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
+
     }
 boolean isEmpty(EditText text){
         CharSequence str = text.getText().toString();
@@ -43,6 +56,12 @@ boolean isEmpty(EditText text){
         if(isEmpty(password)){
             password.setError("Password is required");
         }
+    }
+
+
+    public void GoToLogin(View view){
+        Intent intent = new Intent(this, login.class);
+        startActivity(intent);
     }
 }
 

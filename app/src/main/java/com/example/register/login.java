@@ -20,14 +20,13 @@ public class login extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         setupUI();
-        setupListener();
+       // setupListener();
 
     }
 
     private void setupUI(){
         Username = findViewById(R.id.UsernameEditText);
         Password =  findViewById(R.id.PasswordEditText);
-    //    Register = findViewById(R.id.registerbtn);
         LoginButton = findViewById(R.id.LoginButton);
     }
 
@@ -38,12 +37,7 @@ public class login extends AppCompatActivity  {
                 verifyUsername();
             }
         });
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
     //This method is used to verify the username and password
@@ -97,7 +91,7 @@ public class login extends AppCompatActivity  {
         return TextUtils.isEmpty(str);
     }
 
-    public void myMethod(View view){
+    public void GoToRegister(View view){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
