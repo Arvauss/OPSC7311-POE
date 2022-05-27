@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-import com.example.test.R;
+import opscwork.viewitempagefeatures.R;
 
 public class Add_Item_Page extends AppCompatActivity {
 

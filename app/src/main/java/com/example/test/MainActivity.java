@@ -8,7 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.test.R;
+import opscwork.viewitempagefeatures.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard);
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).

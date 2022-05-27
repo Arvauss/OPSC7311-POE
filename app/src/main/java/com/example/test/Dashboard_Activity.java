@@ -1,13 +1,12 @@
 package com.example.test;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.register.RegisterActivity;
-import com.example.test.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import opscwork.viewitempagefeatures.R;
 
 public class Dashboard_Activity extends AppCompatActivity {
 
