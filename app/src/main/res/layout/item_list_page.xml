@@ -1,44 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.test.Dashboard_Activity"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/headerbox"
+        android:text="VEGETABLES"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:layout_weight="10">
 
-
-        /*Item List Header*/
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/headingbox"
-            android:backgroundTint="#79EC4E"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VEGETABLES"
-                android:textStyle="bold"
-                android:textSize="25dp"
-                android:textAlignment="center"
-                android:padding="10dp"/>
-        </LinearLayout>
-
-        /*List View that contains Items for item page*/
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemListView">
+            android:layout_height="match_parent"
+            android:id="@+id/itemListCard"
+            android:padding="10dp"
+            tools:listitem="@layout/item_list_template">
 
-        </ListView>
-
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="25sp"
+            android:layout_weight="1"
+            android:id="@+id/ItemListAdd">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textSize="25sp"
+            android:layout_weight="1"
+            android:id="@+id/ItemListDelete">
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>
+
+<!--<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        tools:layout_editor_absoluteX="1dp"-->
+<!--        tools:layout_editor_absoluteY="1dp">-->
+
+
+<!--        /*Item List Header*/-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/headingbox"-->
+<!--            android:backgroundTint="#79EC4E"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_gravity="center">-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="VEGETABLES"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="25dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:padding="10dp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        /*List View that contains Items for item page*/-->
+<!--        <ListView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/itemListView">-->
+
+<!--        </ListView>-->
+
+<!--    </LinearLayout>-->
+
+<!--</androidx.appcompat.widget.LinearLayoutCompat>-->
