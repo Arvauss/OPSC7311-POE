@@ -8,6 +8,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import opscwork.viewitempagefeatures.R;
+
+
 public class MainActivity extends AppCompatActivity {
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;

@@ -1,11 +1,11 @@
 package opscwork.viewitempagefeatures;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 //import com.example.register.R;
-import com.example.test.R;
+
 
 public class ViewItem extends AppCompatActivity {
 

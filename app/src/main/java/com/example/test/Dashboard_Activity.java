@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import opscwork.viewitempagefeatures.R;
+
 public class Dashboard_Activity extends AppCompatActivity {
 
     @Override

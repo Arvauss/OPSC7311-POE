@@ -1,7 +1,5 @@
 package ST10119385.ChloeMoodley;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,9 +9,11 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import com.example.test.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
+
+import opscwork.viewitempagefeatures.R;
 
 public class Add_Item_Page extends AppCompatActivity {
 

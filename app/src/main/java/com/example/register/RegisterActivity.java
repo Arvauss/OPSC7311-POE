@@ -1,7 +1,5 @@
 package com.example.register;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.test.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import opscwork.viewitempagefeatures.R;
+
 
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
