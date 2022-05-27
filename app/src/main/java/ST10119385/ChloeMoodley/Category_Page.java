@@ -32,11 +32,11 @@ public class Category_Page extends AppCompatActivity {
         myAdapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //making the adapter a dropdown
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
     }
-
-    public void  MainActivity2 (View v)
-    {
-        Intent i = new Intent(this, Add_Item_Page.class);
-        startActivity(i);
-
-    }
+//android on click = view
+//    public void  MainActivity2 (View v)
+//    {
+//        Intent i = new Intent(this, Add_Item_Page.class);
+//        startActivity(i);
+//
+//    }
 }
