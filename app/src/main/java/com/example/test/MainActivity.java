@@ -8,7 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import opscwork.viewitempagefeatures.R;
+import com.example.test.R;
 
 
 public class MainActivity extends AppCompatActivity {

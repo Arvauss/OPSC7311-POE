@@ -8,7 +8,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import opscwork.viewitempagefeatures.R;
+import com.example.test.R;
 
 //import com.example.test.R;
 //import android.widget.Toastimport androidx.appcompat.app.AppCompatActivity;

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import opscwork.viewitempagefeatures.R;
+import com.example.test.R;
 
 
 public class login extends AppCompatActivity  {
