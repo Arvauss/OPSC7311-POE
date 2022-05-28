@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
 
@@ -97,6 +98,11 @@ public class login extends AppCompatActivity  {
     public void GoToRegister(View view){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    public void GoToDashBoard (View v) {
+        Intent i = new Intent(this, Dashboard_Activity.class);
+        startActivity(i);
     }
 
 

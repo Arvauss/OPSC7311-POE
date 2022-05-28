@@ -6,6 +6,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ST10119385.ChloeMoodley.Add_Item_Page;
+import ST10119385.ChloeMoodley.Category_Page;
+
 public class Dashboard_Activity extends AppCompatActivity {
 
     @Override
@@ -14,8 +17,15 @@ public class Dashboard_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
     }
 
-    public void addItemListButton (View view){
-        Intent addItemButton = new Intent(this, ST10119385.ChloeMoodley.Add_Item_Page.class);
-        startActivity(addItemButton);
+    public void AddCategory (View v) {
+        Intent addCat = new Intent(this, Category_Page.class);
+        startActivity(addCat);
     }
+
+    public void GoToAddItem (View v) {
+        Intent addItem = new Intent(this, Add_Item_Page.class);
+        startActivity(addItem);
+    }
+
+
 }

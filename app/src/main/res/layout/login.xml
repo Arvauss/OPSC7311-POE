@@ -92,6 +92,7 @@
             android:textColor="#8B8000"
             android:textSize="25dp"
             android:textStyle="bold"
+            android:onClick="GoToDashBoard"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.442"
