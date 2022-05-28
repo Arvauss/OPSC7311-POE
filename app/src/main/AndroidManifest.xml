@@ -16,7 +16,7 @@
 
         <activity
 
-            android:name=".MainActivity"
+            android:name="com.example.register.login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,6 @@
         <activity android:name="ST10119385.ChloeMoodley.Category_Page"></activity>
         <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page"></activity>
 
-        <activity android:name="com.example.register.login"></activity>
         <activity android:name="com.example.register.RegisterActivity"></activity>
 
     </application>

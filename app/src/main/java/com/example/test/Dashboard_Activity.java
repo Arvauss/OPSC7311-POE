@@ -6,8 +6,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import opscwork.viewitempagefeatures.R;
-
 public class Dashboard_Activity extends AppCompatActivity {
 
     @Override
