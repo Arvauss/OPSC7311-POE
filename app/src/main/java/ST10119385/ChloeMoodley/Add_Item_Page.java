@@ -1,6 +1,7 @@
 package ST10119385.ChloeMoodley;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
 import java.util.Calendar;
@@ -68,5 +70,10 @@ public class Add_Item_Page extends AppCompatActivity {
                 displayDate.setText(date);
             }
         };
+    }
+
+    public void goBackToList (View v) {
+        Intent listBackItem = new Intent(this, Dashboard_Activity.class);
+        startActivity(listBackItem);
     }
 }

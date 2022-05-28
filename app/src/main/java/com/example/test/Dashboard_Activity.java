@@ -27,5 +27,14 @@ public class Dashboard_Activity extends AppCompatActivity {
         startActivity(addItem);
     }
 
+    public void GoToItemList (View v) {
+        Intent ViewItemList = new Intent(this, Dashboard_Activity.class);
+        startActivity(ViewItemList);
+    }
+    
+     public void GoToViewItem (View v) {
+        Intent ViewItem = new Intent(this, opscwork.viewitempagefeatures.ViewItem.class);
+        startActivity(ViewItem);
+     }
 
 }

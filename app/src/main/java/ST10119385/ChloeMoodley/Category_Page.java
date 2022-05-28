@@ -35,5 +35,8 @@ public class Category_Page extends AppCompatActivity {
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
     }
 //android on click = view
-
+    public void GoBackDash (View v) {
+        Intent goBackDash = new Intent (this, Dashboard_Activity.class);
+        startActivity(goBackDash);
+    }
 }
