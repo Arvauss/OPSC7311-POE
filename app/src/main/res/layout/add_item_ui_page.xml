@@ -111,7 +111,7 @@
             android:id="@+id/DateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="160dp"
             android:fontFamily="arial"
             android:text="date_of_aquisition"
             android:textSize="12sp"
@@ -119,7 +119,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.677" />
+            app:layout_constraintVertical_bias="0.695" />
 
         <TextView
             android:id="@+id/DatePicker"
@@ -139,7 +139,7 @@
             android:id="@+id/priceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="88dp"
+            android:layout_marginEnd="232dp"
             android:fontFamily="arial"
             android:text="price"
             android:textSize="12sp"
@@ -147,7 +147,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.812" />
+            app:layout_constraintVertical_bias="0.832" />
 
         <EditText
             android:id="@+id/priceTextBox"
@@ -185,5 +185,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.048" />
+
+    <Button
+        android:id="@+id/CategoryConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/headerbox"
+        android:text="CONFIRM"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="546dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
