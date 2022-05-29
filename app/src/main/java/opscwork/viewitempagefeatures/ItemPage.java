@@ -9,10 +9,11 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test.R;
+
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Item_Information;
-
 public class ItemPage extends  AppCompatActivity {
 
     // Declaration of variables ()

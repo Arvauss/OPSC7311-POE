@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
+import com.example.test.R;
 
-import opscwork.viewitempagefeatures.R;
+import java.util.ArrayList;
 public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
 
     private static final String TAG = "ShoppingList_Adapter";

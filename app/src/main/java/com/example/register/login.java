@@ -12,8 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.Dashboard_Activity;
 
-import opscwork.viewitempagefeatures.R;
-
+import com.example.test.R;
 
 public class login extends AppCompatActivity  {
 

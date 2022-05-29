@@ -9,9 +9,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.Dashboard_Activity;
-
-import opscwork.viewitempagefeatures.R;
-//import com.example.test.R;
+import com.example.test.R;
 //import android.widget.Toastimport androidx.appcompat.app.AppCompatActivity;
 
 public class Category_Page extends AppCompatActivity {
