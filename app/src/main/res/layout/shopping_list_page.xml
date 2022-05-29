@@ -2,6 +2,7 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    tools:context="ST10119385.ChloeMoodley.ShoppingList_Page"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -30,13 +31,51 @@
                 android:padding="10dp"/>
         </LinearLayout>
 
-        /*List View that contains Items for shopping list page*/
-        <ListView
+<!--        <ListView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </ListView>-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/shoppingListView">
+            android:layout_margin="5dp"
+            android:layout_weight="10"
+            android:padding="10dp">
 
-        </ListView>
+            /*List View that contains Items for shopping list page*/
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/shoppingListView"
+                tools:listitem="@layout/shopping_list_template">
+            </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:id="@+id/TotalShoppingListText"
+                android:text="TOTAL COST:"
+                android:textSize="30dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CalculatedCostValue"
+                android:textSize="30dp">
+
+            </TextView>
+
+        </LinearLayout>
 
     </LinearLayout>
 

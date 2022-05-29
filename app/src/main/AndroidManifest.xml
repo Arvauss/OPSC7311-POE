@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-
+        <activity
+            android:name="ST10119385.ChloeMoodley.ShoppingList_Page"
+            android:exported="false" />
         <activity
             android:name=".Dashboard_Activity"
             android:exported="false" />
-
         <activity
-
             android:name="com.example.register.login"
             android:exported="true">
             <intent-filter>
@@ -24,16 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="opscwork.viewitempagefeatures.ViewItem">
-        </activity>
-
-        <activity android:name="ST10119385.ChloeMoodley.Category_Page"></activity>
-        <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page"></activity>
-
-        <activity android:name="com.example.register.RegisterActivity"></activity>
-
+        <activity android:name="opscwork.viewitempagefeatures.ViewItem"></activity>
+        <activity android:name="ST10119385.ChloeMoodley.Category_Page" />
+        <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page" />
+        <activity android:name="com.example.register.RegisterActivity" />
     </application>
 
 </manifest>

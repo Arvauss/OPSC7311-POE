@@ -10,6 +10,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import ST10119385.ChloeMoodley.Add_Item_Page;
+import ST10119385.ChloeMoodley.Category_Page;
+
 public class Dashboard_Activity extends AppCompatActivity {
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
@@ -49,8 +52,24 @@ public class Dashboard_Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addItemListButton (View view){
-        Intent addItemButton = new Intent(this, ST10119385.ChloeMoodley.Add_Item_Page.class);
-        startActivity(addItemButton);
+    public void AddCategory (View v) {
+        Intent addCat = new Intent(this, Category_Page.class);
+        startActivity(addCat);
     }
+
+    public void GoToAddItem (View v) {
+        Intent addItem = new Intent(this, Add_Item_Page.class);
+        startActivity(addItem);
+    }
+
+    public void GoToItemList (View v) {
+        Intent ViewItemList = new Intent(this, Dashboard_Activity.class);
+        startActivity(ViewItemList);
+    }
+    
+     public void GoToViewItem (View v) {
+        Intent ViewItem = new Intent(this, opscwork.viewitempagefeatures.ViewItem.class);
+        startActivity(ViewItem);
+     }
+
 }

@@ -1,11 +1,14 @@
 package ST10119385.ChloeMoodley;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
 //import com.example.test.R;
@@ -32,10 +35,8 @@ public class Category_Page extends AppCompatActivity {
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
     }
 //android on click = view
-//    public void  MainActivity2 (View v)
-//    {
-//        Intent i = new Intent(this, Add_Item_Page.class);
-//        startActivity(i);
-//
-//    }
+    public void GoBackDash (View v) {
+        Intent goBackDash = new Intent (this, Dashboard_Activity.class);
+        startActivity(goBackDash);
+    }
 }
