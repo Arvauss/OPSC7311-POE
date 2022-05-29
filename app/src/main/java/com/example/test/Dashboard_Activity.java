@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Page;
-import opscwork.viewitempagefeatures.R;
+
 public class Dashboard_Activity extends AppCompatActivity {
 
     @Override

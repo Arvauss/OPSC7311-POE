@@ -13,10 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.Dashboard_Activity;
+import com.example.test.R;
 
 import java.util.Calendar;
-
-import opscwork.viewitempagefeatures.R;
 
 public class Add_Item_Page extends AppCompatActivity {
 

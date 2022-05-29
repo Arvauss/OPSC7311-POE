@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.test.R;
+
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Item_Information;

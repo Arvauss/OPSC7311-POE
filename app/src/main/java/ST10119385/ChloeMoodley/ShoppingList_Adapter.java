@@ -1,17 +1,9 @@
 package ST10119385.ChloeMoodley;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-
-import opscwork.viewitempagefeatures.R;
 public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
 
     private static final String TAG = "ShoppingList_Adapter";
@@ -24,29 +16,35 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         re = shopping_list_page;
     }
 
-    @NonNull
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        //getting shoppingList information
-        String ItemName = getItem(position).getItem_Name();
-        int ItemImage = getItem(position).getItem_image();
-        int ItemQty = getItem(position).getQty();
-
-        //create object
-        Item_Information item = new Item_Information(ItemName, ItemImage, ItemQty);
-
-        LayoutInflater inflate = LayoutInflater.from(con);
-        convertView = inflate.inflate(re, parent, false);
-
-        TextView nameItem = (TextView) convertView.findViewWithTag(R.id.ItemViewName);
-        TextView imageItem = (TextView) convertView.findViewWithTag(R.id.LettuceImage);
-        TextView qtyItem = (TextView) convertView.findViewWithTag(R.id.itemcount);
-
-        nameItem.setText(ItemName);
-        imageItem.setText(ItemImage);
-        qtyItem.setText(ItemQty);
-
-        return convertView;
-    }
+//    @NonNull
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup parent) {
+//
+//        //getting shoppingList information
+//        String ItemName = getItem(position).getItem_Name();
+//        String CatName = getItem(position).getCategory();
+//        int ItemImage = getItem(position).getItem_image();
+//        double ItemPrice = getItem(position).getItem_Price();
+//        int ItemQty = getItem(position).getQty();
+//
+//        //create object
+//        Item_Information item = new Item_Information(ItemName, CatName, (int)ItemImage, (double)ItemPrice, (int)ItemQty);
+//
+//        LayoutInflater inflate = LayoutInflater.from(con);
+//        convertView = inflate.inflate(re, parent, false);
+//
+//        TextView nameItem = (TextView) convertView.findViewById(R.id.itemnameshoppinglisttemplate);
+//        ImageView imageItem = (ImageView) convertView.findViewById(R.id.imageshoppinglisttemplate);
+//        TextView nameCat = (TextView) convertView.findViewById(R.id.catnameshoppinglisttemelate);
+//        TextView qtyItem = (TextView) convertView.findViewById(R.id.qtyshoppinglisttemeplate);
+//        TextView priceItem = (TextView) convertView.findViewById(R.id.priceshoppinglisttemeplate);
+//
+//        nameItem.setText(ItemName);
+//        imageItem.setText(ItemImage);
+//        nameCat.setText(CatName);
+//        qtyItem.setText(ItemQty);
+//        priceItem.setText(ItemPrice);
+//
+//        return convertView;
+//    }
 }
