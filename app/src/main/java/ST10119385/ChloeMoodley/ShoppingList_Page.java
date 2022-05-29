@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -25,6 +27,13 @@ public class ShoppingList_Page extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+
+    TextView ItemNameShoppingList;
+    TextView CategoryNameShoppingList;
+    ImageView ItemImageShoppingList;
+    TextView ItemPriceShoppingList;
+    TextView ItemQuantityShoppingList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +59,27 @@ public class ShoppingList_Page extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //adapter for shopping list
         Log.d(TAG, "onCreate : Started.");
         ListView mList = (ListView) findViewById(R.id.shoppingListView);
+
+        ItemNameShoppingList = (TextView) findViewById(R.id.ItemViewName);
+        CategoryNameShoppingList = (TextView) findViewById(R.id.VegetablesTextView);
+        ItemImageShoppingList = (ImageView) findViewById(R.id.LettuceImage);
+        ItemPriceShoppingList = (TextView) findViewById(R.id.Price);
+        ItemQuantityShoppingList = (TextView) findViewById(R.id.NumOfItems);
+
+        //object made
+        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),int.class.cast(ItemImageShoppingList),
+                double.class.cast(ItemPriceShoppingList), CategoryNameShoppingList.toString(), int.class.cast(ItemQuantityShoppingList));
 
         //add to list
         ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();
 
+        ShoppingListArrayList.add((slo));
 
-//        ShoppingListArrayList.add(findViewById(R.id.))
-//
-//        ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_page, ShoppingListArrayList);
-//        mList.setAdapter(adp);
+        ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
+        mList.setAdapter(adp);
 
     }
 
