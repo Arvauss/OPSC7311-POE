@@ -11,9 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.test.R;
-
-//import opscwork.viewitempagefeatures.R;
+import opscwork.viewitempagefeatures.R;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
