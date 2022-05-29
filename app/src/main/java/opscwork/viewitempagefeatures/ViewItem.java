@@ -40,9 +40,8 @@ public class ViewItem extends AppCompatActivity {
 //        ItemQuantityShoppingList = (TextView) findViewById(R.id.NumOfItems);
 //
 //        //object made
-//        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),
-//                CategoryNameShoppingList.toString(),ItemImageShoppingList.toString(),
-//                double.class.cast(ItemPriceShoppingList), int.class.cast(ItemQuantityShoppingList));
+//        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),int.class.cast(ItemImageShoppingList),
+//                double.class.cast(ItemPriceShoppingList), CategoryNameShoppingList.toString(), int.class.cast(ItemQuantityShoppingList));
 //
 //        //add to list
 //        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();

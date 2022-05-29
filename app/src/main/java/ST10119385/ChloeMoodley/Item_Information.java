@@ -19,6 +19,13 @@ public class Item_Information
         this.item_Price = item_Price;
     }
 
+    public Item_Information(String item_Name, int item_image, double item_Price, String Category, int Qty) {
+        this.item_Name = item_Name;
+        this.item_image = item_image;
+        this.item_Price = item_Price;
+        this.Category = Category;
+        this.Qty = Qty;
+    }
 
     /* below are the getter and setter methods for all the variables in the item model class
      (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017). */
