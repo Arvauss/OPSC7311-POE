@@ -187,7 +187,7 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <Button
-        android:id="@+id/CategoryConfirm"
+        android:id="@+id/itemConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

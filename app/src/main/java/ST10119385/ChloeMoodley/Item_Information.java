@@ -1,5 +1,7 @@
 package ST10119385.ChloeMoodley;
 
+import android.widget.ProgressBar;
+
 public class Item_Information
 {
     private String item_Name;               //name variable declared (The IIE, 2022).
@@ -8,8 +10,9 @@ public class Item_Information
     private String item_date;               //date variable declared (The IIE, 2022).
     private double item_Price;              //price variable declared (The IIE, 2022).
     private String Category;                //category variable declared (The IIE, 2022).
-    private int Qty;                        //category variable declared (The IIE, 2022).
-    private int Desired_Qty;                //category variable declared (The IIE, 2022).
+    private int Qty;                        //Qty variable declared (The IIE, 2022).
+    private int Desired_Qty;                //Desired_Qty variable declared (The IIE, 2022).
+    private ProgressBar ItemBar;            //ItemBar variable declared (The IIE, 2022).
 
     //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
     public Item_Information(String item_Name,String item_Description,String item_date, double item_Price) {
@@ -23,7 +26,11 @@ public class Item_Information
 //        this.Desired_Qty = Desired_Qty;
     }
 
-    /* below are the getter and setter methods for all the variables in the item model class
+    public Item_Information(int item_image,String item_Name) {
+        this.item_image = item_image;
+        this.item_Name = item_Name;
+    }
+/* below are the getter and setter methods for all the variables in the item model class
      (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017). */
 
     public String getItem_Name() {

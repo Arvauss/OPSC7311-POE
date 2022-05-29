@@ -34,7 +34,7 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         int ItemQty = getItem(position).getQty();
 
         //create object
-        Item_Information item = new Item_Information(ItemName, ItemImage, ItemQty);
+//        Item_Information item = new Item_Information(ItemName, ItemImage, ItemQty);
 
         LayoutInflater inflate = LayoutInflater.from(con);
         convertView = inflate.inflate(re, parent, false);
