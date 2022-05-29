@@ -1,57 +1,52 @@
 package opscwork.viewitempagefeatures;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.R;
 
-import ST10119385.ChloeMoodley.ShoppingList_Page;
-
 public class ViewItem extends AppCompatActivity {
 
-    private static final String TAG ="ViewItem";
-    TextView ItemNameShoppingList;
-    TextView CategoryNameShoppingList;
-    ImageView ItemImageShoppingList;
-    TextView ItemPriceShoppingList;
-    TextView ItemQuantityShoppingList;
+    //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_item_page);
+
+        // drawer layout instance to toggle the menu icon to open
+        //drawer and back button to close drawer (geeksforgeeks.org, 2022).
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button (geeksforgeeks.org, 2022).
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
-    public void GoToShoppingList (View v) {
-        Intent i = new Intent(this, ShoppingList_Page.class);
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked (geeksforgeeks.org, 2022).
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-//        Log.d(TAG, "onCreate : Started.");
-//        ListView mList = (ListView) findViewById(R.id.shoppingListView);
-//
-//        ItemNameShoppingList = (TextView) findViewById(R.id.ItemViewName);
-//        CategoryNameShoppingList = (TextView) findViewById(R.id.VegetablesTextView);
-//        ItemImageShoppingList = (ImageView) findViewById(R.id.LettuceImage);
-//        ItemPriceShoppingList = (TextView) findViewById(R.id.Price);
-//        ItemQuantityShoppingList = (TextView) findViewById(R.id.NumOfItems);
-//
-//        //object made
-//        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),
-//                CategoryNameShoppingList.toString(),ItemImageShoppingList.toString(),
-//                double.class.cast(ItemPriceShoppingList), int.class.cast(ItemQuantityShoppingList));
-//
-//        //add to list
-//        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();
-//
-//        ShoppingListArrayList.add((slo));
-//
-//        ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
-//        mList.setAdapter(adp);
-
-        startActivity(i);
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
