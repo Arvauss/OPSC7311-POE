@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
 
@@ -99,6 +100,11 @@ public class login extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    //Opening the Dashboard page when logged in
+    public void Login(View view){
+        Intent intent = new Intent(this, Dashboard_Activity.class);
+        startActivity(intent);
+    }
 
     /*TextView RegisterHyperLink = (TextView) this.findViewById(R.id.RegisterHyperLink);
     RegisterHyperLink.setOnClickListener(new OnClickListener(){
