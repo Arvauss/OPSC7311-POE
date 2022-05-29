@@ -19,6 +19,7 @@
 
         /*Item image*/
         <ImageView
+            android:id="@+id/imageshoppinglisttemplate"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.8"
@@ -35,6 +36,7 @@
 
             /*Item Name label*/
             <TextView
+                android:id="@+id/itemnameshoppinglisttemplate"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -47,6 +49,7 @@
 
             /*Item Category label*/
             <TextView
+                android:id="@+id/catnameshoppinglisttemelate"
                 android:layout_width="160dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
@@ -69,6 +72,7 @@
 
             /*Quantity label*/
             <TextView
+                android:id="@+id/qtyshoppinglisttemeplate"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:gravity="bottom"
@@ -77,6 +81,7 @@
 
             /*Price label*/
             <TextView
+                android:id="@+id/priceshoppinglisttemeplate"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:textAlignment="center"
