@@ -1,147 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ST10119385.ChloeMoodley.Category_Page">
+    tools:context="ST10119385.ChloeMoodley.Category_Page"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    //Information on how to create textViews and editViews(Android Developers, 2021)
-    //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
-    //background colour (11. HOW TO CHANGE TEXT AND BACKGROUND COLOR IN ANDROID STUDIO | ANDROID APP DEVELOPMENT, 2016).
-    //adding bold font to all text views (Androidride, 2021).
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="271dp"
-        android:layout_height="438dp"
-        android:background="@drawable/box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559"
-        tools:context=".Category_Page">
-
-
-        <TextView
-            android:id="@+id/TextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:fontFamily="arial"
-            android:text="Please select a color for your category"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037" />
-
-        //added drop down box in view Code (Envato Tuts+, 2022) and (Android Drop Down List Tutorial, 2016).
-
-        <Spinner
-            android:id="@+id/DropDown"
-            android:layout_width="184dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="68dp"
-            android:contentDescription="ColoursBox"
-            android:minHeight="48dp"
-
-            android:spinnerMode="dropdown"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.107" />
-
-        <TextView
-            android:id="@+id/TextName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
-            android:fontFamily="arial"
-            android:text="Please enter the name of your category"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
-
-        //autofill for the name (Android Developers, 2022)
-        <EditText
-            android:id="@+id/NameTextBox"
-            android:layout_width="199dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="52dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.362" />
-
-        <TextView
-            android:id="@+id/TextDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="arial"
-            android:text="Please provide a description of this category"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/DescriptionTextBox"
-            android:layout_width="203dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Description"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.294"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.619" />
-
-        <TextView
-            android:id="@+id/Image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="arial"
-            android:text="Please upload an icon of your category"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.736" />
-
-        <ImageView
-            android:id="@+id/ImageCat"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.171"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.884" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!--Header box and text -->
     <TextView
         android:id="@+id/BoxCreate"
         android:layout_width="278dp"
@@ -154,26 +21,112 @@
         android:fontFamily="arial"
         android:textAlignment="center"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        android:layout_marginBottom="15dp"/>
 
+    //Information on how to create textViews and editViews(Android Developers, 2021)
+    //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
+    //background colour (11. HOW TO CHANGE TEXT AND BACKGROUND COLOR IN ANDROID STUDIO | ANDROID APP DEVELOPMENT, 2016).
+    //adding bold font to all text views (Androidride, 2021).
+
+    <LinearLayout
+        android:layout_width="271dp"
+        android:layout_height="438dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        tools:context=".Category_Page"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="arial"
+            android:text="Please select a color for your category"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        //added drop down box in view Code (Envato Tuts+, 2022) and (Android Drop Down List Tutorial, 2016).
+
+        <Spinner
+            android:id="@+id/DropDown"
+            android:layout_width="184dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="68dp"
+            android:contentDescription="ColoursBox"
+            android:minHeight="48dp"
+
+            android:spinnerMode="dropdown"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/TextName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="36dp"
+            android:fontFamily="arial"
+            android:text="Please enter the name of your category"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        //autofill for the name (Android Developers, 2022)
+        <EditText
+            android:id="@+id/NameTextBox"
+            android:layout_width="199dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="52dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/TextDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="arial"
+            android:text="Please provide a description of this category"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/DescriptionTextBox"
+            android:layout_width="203dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="Description"
+            android:inputType="textPersonName"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="arial"
+            android:text="Please upload an icon of your category"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ImageCat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="image" />
+
+    </LinearLayout>
+
+    <!--Confirm button -->
     <Button
         android:id="@+id/CategoryConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:background="@drawable/headerbox"
         android:onClick="GoBackDash"
         android:text="CONFIRM"
         android:textSize="25sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="546dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="15dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
