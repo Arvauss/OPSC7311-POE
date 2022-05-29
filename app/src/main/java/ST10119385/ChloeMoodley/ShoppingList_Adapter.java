@@ -9,20 +9,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.test.R;
-
 import java.util.ArrayList;
 
+import opscwork.viewitempagefeatures.R;
 public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
 
     private static final String TAG = "ShoppingList_Adapter";
     private Context con;
     int re;
 
-    public ShoppingList_Adapter(@NonNull Context context, int resource, @NonNull ArrayList<Item_Information> objects, Context con, int re) {
-        super(context, resource, objects);
-        this.con = con;
-        this.re = re;
+    public ShoppingList_Adapter(ShoppingList_Page context, int shopping_list_page, ArrayList<Item_Information> shoppingListArrayList) {
+        super(context, shopping_list_page, shoppingListArrayList);
+        con = context;
+        re = shopping_list_page;
     }
 
     @NonNull

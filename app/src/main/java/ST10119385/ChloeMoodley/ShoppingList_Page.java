@@ -6,10 +6,9 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.test.R;
-
 import java.util.ArrayList;
 
+import opscwork.viewitempagefeatures.R;
 public class ShoppingList_Page extends AppCompatActivity {
 
     private static final String TAG ="ShoppingList_Page";
