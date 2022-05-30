@@ -63,15 +63,18 @@ public class ShoppingList_Page extends AppCompatActivity {
         Log.d(TAG, "onCreate : Started.");
         ListView mList = (ListView) findViewById(R.id.shoppingListView);
 
-        ItemNameShoppingList = (TextView) findViewById(R.id.ItemViewName);
-        CategoryNameShoppingList = (TextView) findViewById(R.id.VegetablesTextView);
-        ItemImageShoppingList = (ImageView) findViewById(R.id.LettuceImage);
-        ItemPriceShoppingList = (TextView) findViewById(R.id.Price);
-        ItemQuantityShoppingList = (TextView) findViewById(R.id.NumOfItems);
+//        ItemNameShoppingList = (TextView) findViewById(R.id.ItemViewName);
+//        CategoryNameShoppingList = (TextView) findViewById(R.id.VegetablesTextView);
+//        ItemImageShoppingList = (ImageView) findViewById(R.id.LettuceImage);
+//        ItemPriceShoppingList = (TextView) findViewById(R.id.Price);
+//        ItemQuantityShoppingList = (TextView) findViewById(R.id.NumOfItems);
 
         //object made
-        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),int.class.cast(ItemImageShoppingList),
-                double.class.cast(ItemPriceShoppingList), CategoryNameShoppingList.toString(), int.class.cast(ItemQuantityShoppingList));
+//        Item_Information slo = new Item_Information(ItemNameShoppingList.toString(),int.class.cast(ItemImageShoppingList),
+//                double.class.cast(ItemPriceShoppingList), CategoryNameShoppingList.toString(), int.class.cast(ItemQuantityShoppingList));
+
+        Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
+                20.10, "Drinks", 2);
 
         //add to list
         ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();

@@ -8,12 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.example.test.R;
 
 import java.util.ArrayList;
+
 public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
 
     private static final String TAG = "ShoppingList_Adapter";
@@ -26,9 +24,8 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         re = shopping_list_page;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         //getting shoppingList information
         String ItemName = getItem(position).getItem_Name();
         String CatName = getItem(position).getCategory();
