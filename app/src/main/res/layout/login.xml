@@ -1,24 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.register.login">
+    tools:context="com.example.register.login"
+    android:orientation="vertical"
+    android:weightSum="8">
+
+    <!--Page header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/page_header"
+        android:elevation="20dp"
+        android:layout_weight="2.5"/>
+
+    <!-- Login Page Main Contents -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="3">
+
 
     <!-- (Rectfy, 2017) -->
 
+    <LinearLayout
+        android:layout_width="192dp"
+        android:layout_height="59dp"
+        android:background="@drawable/loginpagebackround"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <!-- (The IIE, 2022) -->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textColor="#8B8000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <!-- (Rectfy, 2017) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="273dp"
         android:layout_height="447dp"
         android:background="@drawable/loginpagebackround"
         android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -28,12 +68,8 @@
             android:text="USERNAME"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.178"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.185" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <!-- (Professor DK, 2017) -->
         <EditText
@@ -41,15 +77,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
-            android:elevation="2dp"
+            android:background="@drawable/text_box"
+            android:elevation="5dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.258"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.243" />
+            android:layout_marginBottom="35dp"/>
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -59,11 +91,8 @@
             android:text="PASSWORD"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.178"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <!-- (Professor DK, 2017) -->
         <EditText
@@ -71,15 +100,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
-            android:elevation="2dp"
+            android:background="@drawable/text_box"
+            android:elevation="5dp"
             android:ems="10"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.275"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.568" />
+            android:layout_marginBottom="45dp"/>
 
         <!-- (Any Technology, 2017) -->
         <Button
@@ -90,15 +115,11 @@
             android:background="@drawable/roundbutton"
             android:elevation="20dp"
             android:text="LOGIN"
+            android:padding="10dp"
             android:textColor="#8B8000"
             android:textSize="25dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.442"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.783" />
+            android:layout_marginBottom="10dp"/>
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -108,12 +129,8 @@
             android:text="DON'T HAVE AN ACCOUNT?"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.485"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.887" />
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"/>
 
         <!-- (Phys Whiz, 2016) -->
         <TextView
@@ -122,41 +139,20 @@
             android:layout_height="wrap_content"
             android:onClick="GoToRegister"
             android:text="CLICK HERE"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.956"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
             tools:ignore="OnClick" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="192dp"
-        android:layout_height="59dp"
-        android:background="@drawable/loginpagebackround"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113">
+    <!--Page footer-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/page_footer"
+        android:elevation="20dp"
+        android:layout_weight="2.5"/>
 
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:textColor="#8B8000"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
