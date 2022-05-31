@@ -6,21 +6,29 @@
     android:layout_height="match_parent"
     tools:context="opscwork.viewitempagefeatures.ViewItem"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="4">
 
-    <!-- (Rectfy, 2017) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <!-- Item page main contents (Rectfy, 2017) -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="2.5">
+
+    <!-- Header box (Rectfy, 2017) -->
+
+    <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:background="@drawable/itempagebackround"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093">
+        android:background="@drawable/itempagebackground"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:layout_marginVertical="10dp">
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -29,18 +37,16 @@
             android:layout_height="wrap_content"
             android:text="VEGETABLES"
             android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <!-- (Rectfy, 2017) -->
+
+    <!-- Item page main contents (Rectfy, 2017) -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="350dp"
+        android:layout_width="310dp"
         android:layout_height="464dp"
-        android:background="@drawable/itempagebackround"
+        android:background="@drawable/itempagebackground"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +57,7 @@
 
         <!-- (The IIE, 2022) -->
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@+id/increase_desired_qty"
             android:layout_width="49dp"
             android:layout_height="50dp"
@@ -61,9 +67,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.241"
-            app:srcCompat="@drawable/add_icon" />
+            app:srcCompat="@drawable/add_icon" /> -->
 
         <!-- (Rectfy, 2017) -->
+
+        <!-- (The IIE, 2022) -->
+
+        <!-- (The IIE, 2022) -->
+
+        <!-- (The IIE, 2022) -->
+
+        <!-- (The IIE, 2022) -->
+
         <TextView
             android:id="@+id/ItemNameTextView"
             android:layout_width="wrap_content"
@@ -78,9 +93,8 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.167" />
+            app:layout_constraintVertical_bias="0.219" />
 
-        <!-- (The IIE, 2022) -->
         <TextView
             android:id="@+id/ItemViewName"
             android:layout_width="wrap_content"
@@ -92,12 +106,11 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.247" />
+            app:layout_constraintVertical_bias="0.281" />
 
-        <!-- (The IIE, 2022) -->
         <TextView
             android:id="@+id/DescriptionTextView"
             android:layout_width="wrap_content"
@@ -112,12 +125,11 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.354" />
+            app:layout_constraintVertical_bias="0.391" />
 
-        <!-- (The IIE, 2022) -->
         <TextView
             android:id="@+id/Description"
-            android:layout_width="320dp"
+            android:layout_width="300dp"
             android:layout_height="67dp"
             android:text="The green element of lettuce is made from soil and oil which is great in protein and is amazing to eat if you are hungry or broke"
             android:textAlignment="center"
@@ -126,12 +138,11 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.501" />
+            app:layout_constraintVertical_bias="0.534" />
 
-        <!-- (The IIE, 2022) -->
         <TextView
             android:id="@+id/DateOfAcquisitionTextView"
             android:layout_width="wrap_content"
@@ -199,8 +210,8 @@
         <!-- (The IIE, 2022) -->
         <ImageView
             android:id="@+id/LettuceImage"
-            android:layout_width="82dp"
-            android:layout_height="51dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,64 +220,60 @@
             app:srcCompat="@drawable/lettuce" />
 
         <!-- (The IIE, 2022) -->
+
+        <!-- (The IIE, 2022) -->
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="94dp"
+            android:layout_width="80dp"
             android:layout_height="46dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintHorizontal_bias="0.968"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
 
-        <!-- (The IIE, 2022) -->
+        <!-- (Rectfy, 2017) -->
+
+        <!-- (Rectfy, 2017) -->
+
         <TextView
             android:id="@+id/NumOfItems"
             android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:background="@drawable/loginpagebackround"
+            android:backgroundTint="#58A93A"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:text="10"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:elevation="20dp"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintHorizontal_bias="0.076"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintVertical_bias="0.054" />
 
         <!-- (Rectfy, 2017) -->
+
         <ImageButton
             android:id="@+id/increase_item_qty"
-            android:layout_width="49dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.112"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.243"
-            app:srcCompat="@drawable/add_icon" />
-
-        <!-- (Rectfy, 2017) -->
-        <ImageButton
-            android:id="@+id/decrease_item_qty"
             android:layout_width="50dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="148dp"
+            android:layout_height="50dp"
+            android:elevation="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintHorizontal_bias="0.073"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.362"
-            app:srcCompat="@drawable/minus2_icon" />
+            app:layout_constraintVertical_bias="0.202"
+            app:srcCompat="@drawable/plus_button" />
 
-        <!-- (Rectfy, 2017) -->
-        <ImageButton
+        <!-- <ImageButton
             android:id="@+id/decrease_desired_qty"
             android:layout_width="51dp"
             android:layout_height="48dp"
@@ -276,10 +283,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.362"
-            app:srcCompat="@drawable/minus2_icon" />
+            app:srcCompat="@drawable/minus2_icon" /> -->
 
         <!-- (Rectfy, 2017) -->
-        <TextView
+        <ImageButton
+            android:id="@+id/decrease_item_qty"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="148dp"
+            android:elevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.169"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.355"
+            app:srcCompat="@drawable/minus_button" />
+
+       <!-- <TextView
             android:id="@+id/itemcount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -290,13 +311,13 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.036"
+            app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.175" />
+            app:layout_constraintVertical_bias="0.008" /> -->
 
         <!-- (Rectfy, 2017) -->
-        <TextView
+       <!-- <TextView
             android:id="@+id/desiredcount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -310,39 +331,32 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.175" />
+            app:layout_constraintVertical_bias="0.175" /> -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </LinearLayout>
+
+    <!--Delete button (Footer button) -->
+    <!--Page footer-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:weightSum="2"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="vertical"
+        android:background="@drawable/page_footer"
+        android:elevation="20dp"
+        android:layout_weight="1.5"
+        android:gravity="center">
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HOME"
-            android:background="@drawable/headerbox"
-            android:textSize="25sp"
-            android:layout_weight="1"
-            android:id="@+id/Home">
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:text="DELETE"/>
 
-        </Button>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:background="@drawable/headerbox"
-            android:layout_height="wrap_content"
-            android:text="ADD TO SHOPPING LIST"
-            android:textSize="25sp"
-            android:layout_weight="1"
-            android:id="@+id/addtoshoppinglist">
-
-        </Button>
     </LinearLayout>
 
 </LinearLayout>
