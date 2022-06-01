@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="opscwork.viewitempagefeatures.ViewItem">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -360,3 +369,20 @@
     </LinearLayout>
 
 </LinearLayout>
+
+    <!--Implementing Burger menu (geeksforgeeks.org, 2022) and (Abidi, 2017)-->
+    <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/burger_menu_header"
+        app:itemTextAppearance="@style/NavigationText"
+        android:paddingHorizontal="10dp"
+        app:itemBackground="@drawable/burger_menu_item_background"
+        app:itemHorizontalPadding="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/burgerNavigationView"
+        app:menu="@menu/burger_menu"
+        android:backgroundTint="#E3FF2B"
+        android:elevation="20dp"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
