@@ -5,14 +5,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,14 +23,16 @@ import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Category_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
+import opscwork.viewitempagefeatures.ItemPage;
 
 public class Dashboard_Activity extends AppCompatActivity {
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
-    ListView CatListView;
 
+    Button btnAddCategory, btnViewAllItems;
+    ListView CatListView;
     public static ArrayList<Category_Information> catList = new ArrayList<Category_Information>();
 
     @Override
@@ -57,13 +60,16 @@ public class Dashboard_Activity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //method to populate ArrayList with demo data
+        setupUI();
+        setupOnclickListeners();
+
         InitListData();
 
-        SetupRecyclerView();
+        SetupListView();
 
     }
 
-    private void SetupRecyclerView() {
+    private void SetupListView() {
         CatListView = (ListView) findViewById(R.id.rv_category_cardlist);
 
         DashAdapter adapter = new DashAdapter(getApplicationContext(), 0, catList);
@@ -77,6 +83,39 @@ public class Dashboard_Activity extends AppCompatActivity {
         catList.add(Fruits);
         Category_Information Wines = new Category_Information(Color.parseColor("#FF0074"), "Wines", "Wines");
         catList.add(Wines);
+
+    }
+
+    private void setupUI() {
+        btnAddCategory = (Button) findViewById(R.id.DashboardAddButton);
+        btnViewAllItems = (Button) findViewById(R.id.DashboardViewAllButton);
+    }
+
+    public void setupOnclickListeners(){
+        btnAddCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddCategory(view);
+            }
+        });
+
+        btnViewAllItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        CatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Category_Information catObj = (Category_Information) (CatListView.getItemAtPosition(position));
+                Intent displayCatItems = new Intent(getApplicationContext(), ItemPage.class);
+                displayCatItems.putExtra("name", catObj.getCategory_Name());
+                startActivity(displayCatItems);
+            }
+        });
+
     }
 
     // override the onOptionsItemSelected()
