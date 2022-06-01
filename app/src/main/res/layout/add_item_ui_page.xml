@@ -9,27 +9,29 @@
     tools:context="ST10119385.ChloeMoodley.Add_Item_Page"
     tools:ignore="HardcodedText">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="30dp"
+    android:elevation="15dp"
     tools:context="ST10119385.ChloeMoodley.Add_Item_Page"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="10">
 
     <TextView
         android:id="@+id/BoxCreate"
-        android:layout_width="278dp"
-        android:layout_height="48dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:background="@drawable/box"
         android:backgroundTint="#fffdd0"
         android:padding="15dp"
         android:text="ADD ITEM"
+        android:textColor="#8B8000"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:fontFamily="arial"
         android:textAlignment="center"
-        android:textSize="15sp"
         android:layout_marginBottom="15dp"/>
 
     //Information on how to create textViews and editViews(Android Developers, 2021)
@@ -46,18 +48,19 @@
 
         <TextView
             android:id="@+id/ItemName"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="64dp"
             android:fontFamily="arial"
             android:text="Please enter the name of your item"
-            android:textSize="12sp"
+            android:textSize="15sp"
+            android:paddingBottom="5dp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/ItemNameBox"
-            android:layout_width="199dp"
-            android:layout_height="48dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:autofillHints="name"
             android:ems="10"
@@ -67,55 +70,61 @@
 
         <TextView
             android:id="@+id/ItemDesc"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="36dp"
             android:fontFamily="arial"
             android:text="Please provide a description of this item"
-            android:textSize="12sp"
+            android:textSize="15sp"
+            android:paddingTop="10dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/ItemDescTextBox"
-            android:layout_width="199dp"
-            android:layout_height="48dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:ems="10"
+            android:paddingTop="5dp"
             android:hint="Description"
             android:inputType="textPersonName"
             android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/ImageText"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="56dp"
             android:fontFamily="arial"
             android:text="Please upload an image of your item"
-            android:textSize="12sp"
+            android:textSize="15sp"
+            android:paddingTop="10dp"
             android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/ImageItemPic"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:paddingTop="5dp"
             android:contentDescription="image" />
 
         <TextView
             android:id="@+id/DateText"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:fontFamily="arial"
+            android:paddingTop="10dp"
             android:text="Please enter the date you purchased this item"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/DatePicker"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="112dp"
+            android:paddingTop="10dp"
             android:ems="10"
             android:fontFamily="arial"
             android:hint="Select Date: mm/dd/yyyy"
@@ -123,12 +132,13 @@
 
         <TextView
             android:id="@+id/priceText"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="96dp"
             android:fontFamily="arial"
+            android:paddingTop="10dp"
             android:text="Please enter the price of item"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
@@ -136,25 +146,24 @@
             android:layout_width="203dp"
             android:layout_height="48dp"
             android:ems="10"
+            android:paddingTop="5dp"
             android:hint="Amount: R0.00"
             android:textSize="12sp" />
 
     </LinearLayout>
 
-
-
     <Button
         android:id="@+id/CategoryConfirm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/greenbutton_background"
         android:onClick="goBackToList"
-        android:background="@drawable/headerbox"
         android:text="CONFIRM"
-        android:textSize="25sp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:textSize="25sp" />
 
 </LinearLayout>
+
 
     <!--Implementing Burger menu -->
     <com.google.android.material.navigation.NavigationView

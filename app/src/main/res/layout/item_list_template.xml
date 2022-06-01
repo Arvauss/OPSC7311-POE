@@ -12,12 +12,12 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/IDFORITEMLIST"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:onClick="GoToViewItem"
-        android:background="@drawable/item_bg">
+        android:onClick="GoToViewItem">
 
         /*Item image*/
         <ImageView

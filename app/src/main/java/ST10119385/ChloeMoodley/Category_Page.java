@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ public class Category_Page extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +85,46 @@ public class Category_Page extends AppCompatActivity {
             //   startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public boolean colourChangeBackground () {
+        Spinner colourID = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id
+        String[] co = getResources().getStringArray(R.array.Colours);
+        LinearLayout col = (LinearLayout) findViewById(R.id.DASHBOARDIDCARD);
+
+        if (colourID.equals(co [0]))
+        {
+           //col = R.drawable.green_colour_background;
+
+        }
+
+        else if (colourID.equals(co [1]))
+        {
+
+        }
+
+        else if (colourID.equals(co [2]))
+        {
+
+        }
+
+        else if (colourID.equals(co [3]))
+        {
+
+        }
+
+        else if (colourID.equals(co [4]))
+        {
+
+        }
+
+        else if (colourID.equals(co [5]))
+        {
+
+        }
+
+
         return true;
     }
 

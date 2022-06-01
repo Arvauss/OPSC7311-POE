@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="dashboardOpt1"></color>
+    <color name="itemListOpt2"></color>
+    <color name="viewPageOpt3"></color>
 </resources>

@@ -21,11 +21,14 @@
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@drawable/headerbox"
-        android:text="VEGETABLES"
+        android:elevation="15dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/itemlistheader_blank"
+        android:text=""
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -41,8 +44,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/itemListView"
-                tools:listitem="@layout/item_list_template">
+                android:id="@+id/itemListView">
 
             </ListView>
 
@@ -56,9 +58,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:text="Add"
+            android:background="@drawable/greenbutton_background"
             android:onClick="GoToAddItem"
             android:textSize="25sp"
             android:layout_weight="1"
@@ -67,10 +70,11 @@
         </Button>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:text="Delete"
             android:textSize="25sp"
+            android:background="@drawable/greenbutton_background"
             android:layout_weight="1"
             android:id="@+id/ItemListDelete">
 
