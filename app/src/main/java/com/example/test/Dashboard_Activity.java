@@ -1,19 +1,25 @@
 package com.example.test;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 import ST10119385.ChloeMoodley.Add_Item_Page;
+import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Category_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 
@@ -22,6 +28,9 @@ public class Dashboard_Activity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+    ListView CatListView;
+
+    public static ArrayList<Category_Information> catList = new ArrayList<Category_Information>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,27 @@ public class Dashboard_Activity extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //method to populate ArrayList with demo data
+        InitListData();
+
+        SetupRecyclerView();
+
+    }
+
+    private void SetupRecyclerView() {
+        CatListView = (ListView) findViewById(R.id.rv_category_cardlist);
+
+        DashAdapter adapter = new DashAdapter(getApplicationContext(), 0, catList);
+        CatListView.setAdapter(adapter);
+    }
+
+    private void InitListData() {
+        Category_Information Vegetables = new Category_Information(Color.parseColor("#41FC00"), "Vegetables", "Vegetables");
+        catList.add(Vegetables);
+        Category_Information Fruits = new Category_Information(Color.parseColor("#FC8A00"), "Fruits", "Fruits");
+        catList.add(Fruits);
+        Category_Information Wines = new Category_Information(Color.parseColor("#FF0074"), "Wines", "Wines");
+        catList.add(Wines);
     }
 
     // override the onOptionsItemSelected()
