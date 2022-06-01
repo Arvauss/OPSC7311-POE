@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--(Abidi, 2017)-->
+    <style name="NavigationText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">#7B6B07</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemShape" parent="@android:style/TextAppearance.Medium">
+        <item name="android:background">@drawable/burger_menu_item_background</item>
+        <item name="android:gravity">center</item>
+        <item name="backgroundTint">#F0F9B5</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+</resources>
