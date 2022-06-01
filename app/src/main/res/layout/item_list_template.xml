@@ -16,11 +16,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:onClick="GoToViewItem"
         android:background="@drawable/item_bg">
 
         /*Item image*/
         <ImageView
+            android:id="@+id/ItemTemplate_Img"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.8"
@@ -30,6 +30,7 @@
 
         /*Item Name*/
         <TextView
+            android:id="@+id/ItemTemplate_Name"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_weight="1.4"

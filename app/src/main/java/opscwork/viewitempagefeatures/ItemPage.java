@@ -51,10 +51,10 @@ public class ItemPage extends  AppCompatActivity {
 
     private void getCategory() {
         Intent previousIntent = getIntent();
-        String CatName = previousIntent.getStringExtra("name");
+        int CatName = previousIntent.getIntExtra("id", 0);
         //Get category based on name received from intent utilising indexOf (TutorialsPoint, 2019);
         //https://www.tutorialspoint.com/get-the-index-of-a-particular-element-in-an-arraylist-in-java#
-        CurrentCategory = Dashboard_Activity.catList.get(Dashboard_Activity.catList.indexOf(CatName));
+        CurrentCategory = Dashboard_Activity.catList.get(CatName);
     }
 
     private void setupOnClickListeners() {
@@ -77,29 +77,35 @@ public class ItemPage extends  AppCompatActivity {
         mListView.setAdapter(adapter);
 
     }
-
+//String item_Name, String item_desc, int item_image, String item_date, double item_Price, String Category, int Qty
     private void InitListData() {
         // Creation of item objects and adding them to ArrayList
         Item_Information obj1 = new Item_Information
                 ("Item1",
-                        "Desc1",
+                        "Item1 Desc",
+                        R.drawable.bodega_image,
                         "28/05/2022",
                         11.11,
-                        CurrentCategory.getCategory_Name());
-        obj1.setCategory("Fruits");
+                        CurrentCategory.getCategory_Name(),
+                        4);
+        ItemArrayList.add(obj1);
         Item_Information obj2 = new Item_Information
                 ("Item2",
-                        "Desc2",
+                        "Item2 Desc",
+                        R.drawable.bodega_image,
                         "29/05/2022",
                         22.22,
-                        CurrentCategory.getCategory_Name());
+                        CurrentCategory.getCategory_Name(),
+                        5);
         ItemArrayList.add(obj2);
         Item_Information obj3 = new Item_Information
                 ("Item3",
-                        "Desc3",
-                        "30/05/2022",
+                        "Item3 Desc",
+                        R.drawable.bodega_image,
+                        "28/05/2022",
                         33.33,
-                        CurrentCategory.getCategory_Name());
+                        CurrentCategory.getCategory_Name(),
+                        6);
         ItemArrayList.add(obj3);
     }
 

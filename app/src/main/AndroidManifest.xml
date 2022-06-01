@@ -24,10 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="opscwork.viewitempagefeatures.ViewItem"></activity>
+        <activity android:name="opscwork.viewitempagefeatures.ViewItem"/>
         <activity android:name="ST10119385.ChloeMoodley.Category_Page" />
         <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page" />
         <activity android:name="com.example.register.RegisterActivity" />
+        <activity android:name="opscwork.viewitempagefeatures.ItemPage"/>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,21 +45,28 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         String ItemDescription = getItem(position).getItem_Description();
         String ItemPurchaseDate = getItem(position).getItem_date();
         double ItemPrice = getItem(position).getItem_Price();
+        int ItemImg = getItem(position).getItem_image();
 
         // Creation of item information object ()
-        Item_Information obj = new Item_Information(ItemName, ItemDescription,ItemPurchaseDate,ItemPrice);
+        Item_Information obj = new Item_Information(ItemName, ItemImg);
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        convertView = inflater.inflate(mitem_list_template,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_template, parent, false);
+        }
+       // convertView = inflater.inflate(mitem_list_template,parent,false);
 
-        EditText EdItemName = (EditText) convertView.findViewById(R.id.ItemNameBox);
-        EditText EdItemDescription = (EditText) convertView.findViewById(R.id.ItemDescTextBox);
-        TextView EdItemPurchaseDate = (TextView) convertView.findViewById(R.id.DatePicker);
-        EditText EdItemPrice = (EditText) convertView.findViewById(R.id.priceTextBox);
+        TextView txtItemName = (TextView) convertView.findViewById(R.id.ItemTemplate_Name);
+        ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
+      //  EditText EdItemDescription = (EditText) convertView.findViewById(R.id.ItemDescTextBox);
+      //  TextView EdItemPurchaseDate = (TextView) convertView.findViewById(R.id.DatePicker);
+      //  EditText EdItemPrice = (EditText) convertView.findViewById(R.id.priceTextBox);
 
-        EdItemName.setText(ItemName);
-        EdItemDescription.setText(ItemDescription);
-        EdItemPurchaseDate.setText(ItemPurchaseDate);
-        EdItemPrice.setText(String.class.cast(ItemPrice));
+        txtItemName.setText(ItemName);
+        imgItem.setImageResource(R.drawable.bodega_image);
+      //  EdItemName.setText(ItemName);
+      //  EdItemDescription.setText(ItemDescription);
+      //  EdItemPurchaseDate.setText(ItemPurchaseDate);
+      //  EdItemPrice.setText(String.class.cast(ItemPrice));
 
         return convertView;
     }

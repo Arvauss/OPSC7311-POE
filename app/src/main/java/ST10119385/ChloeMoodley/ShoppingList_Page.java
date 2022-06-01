@@ -74,7 +74,7 @@ public class ShoppingList_Page extends AppCompatActivity {
 //                double.class.cast(ItemPriceShoppingList), CategoryNameShoppingList.toString(), int.class.cast(ItemQuantityShoppingList));
 
         Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
-                20.10, "Drinks", 2);
+                20.10, 2, "Drinks");
 
         //add to list
         ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();

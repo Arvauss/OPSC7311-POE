@@ -59,13 +59,13 @@ public class Dashboard_Activity extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //method to populate ArrayList with demo data
+
         setupUI();
-        setupOnclickListeners();
-
+        //method to populate ArrayList with demo data
         InitListData();
-
+        //Setups listview and connects adapter
         SetupListView();
+        setupOnclickListeners();
 
     }
 
@@ -111,7 +111,7 @@ public class Dashboard_Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Category_Information catObj = (Category_Information) (CatListView.getItemAtPosition(position));
                 Intent displayCatItems = new Intent(getApplicationContext(), ItemPage.class);
-                displayCatItems.putExtra("name", catObj.getCategory_Name());
+                displayCatItems.putExtra("id", position);
                 startActivity(displayCatItems);
             }
         });
@@ -164,10 +164,6 @@ public class Dashboard_Activity extends AppCompatActivity {
         startActivity(addItem);
     }
 
-    public void GoToItemList (View v) {
-        Intent ViewItemList = new Intent(this, Dashboard_Activity.class);
-        startActivity(ViewItemList);
-    }
     
      public void GoToViewItem (View v) {
         Intent ViewItem = new Intent(this, opscwork.viewitempagefeatures.ViewItem.class);

@@ -12,20 +12,29 @@ public class Item_Information
     private int Desired_Qty;                //category variable declared (The IIE, 2022).
 
     //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
-    public Item_Information(String item_Name, String item_Description, String item_date, double item_Price, String category) {
+    //Constructor for ItemList adapter
+    public Item_Information(String item_Name, int item_img) {
         this.item_Name = item_Name;
-        this.item_Description = item_Description;
+        this.item_image = item_img;
+    }
+    //Shopping list constructor
+    public Item_Information(String item_Name, int item_img, double item_Price, int qty, String category) {
+        this.item_Name = item_Name;
+        this.item_image = item_img;
         this.item_date = item_date;
         this.item_Price = item_Price;
+        this.Qty = qty;
         this.Category = category;
     }
-
-    public Item_Information(String item_Name, int item_image, double item_Price, String Category, int Qty) {
+    //Constructor for New Item Add
+    public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, String Category, int Qty) {
         this.item_Name = item_Name;
         this.item_image = item_image;
         this.item_Price = item_Price;
         this.Category = Category;
         this.Qty = Qty;
+        this.item_Description = item_desc;
+        this.item_date = item_date;
     }
 
     /* below are the getter and setter methods for all the variables in the item model class

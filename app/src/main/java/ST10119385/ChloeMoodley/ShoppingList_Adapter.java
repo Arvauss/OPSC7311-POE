@@ -32,9 +32,10 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         int ItemImage = getItem(position).getItem_image();
         double ItemPrice = getItem(position).getItem_Price();
         int ItemQty = getItem(position).getQty();
+        String ItemCat = getItem(position).getCategory();
 
         //create object
-        Item_Information item = new Item_Information(ItemName.toString(), int.class.cast(ItemImage), double.class.cast(ItemPrice), CatName.toString(), int.class.cast(ItemQty));
+        Item_Information item = new Item_Information(ItemName.toString(), ItemImage, ItemPrice, ItemQty, ItemCat);
 
         LayoutInflater inflater = LayoutInflater.from(con);
         convertView = inflater.inflate(re, parent, false);
@@ -47,9 +48,9 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
 
         nameItem.setText(ItemName);
         imageItem.setImageResource(ItemImage);
-        priceItem.setText(double.class.cast(ItemPrice).toString());
+        priceItem.setText(Double.toString(ItemPrice));
         nameCat.setText(CatName);
-        qtyItem.setText(int.class.cast(ItemQty).toString());
+        qtyItem.setText(Integer.toString(ItemQty));
 
 
         return convertView;
