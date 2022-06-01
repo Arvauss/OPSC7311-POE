@@ -72,8 +72,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text="Delete"
+            android:text="View ALL ITEMS"
             android:textSize="25sp"
+            android:onClick="GoToViewAllItem"
             android:background="@drawable/greenbutton_background"
             android:layout_weight="1"
             android:id="@+id/ItemListDelete">
