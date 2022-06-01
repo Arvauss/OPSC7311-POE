@@ -46,15 +46,16 @@ public class ItemViewPage extends AppCompatActivity {
         itemDescription.setText(SelectedItem.getItem_Description());
         itemImage.setImageResource(SelectedItem.getItem_image());
         itemDate.setText(SelectedItem.getItem_date());
-        ItemPrice.setText(int.class.cast(SelectedItem.getItem_Price()));
+        ItemPrice.setText(Double.toString(SelectedItem.getItem_Price()));
         category.setText(SelectedItem.getCategory());
-        itemCount.setText(int.class.cast(SelectedItem.getQty()));
+        itemCount.setText(Integer.toString(SelectedItem.getQty()));
+
         // decrease.setClickable(SelectedItem.DecreaseQty());
 
     }
     //Method used to show the selected items
     private void getSelectedItem() {
-        Intent previousIntent = new Intent();
+        Intent previousIntent = getIntent();
         String parsedStringID = previousIntent.getStringExtra("id");
         SelectedItem = ViewItem.itemArrayList.get(Integer.valueOf(parsedStringID));
     }

@@ -1,23 +1,40 @@
 package ST10119385.ChloeMoodley;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import com.example.register.R;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
 import java.util.Calendar;
 
 public class Add_Item_Page extends AppCompatActivity {
+
+    private final int STORAGE_PERMISSION_CODE = 100;
+    private final int CAMERA_PERMISSION_CODE = 101;
+    ImageView picture;
 
     //adding second view and class (Add a Second Activity to your App, 2017).
     private static final String TAG = "MainActivity2";
@@ -29,12 +46,13 @@ public class Add_Item_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_ui_page);
+        setUpUI();
+        setUpListener();
 
         /* the datapicker code to allow user to select year, month and day without
         typing it (Android Beginner Tutorial #25  - DatePicker Dialog [Choosing a Date from a Dialog Pop-Up], 2017). */
 
         displayDate = (TextView) findViewById(R.id.DatePicker); //finding view by the text id
-
         /*
             When user clicks year, month, and day in a calender format
             will pop up mid page when view goes to the activity_main2 view.
@@ -72,7 +90,61 @@ public class Add_Item_Page extends AppCompatActivity {
         };
     }
 
-    public void goBackToList (View v) {
+    private void setUpUI() {
+        ImageView picture = (ImageView) findViewById(R.id.ImageItemPic);
+    }
+
+    private void setUpListener() {
+        picture.setOnClickListener(new View.OnClickListener() {
+
+            ActivityResultLauncher<Intent> acivityResultLauncher = null;
+            @Override
+            public void onClick(View view) {
+                if (view.getId()==R.id.ImageItemPic) {
+                    checkPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
+                    checkPermissions(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE);
+                }else{
+                    Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    acivityResultLauncher.launch(i);
+                }
+            }
+        });
+            }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(Add_Item_Page.this, "Camera permisison granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Add_Item_Page.this, "Camera permission denied", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(Add_Item_Page.this, "Storage permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Add_Item_Page.this, "Storage permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+        public void checkPermissions(String permission, int requestCode) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(Add_Item_Page.this, new String[]{permission}, requestCode);
+            } else {
+                Toast.makeText(Add_Item_Page.this, "Permission already granted", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    public void onActivityResult(ActivityResult result){
+        Uri imageuri;
+        Bundle bundle = result.getData().getExtras();
+        Bitmap imageBitMap = (Bitmap) bundle.get("Data");
+        picture.setImageBitmap(imageBitMap);
+    }
+
+        public void goBackToList (View v) {
         Intent listBackItem = new Intent(this, Dashboard_Activity.class);
         startActivity(listBackItem);
     }
