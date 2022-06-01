@@ -37,7 +37,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         mitem_list_template = item_list_template;
     }
 
-    // Overide method ()
+    // Override method ()
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

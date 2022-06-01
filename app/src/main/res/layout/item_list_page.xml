@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:background="@drawable/headerbox"
+        android:id="@+id/ItemListHeader"
         android:text="VEGETABLES"
         android:textAlignment="center"
         android:textSize="25dp"

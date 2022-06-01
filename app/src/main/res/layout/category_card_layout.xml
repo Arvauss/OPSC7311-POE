@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/img_Category_Image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/img_category_placeholder"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="10dp"
