@@ -13,15 +13,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="5dp"
     android:elevation="15dp"
     tools:context="ST10119385.ChloeMoodley.Add_Item_Page"
     android:gravity="center"
     android:weightSum="10">
 
     <TextView
+        android:layout_marginTop="30dp"
         android:id="@+id/BoxCreate"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/box"
         android:backgroundTint="#fffdd0"
@@ -38,7 +39,7 @@
     //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
     //background colour (11. HOW TO CHANGE TEXT AND BACKGROUND COLOR IN ANDROID STUDIO | ANDROID APP DEVELOPMENT, 2016).
     <LinearLayout
-        android:layout_width="277dp"
+        android:layout_width="300dp"
         android:layout_height="453dp"
         android:background="@drawable/box"
         android:orientation="vertical"
@@ -156,7 +157,7 @@
         android:id="@+id/CategoryConfirm"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/greenbutton_background"
         android:onClick="goBackToList"
         android:text="CONFIRM"

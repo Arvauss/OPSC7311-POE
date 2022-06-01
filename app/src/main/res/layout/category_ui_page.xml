@@ -21,7 +21,7 @@
     <!--Header box and text -->
     <TextView
         android:id="@+id/BoxCreate"
-        android:layout_width="270dp"
+        android:layout_width="300dp"
         android:layout_height="65dp"
         android:background="@drawable/box"
         android:backgroundTint="#fffdd0"
@@ -41,7 +41,7 @@
     //adding bold font to all text views (Androidride, 2021).
 
     <LinearLayout
-        android:layout_width="271dp"
+        android:layout_width="300dp"
         android:layout_height="438dp"
         android:background="@drawable/box"
         android:orientation="vertical"
@@ -50,7 +50,7 @@
 
         <TextView
             android:id="@+id/TextColor"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
             android:fontFamily="arial"
@@ -63,7 +63,7 @@
 
         <Spinner
             android:id="@+id/DropDown"
-            android:layout_width="184dp"
+            android:layout_width="250dp"
             android:layout_height="48dp"
             android:paddingBottom="5dp"
             android:layout_marginEnd="68dp"
@@ -74,7 +74,7 @@
 
         <TextView
             android:id="@+id/TextName"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="36dp"
             android:fontFamily="arial"
@@ -87,15 +87,15 @@
         //autofill for the name (Android Developers, 2022)
         <EditText
             android:id="@+id/NameTextBox"
-            android:layout_width="199dp"
+            android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_marginEnd="52dp"
             android:autofillHints="name"
-            android:ems="10"
+            android:ems="15"
             android:paddingTop="5dp"
             android:hint="Name"
             android:inputType="textPersonName"
-            android:textSize="12sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/TextDescription"
@@ -110,13 +110,13 @@
 
         <EditText
             android:id="@+id/DescriptionTextBox"
-            android:layout_width="203dp"
+            android:layout_width="250dp"
             android:layout_height="48dp"
-            android:ems="10"
+            android:ems="15"
             android:paddingTop="5dp"
             android:hint="Description"
             android:inputType="textPersonName"
-            android:textSize="12sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/Image"
@@ -131,9 +131,10 @@
 
         <ImageView
             android:id="@+id/ImageCat"
-            android:layout_width="50dp"
+            android:layout_width="75dp"
             android:paddingTop="5dp"
-            android:layout_height="50dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
             android:contentDescription="image" />
 
     </LinearLayout>
@@ -146,8 +147,9 @@
         android:background="@drawable/greenbutton_background"
         android:onClick="GoBackDash"
         android:text="CONFIRM"
+        android:layout_gravity="bottom"
         android:textSize="25sp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>
 
