@@ -7,6 +7,7 @@
 
     <!--Burger Menu items (Coding in Flow, 2018)-->
 <group android:checkableBehavior="single">
+
     <item
         android:id="@+id/nav_dashboard"
         android:title="DASHBOARD" />
