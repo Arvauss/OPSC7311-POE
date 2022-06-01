@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.test">
+    package="com.example.DashBoardPage">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
-            android:name="ST10119385.ChloeMoodley.ShoppingList_Page"
+            android:name="com.example.ShoppingListPage.ShoppingList"
             android:exported="false" />
         <activity
-            android:name=".Dashboard_Activity"
+            android:name="com.example.DashBoardPage.Dashboard_Activity"
             android:exported="false" />
         <activity
-            android:name="com.example.register.login"
+            android:name="com.example.RegisterAndLoginPage.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="opscwork.viewitempagefeatures.ViewItem"></activity>
-        <activity android:name="ST10119385.ChloeMoodley.Category_Page" />
-        <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page" />
-        <activity android:name="com.example.register.RegisterActivity" />
+        <activity android:name="com.example.ViewItemPage.ViewItem"></activity>
+        <activity android:name="com.example.CategoryPage.Category" />
+        <activity android:name="com.example.AddItemPage.AddItem" />
+        <activity android:name="com.example.RegisterAndLoginPage.Register" />
     </application>
 
 </manifest>

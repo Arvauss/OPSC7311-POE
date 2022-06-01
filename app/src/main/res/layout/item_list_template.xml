@@ -20,36 +20,42 @@
         android:background="@drawable/item_bg">
 
         /*Item image*/
+
         <ImageView
+            android:id="@+id/ImageIDforItem"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_weight="0.8"
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="10dp"/>
+            android:layout_marginVertical="10dp"
+            android:layout_weight="0.8" />
 
         /*Item Name*/
+
         <TextView
+            android:id="@+id/ItemNameForItemPage"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_weight="1.4"
             android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginVertical="10dp"
+            android:layout_weight="1.4"
+            android:paddingVertical="12dp"
             android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:paddingVertical="12dp"/>
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         /*Item count progress bar*/
+
         <ProgressBar
+            android:id="@+id/ProgressBarForItemPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="10dp"/>
+            android:layout_marginVertical="10dp"
+            android:layout_weight="0.8" />
 
     </LinearLayout>
 
