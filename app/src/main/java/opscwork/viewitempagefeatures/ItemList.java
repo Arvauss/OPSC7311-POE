@@ -55,18 +55,13 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         }
        // convertView = inflater.inflate(mitem_list_template,parent,false);
 
+        EditText EdItemName = (EditText) convertView.findViewById(R.id.ItemNameBox);
+        ImageView EdItemImage = (ImageView) convertView.findViewById(R.id.ImageItemPic);
         TextView txtItemName = (TextView) convertView.findViewById(R.id.ItemTemplate_Name);
         ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
-      //  EditText EdItemDescription = (EditText) convertView.findViewById(R.id.ItemDescTextBox);
-      //  TextView EdItemPurchaseDate = (TextView) convertView.findViewById(R.id.DatePicker);
-      //  EditText EdItemPrice = (EditText) convertView.findViewById(R.id.priceTextBox);
 
         txtItemName.setText(ItemName);
         imgItem.setImageResource(R.drawable.bodega_image);
-      //  EdItemName.setText(ItemName);
-      //  EdItemDescription.setText(ItemDescription);
-      //  EdItemPurchaseDate.setText(ItemPurchaseDate);
-      //  EdItemPrice.setText(String.class.cast(ItemPrice));
 
         return convertView;
     }

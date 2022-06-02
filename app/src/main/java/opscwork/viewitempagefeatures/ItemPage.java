@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Item_Information;
-
 public class ItemPage extends  AppCompatActivity {
 
     // Declaration of variables ()
@@ -34,21 +34,38 @@ public class ItemPage extends  AppCompatActivity {
 
     // Creation of array list
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
+    Button ConfirmItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_list_page);
         Log.d(TAG, "onCreate: Started.");
+        ListView mListView = (ListView) findViewById(R.id.itemListView);
+        ItemName = (EditText) findViewById(R.id.ItemNameBox);
+        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
+        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
+        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
+        ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
 
         setupUI();
         setupListView();
         getCategory();
         InitListData();
         setupOnClickListeners();
+        // Creation of item object ()
+        Item_Information obj = new Item_Information(ItemName.toString(),ItemDescription.toString(),ItemPurchaseDate.toString(),double.class.cast(ItemPrice));
+
+        // Creation of array list and adding item_information object to the list ()
+        ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
+        ItemArrayList.add(obj);
+
+        // Creation of adapter
+        ItemList adapter = new ItemList(this, R.layout.item_list_template,ItemArrayList);
+        mListView.setAdapter(adapter);
+
 
     }
-
     private void getCategory() {
         Intent previousIntent = getIntent();
         int CatName = previousIntent.getIntExtra("id", 0);
@@ -69,7 +86,6 @@ public class ItemPage extends  AppCompatActivity {
             }
         });
     }
-
     private void setupListView() {
         mListView = (ListView) findViewById(R.id.itemListView);
         // Creation of adapter
@@ -77,7 +93,14 @@ public class ItemPage extends  AppCompatActivity {
         mListView.setAdapter(adapter);
 
     }
-//String item_Name, String item_desc, int item_image, String item_date, double item_Price, String Category, int Qty
+
+    private void setupUI() {
+        ItemName = (EditText) findViewById(R.id.ItemNameBox);
+        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
+        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
+        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
+
+    }
     private void InitListData() {
         // Creation of item objects and adding them to ArrayList
         Item_Information obj1 = new Item_Information
@@ -107,13 +130,5 @@ public class ItemPage extends  AppCompatActivity {
                         CurrentCategory.getCategory_Name(),
                         6);
         ItemArrayList.add(obj3);
-    }
-
-    private void setupUI() {
-        ItemName = (EditText) findViewById(R.id.ItemNameBox);
-        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
-        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
-        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
-
     }
 }

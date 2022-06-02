@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.example.test.R;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         re = shopping_list_page;
     }
 
+    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //getting shoppingList information
@@ -35,7 +38,7 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         String ItemCat = getItem(position).getCategory();
 
         //create object
-        Item_Information item = new Item_Information(ItemName.toString(), ItemImage, ItemPrice, ItemQty, ItemCat);
+        Item_Information item = new Item_Information(ItemName, ItemImage, ItemPrice, ItemQty, ItemCat);
 
         LayoutInflater inflater = LayoutInflater.from(con);
         convertView = inflater.inflate(re, parent, false);
