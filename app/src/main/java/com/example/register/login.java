@@ -39,7 +39,6 @@ public class login extends AppCompatActivity  {
 
         setupUI();
         setupListener();
-
     }
 
     private void setupUI(){
