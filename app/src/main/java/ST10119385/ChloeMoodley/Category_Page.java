@@ -36,7 +36,7 @@ import com.google.android.material.navigation.NavigationView;
 
 //import android.widget.Toastimport androidx.appcompat.app.AppCompatActivity;
 
-public abstract class Category_Page extends AppCompatActivity implements View.OnClickListener{
+public class Category_Page extends AppCompatActivity{
 
     private final int STORAGE_PERMISSION_CODE = 100;
     private final int CAMERA_PERMISSION_CODE = 101;

@@ -174,8 +174,6 @@ public class Add_Item_Page extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goBackToList (View v) {
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

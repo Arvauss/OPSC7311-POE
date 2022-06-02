@@ -49,20 +49,10 @@ public class ItemPage extends  AppCompatActivity {
         ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
 
         setupUI();
-        setupListView();
         getCategory();
         InitListData();
+        setupListView();
         setupOnClickListeners();
-        // Creation of item object ()
-        Item_Information obj = new Item_Information(ItemName.toString(),ItemDescription.toString(),ItemPurchaseDate.toString(),double.class.cast(ItemPrice));
-
-        // Creation of array list and adding item_information object to the list ()
-        ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
-        ItemArrayList.add(obj);
-
-        // Creation of adapter
-        ItemList adapter = new ItemList(this, R.layout.item_list_template,ItemArrayList);
-        mListView.setAdapter(adapter);
 
 
     }
