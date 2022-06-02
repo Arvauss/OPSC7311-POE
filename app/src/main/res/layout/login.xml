@@ -109,7 +109,6 @@
         <!-- (Any Technology, 2017) -->
         <Button
             android:id="@+id/LoginButton"
-            android:onClick="Login"
             android:layout_width="133dp"
             android:layout_height="48dp"
             android:background="@drawable/roundbutton"

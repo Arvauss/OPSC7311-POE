@@ -101,12 +101,12 @@ public class Dashboard_Activity extends AppCompatActivity {
             }
         });
 
-        btnViewAllItems.setOnClickListener(new View.OnClickListener() {
+        /*btnViewAllItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        });*/
 
         CatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -16,7 +16,7 @@ import com.example.test.R;
 public class login extends AppCompatActivity  {
 
     EditText Username, Password;
-    Button LoginButton, Register;
+    Button LoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
