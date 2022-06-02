@@ -45,13 +45,7 @@ public class ItemPage extends  AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_list_page);
         Log.d(TAG, "onCreate: Started.");
-        ListView mListView = (ListView) findViewById(R.id.itemListView);
-        ItemName = (EditText) findViewById(R.id.ItemNameBox);
-        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
-        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
-        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
-        ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
-        Header = (TextView) findViewById(R.id.ItemListHeader);
+
 
         setupUI();
         getCategory();
@@ -106,6 +100,8 @@ public class ItemPage extends  AppCompatActivity {
         ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
         ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
         ItemPrice = (EditText) findViewById(R.id.priceTextBox);
+        ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
+        Header = (TextView) findViewById(R.id.ItemListHeader);
 
     }
     private void InitListData() {
