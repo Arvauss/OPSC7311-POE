@@ -37,8 +37,8 @@ public class ItemViewPage extends AppCompatActivity {
         TextView itemCount = (TextView) findViewById(R.id.NumOfItems);
         ImageButton decrease = (ImageButton) findViewById(R.id.decrease_item_qty);
         ImageButton increase = (ImageButton) findViewById(R.id.increase_item_qty);
-        ImageButton decreaseD = (ImageButton) findViewById(R.id.decrease_desired_qty);
-        ImageButton increaseD = (ImageButton) findViewById(R.id.increase_desired_qty);
+       // ImageButton decreaseD = (ImageButton) findViewById(R.id.decrease_desired_qty);
+       // ImageButton increaseD = (ImageButton) findViewById(R.id.increase_desired_qty);
 
         //getting the information of the selected item
         nameItem.setText(SelectedItem.getItem_Name());

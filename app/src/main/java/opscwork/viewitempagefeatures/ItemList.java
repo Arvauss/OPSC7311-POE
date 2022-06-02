@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 
 import com.example.test.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Item_Information;
@@ -42,25 +44,26 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String ItemName = getItem(position).getItem_Name();
-        String ItemDescription = getItem(position).getItem_Description();
-        String ItemPurchaseDate = getItem(position).getItem_date();
-        double ItemPrice = getItem(position).getItem_Price();
+        String ItemCat = getItem(position).getCategory();
         int ItemImg = getItem(position).getItem_image();
 
         // Creation of item information object ()
         Item_Information obj = new Item_Information(ItemName, ItemImg);
+        //Creation of inflater
         LayoutInflater inflater = LayoutInflater.from(mContext);
+        //inflates item_list_template
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_template, parent, false);
         }
        // convertView = inflater.inflate(mitem_list_template,parent,false);
 
-        EditText EdItemName = (EditText) convertView.findViewById(R.id.ItemNameBox);
-        ImageView EdItemImage = (ImageView) convertView.findViewById(R.id.ImageItemPic);
-        TextView txtItemName = (TextView) convertView.findViewById(R.id.ItemTemplate_Name);
+
+        TextView txtItemName = (TextView) convertView.findViewById(R.id.itemNameitemAll);
+        TextView txtItemCat = (TextView) convertView.findViewById(R.id.catNameitemAll);
         ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
 
         txtItemName.setText(ItemName);
+        txtItemCat.setText(ItemCat);
         imgItem.setImageResource(R.drawable.bodega_image);
 
         return convertView;

@@ -89,7 +89,8 @@ public class Dashboard_Activity extends AppCompatActivity {
 
     private void setupUI() {
         btnAddCategory = (Button) findViewById(R.id.DashboardAddButton);
-        btnViewAllItems = (Button) findViewById(R.id.DashboardViewAllButton);
+      //  btnViewAllItems = (Button) findViewById(R.id.DashboardViewAllButton);
+        btnViewAllItems = (Button) findViewById(R.id.DashboardDeleteButton);
     }
 
     public void setupOnclickListeners(){
