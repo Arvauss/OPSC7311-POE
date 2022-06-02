@@ -72,13 +72,16 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:text="Delete"
+            android:text="View ALL ITEMS"
             android:textSize="25sp"
-            android:layout_weight="1"
+            android:onClick="GoToViewAllItem"
             android:background="@drawable/greenbutton_background"
-            android:id="@+id/DashboardDeleteButton">
+            android:layout_weight="1"
+            android:id="@+id/ItemListDelete">
 
         </Button>
+
+
     </LinearLayout>
 
 </LinearLayout>

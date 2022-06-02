@@ -161,10 +161,6 @@ public class Dashboard_Activity extends AppCompatActivity {
         startActivity(addCat);
     }
 
-    public void GoToAddItem (View v) {
-        Intent addItem = new Intent(this, Add_Item_Page.class);
-        startActivity(addItem);
-    }
 
     public void GoToViewAllItem (View v) {
         Intent viewItemAll = new Intent(this, item_list_all.class);

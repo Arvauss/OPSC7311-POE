@@ -18,6 +18,7 @@ import com.example.test.R;
 
 import java.util.ArrayList;
 
+import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Item_Information;
 public class ItemPage extends  AppCompatActivity {
@@ -62,6 +63,11 @@ public class ItemPage extends  AppCompatActivity {
         //Get category based on name received from intent utilising indexOf (TutorialsPoint, 2019);
         //https://www.tutorialspoint.com/get-the-index-of-a-particular-element-in-an-arraylist-in-java#
         CurrentCategory = Dashboard_Activity.catList.get(CatName);
+    }
+
+    public void GoToAddItem (View v) {
+        Intent addItem = new Intent(this, Add_Item_Page.class);
+        startActivity(addItem);
     }
 
     private void setupOnClickListeners() {
