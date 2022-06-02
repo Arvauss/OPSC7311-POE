@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -34,7 +35,6 @@ import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
 
-//import android.widget.Toastimport androidx.appcompat.app.AppCompatActivity;
 
 public class Category_Page extends AppCompatActivity{
 
@@ -47,6 +47,7 @@ public class Category_Page extends AppCompatActivity{
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +88,6 @@ public class Category_Page extends AppCompatActivity{
 
         myAdapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //making the adapter a dropdown
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
-
     }
 
     private void setUpUI() {
@@ -166,6 +166,46 @@ public class Category_Page extends AppCompatActivity{
             //   startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public boolean colourChangeBackground () {
+        Spinner colourID = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id
+        String[] co = getResources().getStringArray(R.array.Colours);
+        LinearLayout col = (LinearLayout) findViewById(R.id.DASHBOARDIDCARD);
+
+        if (colourID.equals(co [0]))
+        {
+           //col = R.drawable.green_colour_background;
+
+        }
+
+        else if (colourID.equals(co [1]))
+        {
+
+        }
+
+        else if (colourID.equals(co [2]))
+        {
+
+        }
+
+        else if (colourID.equals(co [3]))
+        {
+
+        }
+
+        else if (colourID.equals(co [4]))
+        {
+
+        }
+
+        else if (colourID.equals(co [5]))
+        {
+
+        }
+
+
         return true;
     }
 

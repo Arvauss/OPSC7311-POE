@@ -31,6 +31,7 @@
             android:backgroundTint="#F0F9B5"
             android:orientation="horizontal"
             android:layout_marginTop="15dp"
+            android:elevation="20dp"
             android:layout_gravity="center">
             <TextView
                 android:layout_width="wrap_content"
@@ -51,22 +52,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="10"
-            android:padding="10dp">
+            android:layout_weight="10">
 
             /*List View that contains Items for shopping list page*/
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:id="@+id/shoppingListView">
+                android:layout_height="match_parent"
+                android:padding="15dp"
+                android:id="@+id/shoppingListView"
+                tools:listitem="@layout/shopping_list_template">
             </ListView>
 
         </LinearLayout>
 
+        <!--Total Cost footer-->
+        <!--Page footer-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/page_footer"
+            android:elevation="20dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
@@ -74,7 +79,8 @@
                 android:textStyle="bold"
                 android:id="@+id/TotalShoppingListText"
                 android:text="TOTAL COST:"
-                android:textSize="30dp">
+                android:textSize="30dp"
+                android:textColor="@color/black">
             </TextView>
 
             <TextView
@@ -91,12 +97,19 @@
 
 </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <!--Implementing Burger menu -->
+    <!--Implementing Burger menu (geeksforgeeks.org, 2022) and (Abidi, 2017)-->
     <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/burger_menu_header"
+        app:itemTextAppearance="@style/NavigationText"
+        android:paddingHorizontal="10dp"
+        app:itemBackground="@drawable/burger_menu_item_background"
+        app:itemHorizontalPadding="40dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/burgerNavigationView"
-        app:menu="@menu/burger_menu" />
+        app:menu="@menu/burger_menu"
+        android:backgroundTint="#E3FF2B"
+        android:elevation="20dp"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

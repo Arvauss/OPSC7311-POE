@@ -15,8 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
-
+        android:weightSum="2"
+        android:background="@color/dashboardOpt1"
+        android:onClick="GoToItemList"
+        android:id="@+id/DASHBOARDIDCARD">
 
         <ImageView
             android:id="@+id/img_Category_Image"
@@ -46,14 +48,14 @@
                 android:textSize="20dp"
                 android:layout_weight="1"/>
             <TextView
-                android:id="@+id/txt_Category_Desc"
+                android:id="@+id/txt_Category_Date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:paddingTop="5dp"
-                android:text="Category Description"
+                android:text="Category Date"
                 android:textSize="14dp"
                 android:layout_weight="1"/>
         </LinearLayout>

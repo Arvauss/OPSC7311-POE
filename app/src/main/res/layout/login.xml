@@ -1,148 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.register.login">
+    tools:context="com.example.register.login"
+    android:orientation="vertical"
+    android:weightSum="8">
+
+    <!--Page header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/page_header"
+        android:elevation="20dp"
+        android:layout_weight="2.5"/>
+
+    <!-- Login Page Main Contents -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="3">
+
 
     <!-- (Rectfy, 2017) -->
 
-    <!-- (Rectfy, 2017) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="273dp"
-        android:layout_height="447dp"
-        android:background="@drawable/loginpagebackround"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63">
-
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/UsernameTextView"
-            android:layout_width="145dp"
-            android:layout_height="33dp"
-            android:text="USERNAME"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.178"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.185" />
-
-        <!-- (Professor DK, 2017) -->
-        <EditText
-            android:id="@+id/UsernameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
-            android:elevation="2dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.258"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.243" />
-
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/PasswordTextView"
-            android:layout_width="145dp"
-            android:layout_height="33dp"
-            android:text="PASSWORD"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.178"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- (Professor DK, 2017) -->
-        <EditText
-            android:id="@+id/PasswordEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
-            android:elevation="2dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.275"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.568" />
-
-        <!-- (Any Technology, 2017) -->
-        <Button
-            android:id="@+id/LoginButton"
-
-            android:layout_width="133dp"
-            android:layout_height="48dp"
-            android:background="@drawable/roundbutton"
-            android:elevation="20dp"
-            android:text="LOGIN"
-            android:textColor="#8B8000"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.442"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.783" />
-        <!--android:onClick="Login" -->
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/AccountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DON'T HAVE AN ACCOUNT?"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.485"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.887" />
-
-        <!-- (Phys Whiz, 2016) -->
-        <TextView
-            android:id="@+id/RegisterHyperLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="GoToRegister"
-            android:text="CLICK HERE"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.956"
-            tools:ignore="OnClick" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="192dp"
         android:layout_height="59dp"
         android:background="@drawable/loginpagebackround"
         android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -152,11 +48,111 @@
             android:text="LOGIN"
             android:textColor="#8B8000"
             android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textStyle="bold" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- (Rectfy, 2017) -->
+    <LinearLayout
+        android:layout_width="273dp"
+        android:layout_height="447dp"
+        android:background="@drawable/loginpagebackround"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- (The IIE, 2022) -->
+        <TextView
+            android:id="@+id/UsernameTextView"
+            android:layout_width="145dp"
+            android:layout_height="33dp"
+            android:text="USERNAME"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- (Professor DK, 2017) -->
+        <EditText
+            android:id="@+id/UsernameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:background="@drawable/text_box"
+            android:elevation="5dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="35dp"/>
+
+        <!-- (The IIE, 2022) -->
+        <TextView
+            android:id="@+id/PasswordTextView"
+            android:layout_width="145dp"
+            android:layout_height="33dp"
+            android:text="PASSWORD"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- (Professor DK, 2017) -->
+        <EditText
+            android:id="@+id/PasswordEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:background="@drawable/text_box"
+            android:elevation="5dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_marginBottom="45dp"/>
+
+        <!-- (Any Technology, 2017) -->
+        <Button
+            android:id="@+id/LoginButton"
+            android:onClick="Login"
+            android:layout_width="133dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundbutton"
+            android:elevation="20dp"
+            android:text="LOGIN"
+            android:padding="10dp"
+            android:textColor="#8B8000"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- (The IIE, 2022) -->
+        <TextView
+            android:id="@+id/AccountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DON'T HAVE AN ACCOUNT?"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"/>
+
+        <!-- (Phys Whiz, 2016) -->
+        <TextView
+            android:id="@+id/RegisterHyperLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="GoToRegister"
+            android:text="CLICK HERE"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:ignore="OnClick" />
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <!--Page footer-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/page_footer"
+        android:elevation="20dp"
+        android:layout_weight="2.5"/>
+
+</LinearLayout>

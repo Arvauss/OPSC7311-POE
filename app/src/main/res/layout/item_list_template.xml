@@ -12,6 +12,7 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/IDFORITEMLIST"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -28,20 +29,40 @@
             android:layout_marginHorizontal="8dp"
             android:layout_marginVertical="10dp"/>
 
-        /*Item Name*/
-        <TextView
-            android:id="@+id/ItemTemplate_Name"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_weight="1.4"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="10dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:paddingVertical="12dp"/>
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            /*Item Name*/
+            <TextView
+                android:id="@+id/itemNameitemAll"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.4"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            /*Category Name*/
+            <TextView
+                android:id="@+id/catNameitemAll"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_weight="1.4"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
 
         /*Item count progress bar*/
         <ProgressBar

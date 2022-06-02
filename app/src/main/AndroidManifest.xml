@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
+            android:name="ST10119385.ChloeMoodley.item_list_all"
+            android:exported="false" />
+        <activity
             android:name="ST10119385.ChloeMoodley.ShoppingList_Page"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="opscwork.viewitempagefeatures.ViewItem"/>
+        <activity android:name="opscwork.viewitempagefeatures.ViewItem" />
         <activity android:name="ST10119385.ChloeMoodley.Category_Page" />
         <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page" />
         <activity android:name="com.example.register.RegisterActivity" />

@@ -21,12 +21,15 @@
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@drawable/headerbox"
+        android:elevation="15dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/itemlistheader_blank"
         android:id="@+id/ItemListHeader"
-        android:text="VEGETABLES"
+        android:text="CATEGORY"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -57,9 +60,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:text="Add"
+            android:background="@drawable/greenbutton_background"
             android:onClick="GoToAddItem"
             android:textSize="25sp"
             android:layout_weight="1"
@@ -68,10 +72,12 @@
         </Button>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="View ALL ITEMS"
             android:textSize="25sp"
+            android:onClick="GoToViewAllItem"
+            android:background="@drawable/greenbutton_background"
             android:layout_weight="1"
             android:id="@+id/ItemListDelete">
 
@@ -80,13 +86,20 @@
 
 </LinearLayout>
 
-    <!--Implementing Burger menu -->
+    <!--Implementing Burger menu (geeksforgeeks.org, 2022) and (Abidi, 2017)-->
     <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/burger_menu_header"
+        app:itemTextAppearance="@style/NavigationText"
+        android:paddingHorizontal="10dp"
+        app:itemBackground="@drawable/burger_menu_item_background"
+        app:itemHorizontalPadding="40dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/burgerNavigationView"
-        app:menu="@menu/burger_menu" />
+        app:menu="@menu/burger_menu"
+        android:backgroundTint="#E3FF2B"
+        android:elevation="20dp"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

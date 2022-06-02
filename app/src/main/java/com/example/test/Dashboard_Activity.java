@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
+import ST10119385.ChloeMoodley.item_list_all;
 import ST10119385.ChloeMoodley.Category_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 import opscwork.viewitempagefeatures.ItemPage;
@@ -162,6 +163,11 @@ public class Dashboard_Activity extends AppCompatActivity {
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
         startActivity(addItem);
+    }
+
+    public void GoToViewAllItem (View v) {
+        Intent viewItemAll = new Intent(this, item_list_all.class);
+        startActivity(viewItemAll);
     }
 
     
