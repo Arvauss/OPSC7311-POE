@@ -23,7 +23,7 @@ public class login extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         setupUI();
-       // setupListener();
+        setupListener();
 
     }
 
@@ -38,6 +38,7 @@ public class login extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 verifyUsername();
+                Login(view);
             }
         });
 
