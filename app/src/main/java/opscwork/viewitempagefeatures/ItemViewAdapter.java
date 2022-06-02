@@ -1,22 +1,5 @@
 package opscwork.viewitempagefeatures;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.example.register.R;
-
-import java.util.ArrayList;
-
-import ST10119385.ChloeMoodley.Item_Information;
 /*
 public class ItemViewAdapter extends ArrayAdapter<Item_Information> {
 

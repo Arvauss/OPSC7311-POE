@@ -9,8 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.register.R;
-import com.example.test.MainActivity;
+import com.example.test.R;
 
 import ST10119385.ChloeMoodley.Item_Information;
 
@@ -34,7 +33,7 @@ public class ItemViewPage extends AppCompatActivity {
         ImageView itemImage = (ImageView) findViewById(R.id.LettuceImage);
         TextView itemDate = (TextView) findViewById(R.id.DateOfAcquisition);
         TextView ItemPrice = (TextView) findViewById(R.id.Price);
-        TextView category = (TextView) findViewById(R.id.VegetablesTextView);
+        TextView category = (TextView) findViewById(R.id.CategoryNameTextView);
         TextView itemCount = (TextView) findViewById(R.id.NumOfItems);
         ImageButton decrease = (ImageButton) findViewById(R.id.decrease_item_qty);
         ImageButton increase = (ImageButton) findViewById(R.id.increase_item_qty);
@@ -57,7 +56,7 @@ public class ItemViewPage extends AppCompatActivity {
     private void getSelectedItem() {
         Intent previousIntent = getIntent();
         String parsedStringID = previousIntent.getStringExtra("id");
-        SelectedItem = ViewItem.itemArrayList.get(Integer.valueOf(parsedStringID));
+        //SelectedItem = ViewItem.itemArrayList.get(Integer.valueOf(parsedStringID));
     }
 }
 
