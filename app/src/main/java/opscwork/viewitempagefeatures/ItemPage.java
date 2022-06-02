@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Add_Item_Page;
@@ -32,6 +34,7 @@ public class ItemPage extends  AppCompatActivity {
     ImageView ItemImage;
     ListView mListView;
     Category_Information CurrentCategory;
+    TextView Header;
 
     // Creation of array list
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
@@ -48,6 +51,7 @@ public class ItemPage extends  AppCompatActivity {
         ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
         ItemPrice = (EditText) findViewById(R.id.priceTextBox);
         ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
+        Header = (TextView) findViewById(R.id.ItemListHeader);
 
         setupUI();
         getCategory();
@@ -63,6 +67,7 @@ public class ItemPage extends  AppCompatActivity {
         //Get category based on name received from intent utilising indexOf (TutorialsPoint, 2019);
         //https://www.tutorialspoint.com/get-the-index-of-a-particular-element-in-an-arraylist-in-java#
         CurrentCategory = Dashboard_Activity.catList.get(CatName);
+        Header.setText(CurrentCategory.getCategory_Name());
     }
 
     public void GoToAddItem (View v) {
@@ -84,8 +89,14 @@ public class ItemPage extends  AppCompatActivity {
     }
     private void setupListView() {
         mListView = (ListView) findViewById(R.id.itemListView);
+        ArrayList<Item_Information> CatItems = new ArrayList<Item_Information>();
+        for (Item_Information item: ItemArrayList) {
+            if (item.getCategory().equals(CurrentCategory.getCategory_Name())){
+                CatItems.add(item);
+            }
+        }
         // Creation of adapter
-        ItemList adapter = new ItemList(this, R.layout.item_list_template,ItemArrayList);
+        ItemList adapter = new ItemList(this, R.layout.item_list_template,CatItems);
         mListView.setAdapter(adapter);
 
     }

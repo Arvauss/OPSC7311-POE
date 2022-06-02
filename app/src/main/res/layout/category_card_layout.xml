@@ -17,7 +17,6 @@
         android:orientation="horizontal"
         android:weightSum="2"
         android:background="@color/dashboardOpt1"
-        android:onClick="GoToItemList"
         android:id="@+id/DASHBOARDIDCARD">
 
         <ImageView

@@ -15,9 +15,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.test.Dashboard_Activity"
     android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="10"
+    >
 
 
     <TextView
