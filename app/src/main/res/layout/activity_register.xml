@@ -72,7 +72,7 @@
 
         <!-- (Professor DK, 2017) -->
         <EditText
-            android:id="@+id/UsernameEditText"
+            android:id="@+id/RegUsernameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
@@ -95,7 +95,7 @@
 
         <!-- (Professor DK, 2017) -->
         <EditText
-            android:id="@+id/PasswordEditText"
+            android:id="@+id/RegPasswordEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
