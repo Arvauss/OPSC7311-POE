@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,11 +13,10 @@ import androidx.annotation.Nullable;
 
 import com.example.test.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Item_Information;
+import ST10119385.ChloeMoodley.item_list_all;
 
 public class ItemList extends ArrayAdapter<Item_Information> {
 
@@ -26,6 +24,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     private static final String TAG = "ItemList";
     private Context mContext;
     int mitem_list_template;
+    public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
 
     // Creation of Constructor
 //    public ItemList(@NonNull Context context, int resource, @NonNull ArrayList<Item_Information> objects, Context mContext) {
@@ -33,11 +32,22 @@ public class ItemList extends ArrayAdapter<Item_Information> {
 //        this.mContext = context;
 //    }
 
+    //constructor for itemList
     public ItemList(ItemPage context, int item_list_template, ArrayList<Item_Information> itemArrayList) {
         super(context, item_list_template,itemArrayList);
         this.mContext = context;
         mitem_list_template = item_list_template;
     }
+
+    //constructor for itemAllList
+    public ItemList(item_list_all context, int item_list_template, ArrayList<Item_Information> itemArrayList) {
+        super(context, item_list_template,itemArrayList);
+        this.mContext = context;
+        mitem_list_template = item_list_template;
+        itemArrayList = itemArrayList;
+    }
+
+
 
     // Override method ()
     @NonNull

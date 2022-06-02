@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,11 +19,10 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
-import ST10119385.ChloeMoodley.item_list_all;
 import ST10119385.ChloeMoodley.Category_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
+import ST10119385.ChloeMoodley.item_list_all;
 import opscwork.viewitempagefeatures.ItemPage;
 
 public class Dashboard_Activity extends AppCompatActivity {
@@ -161,6 +160,10 @@ public class Dashboard_Activity extends AppCompatActivity {
         startActivity(addCat);
     }
 
+    public void GoToHome (View v) {
+        Intent home = new Intent(this, Dashboard_Activity.class);
+        startActivity(home);
+    }
 
     public void GoToViewAllItem (View v) {
         Intent viewItemAll = new Intent(this, item_list_all.class);

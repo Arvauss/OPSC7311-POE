@@ -40,6 +40,17 @@ public class Item_Information
         this.item_date = item_date;
     }
 
+    //Constructor for ItemListAll Add
+    public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, int Qty) {
+        this.item_Name = item_Name;
+        this.item_image = item_image;
+        this.item_Price = item_Price;
+        this.Qty = Qty;
+        this.item_Description = item_desc;
+        this.item_date = item_date;
+    }
+
+
     public Item_Information(int item_image,String item_Name) {
         this.item_image = item_image;
         this.item_Name = item_Name;
