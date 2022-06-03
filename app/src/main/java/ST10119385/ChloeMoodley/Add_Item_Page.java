@@ -137,7 +137,7 @@ public class Add_Item_Page extends AppCompatActivity {
     }
     private void setUpUI() {
         ImageView picture = (ImageView) findViewById(R.id.ImageItemPic);
-        btnItemConfirm = (Button) findViewById(R.id.itemConfirm);
+        btnItemConfirm = (Button) findViewById(R.id.CategoryConfirm);
     }
 
     public void setupOnclickListeners(){

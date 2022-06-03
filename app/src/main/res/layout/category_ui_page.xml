@@ -140,7 +140,7 @@
 
     <!--Confirm button -->
     <Button
-        android:id="@+id/itemConfirm"
+        android:id="@+id/CategoryConfirm"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/greenbutton_background"

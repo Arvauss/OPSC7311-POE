@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -35,6 +36,12 @@ public class Category_Page extends AppCompatActivity{
     private final int STORAGE_PERMISSION_CODE = 100;
     private final int CAMERA_PERMISSION_CODE = 101;
     ImageView image;
+    EditText CategoryName;
+    EditText CategoryDescription;
+    Spinner Colour;
+    Button btnConfirmCategory;
+    public static Category_Information Catobj = null;
+
     private static final int REQUEST_IMAGE_CAPTURE = 0;
 
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
@@ -46,6 +53,10 @@ public class Category_Page extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_ui_page);
+        CategoryName = (EditText) findViewById(R.id.NameTextBox);
+        CategoryDescription = (EditText) findViewById(R.id.DescriptionTextBox);
+        Colour = (Spinner) findViewById(R.id.DropDown);
+        image = (ImageView) findViewById(R.id.ImageCat);
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -72,7 +83,7 @@ public class Category_Page extends AppCompatActivity{
          */
         Spinner dropDown = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id
 
-        Button but = (Button) findViewById(R.id.itemConfirm);
+        Button but = (Button) findViewById(R.id.CategoryConfirm);
 
         //array adapter created to get information from the string array in the string view
         ArrayAdapter<String> myAdapt = new ArrayAdapter<String>(Category_Page.this,
@@ -88,7 +99,27 @@ public class Category_Page extends AppCompatActivity{
     private void setUpUI() {
 
         ImageView image = (ImageView) findViewById(R.id.ImageCat);
+        btnConfirmCategory = (Button) findViewById(R.id.CategoryConfirm);
     }
+
+    public void setupOnclickListeners(){
+
+        // Variable Declaration
+        String CategoryName;
+        Intent PrevoiusIntent = getIntent();
+        CategoryName = PrevoiusIntent.getStringExtra("categoryName");
+
+        btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Catobj.setCategory_Colour(int.class.cast(Colour));
+                Catobj.setCategory_Name(CategoryName.toString());
+                Catobj.setCategory_Description(CategoryDescription.toString());
+                Catobj.setCategory_Icon(int.class.cast(image));
+                Dashboard_Activity.catList.add(Catobj);
+                GoBackDash(view);
+            }
+        });}
 
     private void setUpListener() {
         image.setOnClickListener(new View.OnClickListener() {
