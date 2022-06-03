@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -19,6 +22,8 @@ import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+
+import opscwork.viewitempagefeatures.ViewItem;
 
 public class ShoppingList_Page extends AppCompatActivity {
 
@@ -74,7 +79,23 @@ public class ShoppingList_Page extends AppCompatActivity {
         ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
         mList.setAdapter(adp);
 
+        setOnClickListeners();
     }
+
+    ListView mList = (ListView) findViewById(R.id.shoppingListView);
+    //On click listener used to show list of shopping items
+    private void setOnClickListeners() {
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Item_Information itemObj = (Item_Information) (mList.getItemAtPosition(position));
+                Intent displayList = new Intent(getApplicationContext(), ViewItem.class);
+                displayList.putExtra("name", itemObj.getItem_Name());
+                startActivity(displayList);
+            }
+        });
+    }
+
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -57,17 +57,6 @@
             android:weightSum="2"
             android:orientation="horizontal">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="HOME"
-                android:onClick="GoToHome"
-                android:textSize="25sp"
-                android:background="@drawable/greenbutton_background"
-                android:layout_weight="1"
-                android:id="@+id/ItemListHome">
-
-            </Button>
 
             <Button
                 android:layout_width="match_parent"
@@ -83,12 +72,19 @@
 
     </LinearLayout>
 
-    <!--Implementing Burger menu -->
+    <!--Implementing Burger menu (geeksforgeeks.org, 2022) and (Abidi, 2017)-->
     <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/burger_menu_header"
+        app:itemTextAppearance="@style/NavigationText"
+        android:paddingHorizontal="10dp"
+        app:itemBackground="@drawable/burger_menu_item_background"
+        app:itemHorizontalPadding="40dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/burgerNavigationView"
-        app:menu="@menu/burger_menu" />
+        app:menu="@menu/burger_menu"
+        android:backgroundTint="#E3FF2B"
+        android:elevation="20dp"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
