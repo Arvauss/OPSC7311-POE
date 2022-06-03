@@ -62,7 +62,8 @@ public class Dashboard_Activity extends AppCompatActivity {
 
         setupUI();
         //method to populate ArrayList with demo data
-        InitListData();
+        if (catList.isEmpty())
+            InitListData();
         //Setups listview and connects adapter
         SetupListView();
         setupOnclickListeners();
@@ -83,7 +84,6 @@ public class Dashboard_Activity extends AppCompatActivity {
         catList.add(Fruits);
         Category_Information Wines = new Category_Information(Color.parseColor("#FF0074"), "Wines", "Wines");
         catList.add(Wines);
-
     }
 
     private void setupUI() {

@@ -49,7 +49,8 @@ public class ItemPage extends  AppCompatActivity {
 
         setupUI();
         getCategory();
-        InitListData();
+        if (ItemArrayList.isEmpty())
+            InitListData();
         setupListView();
         setupOnClickListeners();
 
@@ -66,7 +67,9 @@ public class ItemPage extends  AppCompatActivity {
 
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
+        addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
         startActivity(addItem);
+
     }
 
     private void setupOnClickListeners() {
@@ -76,7 +79,7 @@ public class ItemPage extends  AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Item_Information itemObj = (Item_Information) (mListView.getItemAtPosition(position));
                 Intent displayItem = new Intent(getApplicationContext(), ViewItem.class);
-                displayItem.putExtra("name", itemObj.getItem_Name());
+                displayItem.putExtra("id", position);
                 startActivity(displayItem);
             }
         });
