@@ -47,9 +47,9 @@ public class Add_Item_Page extends AppCompatActivity {
     EditText ItemDescription;
     TextView ItemPurchaseDate;
     EditText ItemPrice;
-    ImageView ItemImage;
     Button btnItemConfirm;
-    public static Item_Information obj = null;
+
+    Item_Information obj;
 
 
     //adding second view and class (Add a Second Activity to your App, 2017).
@@ -67,11 +67,7 @@ public class Add_Item_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_ui_page);
-        ItemName = (EditText) findViewById(R.id.ItemNameBox);
-        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
-        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
-        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
-        ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
+
         setUpUI();
         setUpListener();
 
@@ -136,32 +132,13 @@ public class Add_Item_Page extends AppCompatActivity {
         };
     }
     private void setUpUI() {
-        ImageView picture = (ImageView) findViewById(R.id.ImageItemPic);
-        btnItemConfirm = (Button) findViewById(R.id.CategoryConfirm);
+        ItemName = (EditText) findViewById(R.id.ItemNameBox);
+        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
+        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
+        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
+        picture = (ImageView) findViewById(R.id.ImageItemPic);
+        btnItemConfirm = (Button) findViewById(R.id.itemConfirm);
     }
-
-    public void setupOnclickListeners(){
-
-        // Variable Declaration
-        String CategoryName;
-        Intent PrevoiusIntent = getIntent();
-        CategoryName = PrevoiusIntent.getStringExtra("categoryName");
-
-        btnItemConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                obj.setItem_Name(ItemName.toString());
-                obj.setItem_Description(ItemDescription.toString());
-                obj.setItem_date(ItemPurchaseDate.toString());
-                obj.setItem_Price(Double.parseDouble(ItemPrice.toString()));
-                obj.setItem_image(Integer.parseInt(ItemImage.toString()));
-                obj.setCategory(CategoryName);
-                obj.setQty(1);
-                obj.setDesired_Qty(1);
-                ItemPage.ItemArrayList.add(obj);
-                goBackToList(view);
-            }
-        });}
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -185,7 +162,7 @@ public class Add_Item_Page extends AppCompatActivity {
         return true;
     }
     private void setUpListener() {
-        picture.setOnClickListener(new View.OnClickListener() {
+/*        picture.setOnClickListener(new View.OnClickListener() {
 
             ActivityResultLauncher<Intent> acivityResultLauncher = null;
             @Override
@@ -197,6 +174,36 @@ public class Add_Item_Page extends AppCompatActivity {
                     Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     acivityResultLauncher.launch(i);
                 }
+            }
+        });*/
+        // Variable Declaration
+        String catName;
+        Intent PrevoiusIntent = getIntent();
+        catName = PrevoiusIntent.getStringExtra("categoryName");
+
+        btnItemConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                obj = new Item_Information(ItemName.getText().toString(),
+                        ItemDescription.getText().toString(),
+                        R.drawable.bodega_image,
+                        ItemPurchaseDate.getText().toString(),
+                        Double.parseDouble(ItemPrice.getText().toString()),
+                        catName,
+                        1
+                );
+                int position = 0;
+                for (Category_Information cat: Dashboard_Activity.catList) {
+                    if (cat.getCategory_Name().equals(obj.getCategory())){
+                        position = Dashboard_Activity.catList.indexOf(cat);
+                        break;
+                    }
+                }
+
+
+                ItemPage.ItemArrayList.add(obj);
+                goBackToList(view, position);
+
             }
         });
     }
@@ -249,8 +256,11 @@ public class Add_Item_Page extends AppCompatActivity {
         picture.setImageBitmap(imageBitMap);
     }
 
-        public void goBackToList (View v) {
-        Intent listBackItem = new Intent(this, Dashboard_Activity.class);
+    public void goBackToList (View v, int pos) {
+
+        Intent listBackItem = new Intent(getApplicationContext(), Dashboard_Activity.class);
+        listBackItem.putExtra("id", pos);
+        setResult(1);
         startActivity(listBackItem);
     }
 }

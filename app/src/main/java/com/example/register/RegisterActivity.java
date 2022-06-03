@@ -3,6 +3,7 @@ package com.example.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,15 +24,24 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        username = (EditText) findViewById(R.id.UsernameEditText);
-        password = (EditText) findViewById(R.id.PasswordEditText);
+        username = (EditText) findViewById(R.id.RegUsernameEditText);
+        password = (EditText) findViewById(R.id.RegPasswordEditText);
         btn_register = (Button) findViewById(R.id.RegisterButton);
         login_link = (TextView) findViewById(R.id.LoginHyperLink);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkDataEntered();
+                if (checkDataEntered()){
+                    LoginPageDataModel NewUser = new LoginPageDataModel(username.getText().toString(), password.getText().toString());
+                    login.userList.add(NewUser);
+                    Toast t = Toast.makeText(getApplicationContext(), "New user created", Toast.LENGTH_SHORT);
+                    t.show();
+                    Intent intent = new Intent(getApplicationContext(), login.class);
+                    intent.putExtra("username", username.toString());
+                    intent.putExtra("password", password.toString());
+                    startActivity(intent);
+                }
 
             }
         });
@@ -46,18 +56,24 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-boolean isEmpty(EditText text){
+
+    boolean isEmpty(EditText text){
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
-}
-     void checkDataEntered() {
+    }
+
+    public boolean checkDataEntered() {
+
         if(isEmpty(username)){
             Toast t = Toast.makeText(this,"You must enter a username", Toast.LENGTH_SHORT);
             t.show();
+            return false;
         }
         if(isEmpty(password)){
             password.setError("Password is required");
+            return false;
         }
+        return true;
     }
 
 

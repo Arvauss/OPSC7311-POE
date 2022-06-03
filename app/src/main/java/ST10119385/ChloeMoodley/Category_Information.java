@@ -2,6 +2,8 @@ package ST10119385.ChloeMoodley;
 
 import android.graphics.Color;
 
+import com.example.test.R;
+
 public class Category_Information {
 
     private int category_Colour;
@@ -13,7 +15,7 @@ public class Category_Information {
         this.category_Colour = category_Colour;
         this.category_Name = category_Name;
         this.category_Description = category_Description;
-       // this.category_Icon = category_Icon;
+        this.category_Icon = R.drawable.bodega_image;
     }
 
     public int getCategory_Colour() {

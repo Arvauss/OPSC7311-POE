@@ -38,6 +38,7 @@ public class Item_Information
         this.Qty = Qty;
         this.item_Description = item_desc;
         this.item_date = item_date;
+        this.Desired_Qty = 1;
     }
 
     //Constructor for ItemListAll Add
@@ -112,25 +113,25 @@ public class Item_Information
 
     // The method below increases the item quantity (The IIE, 2022)
     public int IncreaseQty(){
-        Qty = Qty + 1;
+        Qty++;
         return Qty;
     }
 
     // The method below decrease the item quantity (The IIE, 2022)
     public int DecreaseQty(){
-        Qty = Qty - 1;
+        Qty--;
         return Qty;
     }
 
     // The method below increases the desired quantity (The IIE, 2022)
     public int IncreaseDesiredQty(){
-        Desired_Qty = Desired_Qty + 1;
+        Desired_Qty++;
         return Desired_Qty;
     }
 
     // The method below decrease the desired quantity (The IIE, 2022)
     public int DecreaseDesiredQty(){
-        Desired_Qty = Desired_Qty - 1;
+        Desired_Qty--;
         return Desired_Qty;
     }
 

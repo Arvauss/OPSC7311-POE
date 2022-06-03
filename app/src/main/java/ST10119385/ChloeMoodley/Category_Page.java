@@ -93,7 +93,7 @@ public class Category_Page extends AppCompatActivity{
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
 
         setUpUI();
-        setUpListener();
+       // setUpListener();
     }
 
     private void setUpUI() {
