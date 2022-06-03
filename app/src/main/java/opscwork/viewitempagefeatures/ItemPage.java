@@ -137,4 +137,5 @@ public class ItemPage extends  AppCompatActivity {
                         6);
         ItemArrayList.add(obj3);
     }
+
 }

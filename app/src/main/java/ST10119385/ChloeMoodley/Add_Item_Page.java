@@ -13,20 +13,22 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
@@ -34,11 +36,21 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.Calendar;
 
+import opscwork.viewitempagefeatures.ItemPage;
+
 public class Add_Item_Page extends AppCompatActivity {
 
     private final int STORAGE_PERMISSION_CODE = 100;
     private final int CAMERA_PERMISSION_CODE = 101;
     ImageView picture;
+    EditText ItemName;
+    EditText ItemDescription;
+    TextView ItemPurchaseDate;
+    EditText ItemPrice;
+    ImageView ItemImage;
+    Button btnItemConfirm;
+    public static Item_Information obj = null;
+
 
     //adding second view and class (Add a Second Activity to your App, 2017).
     private static final String TAG = "MainActivity2";
@@ -55,6 +67,11 @@ public class Add_Item_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_ui_page);
+        ItemName = (EditText) findViewById(R.id.ItemNameBox);
+        ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
+        ItemPurchaseDate = (TextView) findViewById(R.id.DatePicker);
+        ItemPrice = (EditText) findViewById(R.id.priceTextBox);
+        ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
         setUpUI();
         setUpListener();
 
@@ -120,7 +137,31 @@ public class Add_Item_Page extends AppCompatActivity {
     }
     private void setUpUI() {
         ImageView picture = (ImageView) findViewById(R.id.ImageItemPic);
+        btnItemConfirm = (Button) findViewById(R.id.itemConfirm);
     }
+
+    public void setupOnclickListeners(){
+
+        // Variable Declaration
+        String CategoryName;
+        Intent PrevoiusIntent = getIntent();
+        CategoryName = PrevoiusIntent.getStringExtra("categoryName");
+
+        btnItemConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                obj.setItem_Name(ItemName.toString());
+                obj.setItem_Description(ItemDescription.toString());
+                obj.setItem_date(ItemPurchaseDate.toString());
+                obj.setItem_Price(Double.parseDouble(ItemPrice.toString()));
+                obj.setItem_image(Integer.parseInt(ItemImage.toString()));
+                obj.setCategory(CategoryName);
+                obj.setQty(1);
+                obj.setDesired_Qty(1);
+                ItemPage.ItemArrayList.add(obj);
+                goBackToList(view);
+            }
+        });}
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
