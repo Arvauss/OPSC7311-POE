@@ -90,7 +90,7 @@ public class ShoppingList_Page extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Item_Information itemObj = (Item_Information) (mList.getItemAtPosition(position));
                 Intent displayList = new Intent(getApplicationContext(), ViewItem.class);
-                displayList.putExtra("name", itemObj.getItem_Name());
+                displayList.putExtra("id", position);
                 startActivity(displayList);
             }
         });

@@ -18,6 +18,8 @@ import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
 
+import org.w3c.dom.Text;
+
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Item_Information;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
@@ -31,10 +33,10 @@ public class ViewItem extends AppCompatActivity {
 
     //Init of item obj to store info from getIntent()
     Item_Information SelectedItem;
-    TextView nameItem ,itemDescription, itemDate, ItemPrice, category, itemCount;
+    TextView nameItem ,itemDescription, itemDate, ItemPrice, category, itemCount, DesiredItemCount;
     ImageView itemImage;
-    ImageButton decrease;
-    ImageButton increase;
+    ImageButton decrease, dec_desired;
+    ImageButton increase, inc_desired;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +77,12 @@ public class ViewItem extends AppCompatActivity {
          itemImage = (ImageView) findViewById(R.id.LettuceImage);
          itemDate = (TextView) findViewById(R.id.DateOfAcquisition);
          ItemPrice = (TextView) findViewById(R.id.Price);
-
+         DesiredItemCount = (TextView) findViewById(R.id.Desired_numOfItems);
          itemCount = (TextView) findViewById(R.id.NumOfItems);
          decrease = (ImageButton) findViewById(R.id.decrease_item_qty);
          increase = (ImageButton) findViewById(R.id.increase_item_qty);
-        // ImageButton decreaseD = (ImageButton) findViewById(R.id.decrease_desired_qty);
-        // ImageButton increaseD = (ImageButton) findViewById(R.id.increase_desired_qty);
+         dec_desired = (ImageButton) findViewById(R.id.decrease_desired_item_qty);
+         inc_desired = (ImageButton) findViewById(R.id.increase_desired_item_qty);
     }
 
     private void setOnclickListeners() {
@@ -107,6 +109,31 @@ public class ViewItem extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
+
+        inc_desired.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SelectedItem.IncreaseDesiredQty();
+                //reloads activity to display new info | overridePendingTransition removes blinking transition
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
+            }
+        });
+        dec_desired.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (SelectedItem.getQty() <= SelectedItem.getDesired_Qty()) {
+                    SelectedItem.DecreaseDesiredQty();
+                    //reloads activity to display new info | overridePendingTransition removes blinking transition
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition(0, 0);
+                }
+            }
+        });
     }
 
     //Method used to get the selected item
@@ -129,6 +156,9 @@ public class ViewItem extends AppCompatActivity {
         itemDate.setText(SelectedItem.getItem_date());
         ItemPrice.setText(Double.toString(SelectedItem.getItem_Price()));
         itemCount.setText(Integer.toString(SelectedItem.getQty()));
+        if (SelectedItem.getQty() > SelectedItem.getDesired_Qty())
+        SelectedItem.setDesired_Qty(SelectedItem.getQty());
+        DesiredItemCount.setText(Integer.toString(SelectedItem.getDesired_Qty()));
 
     }
 

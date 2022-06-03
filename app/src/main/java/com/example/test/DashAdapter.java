@@ -38,8 +38,14 @@ public class DashAdapter extends ArrayAdapter<Category_Information> {
         TextView catName = (TextView) convertView.findViewById(R.id.txt_Category_Name);
         TextView catDesc = (TextView) convertView.findViewById(R.id.txt_Category_Desc);
 
-        //img.setImageResource(catObj.getCategory_Icon());
-        img.setImageResource(R.drawable.bodega_image);
+
+
+        if(catObj.getCat_Image()==null){
+            img.setImageResource(catObj.getCategory_Icon());
+        } else{
+            img.setImageBitmap(catObj.getCat_Image());
+        }
+
         catName.setText(catObj.getCategory_Name());
         catDesc.setText(catObj.getCategory_Description());
 

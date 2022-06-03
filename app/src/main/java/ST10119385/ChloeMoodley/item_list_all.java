@@ -127,7 +127,7 @@ public class item_list_all extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Item_Information itemObj = (Item_Information) (ListViewAll.getItemAtPosition(position));
                 Intent displayItem = new Intent(getApplicationContext(), ViewItem.class);
-                displayItem.putExtra("name", itemObj.getItem_Name());
+                displayItem.putExtra("id", position);
                 startActivity(displayItem);
             }
         });

@@ -58,7 +58,7 @@
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginVertical="5dp"
                 android:textAlignment="center"
-                android:textSize="25dp"
+                android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 

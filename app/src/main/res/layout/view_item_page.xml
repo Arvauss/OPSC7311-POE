@@ -8,9 +8,7 @@
     android:layout_height="match_parent"
     tools:context="opscwork.viewitempagefeatures.ViewItem">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="opscwork.viewitempagefeatures.ViewItem"
@@ -231,6 +229,11 @@
         <!-- (The IIE, 2022) -->
 
         <!-- (The IIE, 2022) -->
+
+        <!-- (Rectfy, 2017) -->
+
+        <!-- (Rectfy, 2017) -->
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -238,14 +241,10 @@
             android:layout_height="46dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.968"
+            app:layout_constraintHorizontal_bias="0.952"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04" />
-
-        <!-- (Rectfy, 2017) -->
-
-        <!-- (Rectfy, 2017) -->
+            app:layout_constraintVertical_bias="0.968" />
 
         <TextView
             android:id="@+id/NumOfItems"
@@ -268,6 +267,26 @@
             app:layout_constraintVertical_bias="0.054" />
 
         <!-- (Rectfy, 2017) -->
+
+        <TextView
+            android:id="@+id/Desired_numOfItems"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/loginpagebackround"
+            android:backgroundTint="#58A93A"
+            android:elevation="20dp"
+            android:gravity="center"
+            android:text="10"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.938"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053" />
 
         <ImageButton
             android:id="@+id/increase_item_qty"
@@ -295,6 +314,20 @@
             app:srcCompat="@drawable/minus2_icon" /> -->
 
         <!-- (Rectfy, 2017) -->
+
+        <ImageButton
+            android:id="@+id/increase_desired_item_qty"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.938"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.202"
+            app:srcCompat="@drawable/plus_button" />
+
         <ImageButton
             android:id="@+id/decrease_item_qty"
             android:layout_width="50dp"
@@ -309,21 +342,34 @@
             app:layout_constraintVertical_bias="0.355"
             app:srcCompat="@drawable/minus_button" />
 
-       <!-- <TextView
-            android:id="@+id/itemcount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ITEM COUNT"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="italic"
+        <ImageButton
+            android:id="@+id/decrease_desired_item_qty"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintHorizontal_bias="0.938"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.008" /> -->
+            app:layout_constraintVertical_bias="0.355"
+            app:srcCompat="@drawable/minus_button" />
+
+        <!-- <TextView
+             android:id="@+id/itemcount"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="ITEM COUNT"
+             android:textAlignment="center"
+             android:textColor="@color/black"
+             android:textSize="14sp"
+             android:textStyle="italic"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.025"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintVertical_bias="0.008" /> -->
 
         <!-- (Rectfy, 2017) -->
        <!-- <TextView

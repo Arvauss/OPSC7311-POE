@@ -66,7 +66,7 @@ public class Dashboard_Activity extends AppCompatActivity {
 
         setupUI();
         //method to populate ArrayList with demo data
-        if (catList.isEmpty())
+        if (catList.size() < 3)
             InitListData();
         //Setups listview and connects adapter
         SetupListView();

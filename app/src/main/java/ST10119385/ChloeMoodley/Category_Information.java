@@ -1,5 +1,6 @@
 package ST10119385.ChloeMoodley;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import com.example.test.R;
@@ -10,12 +11,27 @@ public class Category_Information {
     private String category_Name;
     private String category_Description;
     private int category_Icon;
+    private Bitmap cat_Image = null;
+
+    public Bitmap getCat_Image() {
+        return cat_Image;
+    }
+
+    public void setCat_Image(Bitmap cat_Image) {
+        this.cat_Image = cat_Image;
+    }
 
     public Category_Information(int category_Colour, String category_Name, String category_Description) {
         this.category_Colour = category_Colour;
         this.category_Name = category_Name;
         this.category_Description = category_Description;
         this.category_Icon = R.drawable.bodega_image;
+    }
+    public Category_Information(int category_Colour, String category_Name, String category_Description, Bitmap img) {
+        this.category_Colour = category_Colour;
+        this.category_Name = category_Name;
+        this.category_Description = category_Description;
+        this.cat_Image = img;
     }
 
     public int getCategory_Colour() {

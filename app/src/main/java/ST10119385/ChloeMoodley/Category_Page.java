@@ -18,7 +18,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,8 @@ import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.IOException;
+
 
 public class Category_Page extends AppCompatActivity{
 
@@ -42,8 +46,17 @@ public class Category_Page extends AppCompatActivity{
     Spinner Colour;
     Button btnConfirmCategory;
     Category_Information Catobj;
+    Bitmap img;
 
     private static final int REQUEST_IMAGE_CAPTURE = 0;
+
+
+    ActivityResultLauncher<String> _getContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        @Override
+        public void onActivityResult(Uri result) {
+
+        }
+    });
 
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
@@ -54,6 +67,8 @@ public class Category_Page extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_ui_page);
+
+
 
 
         // drawer layout instance to toggle the menu icon to open
@@ -102,33 +117,42 @@ public class Category_Page extends AppCompatActivity{
         Colour = (Spinner) findViewById(R.id.DropDown);
     };
 
+    //AR Launcher
+    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            Bundle imgBundle = result.getData().getExtras();
+            if (imgBundle != null){
+                img = (Bitmap) imgBundle.get("data");
+                image.setImageBitmap(img);
+            }
+        }
+    });
+
     private void setUpListener() {
         image.setOnClickListener(new View.OnClickListener() {
-
-            ActivityResultLauncher<Intent> acivityResultLauncher = null;
             @Override
             public void onClick(View view) {
                 if (view.getId()==R.id.ImageCat) {
-                    checkPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
+                 //   checkPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
                     checkPermissions(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE);
                 }else{
-                    Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    acivityResultLauncher.launch(i);
+
                 }
 
             }
         });
-        // Variable Declaration
 
         btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*int[] colourList = getApplicationContext().getResources().getIntArray(R.array.clrs);
-                int colour = colourList[Colour.getSelectedItemPosition()];*/
+                //gets String array based on array of colours, matches index of colours with dropdown list selected item to get colour
+                //(Danylyk D., 2012)  https://stackoverflow.com/questions/9114587/how-can-i-save-colors-in-array-xml-and-get-it-back-to-a-color-array
                 String[] ColoursList = getApplicationContext().getResources().getStringArray(R.array.clrs);
                 Catobj = new Category_Information(Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
                         CategoryName.getText().toString(),
-                        CategoryDescription.getText().toString());
+                        CategoryDescription.getText().toString(),
+                        img);
 
                 Dashboard_Activity.catList.add(Catobj);
                 GoBackDash(view);
@@ -159,14 +183,16 @@ public class Category_Page extends AppCompatActivity{
             ActivityCompat.requestPermissions(Category_Page.this, new String[]{permission}, requestCode);
         } else {
             Toast.makeText(Category_Page.this, "Permission already granted", Toast.LENGTH_SHORT).show();
+            ImageHandler();
         }
     }
-    public void onActivityResult(ActivityResult result){
-        Uri imageuri;
-        Bundle bundle = result.getData().getExtras();
-        Bitmap imageBitMap = (Bitmap) bundle.get("Data");
-        image.setImageBitmap(imageBitMap);
+
+    public void ImageHandler(){
+        Toast.makeText(Category_Page.this, "Camera permission granted", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        resultLauncher.launch(i);
     }
+
 
 //    android on click = view
 
