@@ -20,7 +20,7 @@ import ST10119385.ChloeMoodley.item_list_all;
 
 public class ItemList extends ArrayAdapter<Item_Information> {
 
-    // Declaration of variables
+    // Declaration of variables (The IIE, 2022)
     private static final String TAG = "ItemList";
     private Context mContext;
     int mitem_list_template;
@@ -32,14 +32,14 @@ public class ItemList extends ArrayAdapter<Item_Information> {
 //        this.mContext = context;
 //    }
 
-    //constructor for itemList
+    //constructor for itemList (The IIE, 2022)
     public ItemList(ItemPage context, int item_list_template, ArrayList<Item_Information> itemArrayList) {
         super(context, item_list_template,itemArrayList);
         this.mContext = context;
         mitem_list_template = item_list_template;
     }
 
-    //constructor for itemAllList
+    //constructor for itemAllList (The IIE, 2022)
     public ItemList(item_list_all context, int item_list_template, ArrayList<Item_Information> itemArrayList) {
         super(context, item_list_template,itemArrayList);
         this.mContext = context;
@@ -49,7 +49,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
 
 
 
-    // Override method ()
+    // Override method (The IIE, 2022)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -58,11 +58,11 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         int ItemImg = getItem(position).getItem_image();
 
 
-        // Creation of item information object ()
+        // Creation of item information object (The IIE, 2022)
         Item_Information obj = getItem(position);
-        //Creation of inflater
+        //Creation of inflater (The IIE, 2022)
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        //inflates item_list_template
+        //inflates item_list_template (The IIE, 2022)
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_template, parent, false);
         }
@@ -73,7 +73,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         TextView txtItemCat = (TextView) convertView.findViewById(R.id.catNameitemAll);
         ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
 
-
+        // The code below sets the item name and item category (The IIE, 2022)
         txtItemName.setText(obj.getItem_Name());
         txtItemCat.setText(obj.getCategory());
 
@@ -82,6 +82,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         else{
             imgItem.setImageBitmap(obj.getItem_bitmap());}
 
+        // The code below returns the convert view (The IIE, 2022)
         return convertView;
     }
 }

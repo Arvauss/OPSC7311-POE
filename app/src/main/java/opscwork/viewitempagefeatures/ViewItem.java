@@ -18,9 +18,6 @@ import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
 
-import org.w3c.dom.Text;
-
-import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Item_Information;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 
@@ -31,7 +28,7 @@ public class ViewItem extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
 
-    //Init of item obj to store info from getIntent()
+    //Init of item obj to store info from getIntent (The IIE, 2022)
     Item_Information SelectedItem;
     TextView nameItem ,itemDescription, itemDate, ItemPrice, category, itemCount, DesiredItemCount;
     ImageView itemImage;
@@ -43,7 +40,7 @@ public class ViewItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_item_page);
 
-        // drawer layout instance to toggle the menu icon to open
+        // drawer layout instance to toggle the menu icon to open (The IIE, 2022)
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -63,7 +60,7 @@ public class ViewItem extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //calls methods to populate activity
+        //calls methods to populate activity (The IIE, 2022)
         getSelectedItem();
         setupUI();
         setValues();
@@ -71,6 +68,7 @@ public class ViewItem extends AppCompatActivity {
 
     }
 
+    // The code below sets up the UI in order to get the data entered by the user (The IIE, 2022)
     private void setupUI() {
          nameItem = (TextView) findViewById(R.id.ItemViewName);
          itemDescription = (TextView) findViewById(R.id.Description);
@@ -85,12 +83,13 @@ public class ViewItem extends AppCompatActivity {
          inc_desired = (ImageButton) findViewById(R.id.increase_desired_item_qty);
     }
 
+    // The code below is an on click method that executes when the decreaseqty button is clicked (The IIE, 2022)
     private void setOnclickListeners() {
         decrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SelectedItem.DecreaseQty();
-                //reloads activity to display new info | overridePendingTransition removes blinking transition
+                //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
@@ -102,7 +101,7 @@ public class ViewItem extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SelectedItem.IncreaseQty();
-                //reloads activity to display new info | overridePendingTransition removes blinking transition
+                //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
@@ -114,7 +113,7 @@ public class ViewItem extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SelectedItem.IncreaseDesiredQty();
-                //reloads activity to display new info | overridePendingTransition removes blinking transition
+                //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
@@ -126,7 +125,7 @@ public class ViewItem extends AppCompatActivity {
             public void onClick(View view) {
                 if (SelectedItem.getQty() <= SelectedItem.getDesired_Qty()) {
                     SelectedItem.DecreaseDesiredQty();
-                    //reloads activity to display new info | overridePendingTransition removes blinking transition
+                    //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                     finish();
                     overridePendingTransition(0, 0);
                     startActivity(getIntent());
@@ -136,7 +135,7 @@ public class ViewItem extends AppCompatActivity {
         });
     }
 
-    //Method used to get the selected item
+    //Method used to get the selected item (The IIE, 2022)
     private void getSelectedItem() {
         Intent previousIntent = getIntent();
         int previousID = previousIntent.getIntExtra("id", 0);
@@ -149,10 +148,10 @@ public class ViewItem extends AppCompatActivity {
         }
     }
 
-    //method to assign selected itemObj values to ui elements
+    //method to assign selected itemObj values to ui elements (The IIE, 2022)
     private void setValues() {
 
-        //setting the information of the selected item
+        //setting the information of the selected item (The IIE, 2022)
         nameItem.setText(SelectedItem.getItem_Name());
         itemDescription.setText(SelectedItem.getItem_Description());
         itemImage.setImageResource(SelectedItem.getItem_image());
@@ -166,10 +165,10 @@ public class ViewItem extends AppCompatActivity {
     }
 
 
-    // override the onOptionsItemSelected()
-    // function to implement
-    // the item click listener callback
-    // to open and close the navigation
+    // override the onOptionsItemSelected (The IIE, 2022)
+    // function to implement (The IIE, 2022)
+    // the item click listener callback (The IIE, 2022)
+    // to open and close the navigation (The IIE, 2022)
     // drawer when the icon is clicked (geeksforgeeks.org, 2022).
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -182,19 +181,19 @@ public class ViewItem extends AppCompatActivity {
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation view item clicks here (The IIE, 2022)
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            //Go to dashboard
+            //Go to dashboard (The IIE, 2022)
             Intent dashB = new Intent(this, Dashboard_Activity.class);
             startActivity(dashB);
         } else if (id == R.id.nav_shopping_list){
-            //Go to shopping list page
+            //Go to shopping list page (The IIE, 2022)
             Intent shopList = new Intent(this, ShoppingList_Page.class);
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
-            //Go to Graph page
+            //Go to Graph page (The IIE, 2022)
             //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
             //   startActivity(graphPage);
         }

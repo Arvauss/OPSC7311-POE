@@ -3,7 +3,6 @@ package opscwork.viewitempagefeatures;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,28 +15,20 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
-import com.google.android.material.navigation.NavigationView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Item_Information;
-import ST10119385.ChloeMoodley.ShoppingList_Page;
 
 public class ItemPage extends  AppCompatActivity {
 
-    // Declaration of variables ()
+    // Declaration of variables (The IIE, 2022)
     private static final String TAG = "ItemPage";
     EditText ItemName;
     EditText ItemDescription;
@@ -50,7 +41,7 @@ public class ItemPage extends  AppCompatActivity {
 
     ActivityResultLauncher<Intent> resultLauncher ;
 
-    // Creation of array list
+    // Creation of array list (The IIE, 2022)
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
     Button ConfirmItem;
 
@@ -74,6 +65,7 @@ public class ItemPage extends  AppCompatActivity {
 
     }
 
+    // The code below gets the category in order to for each item to have a category (The IIE, 2022)
     private void GetCategory(){
         Intent prevIntent = getIntent();
         int pos = prevIntent.getIntExtra("id", 0);
@@ -81,12 +73,15 @@ public class ItemPage extends  AppCompatActivity {
         Header.setText(CurrentCategory.getCategory_Name());
 
     }
+
+    // The code below gets the category for the dashboard (The IIE, 2022)
     private void GetCategory(int pos){
         CurrentCategory =  Dashboard_Activity.catList.get(pos);
         Header.setText(CurrentCategory.getCategory_Name());
 
     }
 
+    // The code below redirects the user to the add item page (The IIE, 2022)
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
         addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
@@ -95,7 +90,7 @@ public class ItemPage extends  AppCompatActivity {
     }
 
     private void setupOnClickListeners() {
-        //Gets selected item in listview and starts intent to view item info on listview item click
+        //Gets selected item in listview and starts intent to view item info on listview item click (The IIE, 2022)
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -118,6 +113,8 @@ public class ItemPage extends  AppCompatActivity {
                     }
                 });
     }
+
+    // The code below populates the list view (The IIE, 2022)
     private void setupListView() {
         mListView = (ListView) findViewById(R.id.itemListView);
         ArrayList<Item_Information> CatItems = new ArrayList<Item_Information>();
@@ -126,12 +123,13 @@ public class ItemPage extends  AppCompatActivity {
                 CatItems.add(item);
             }
         }
-        // Creation of adapter
+        // Creation of adapter (The IIE, 2022)
         ItemList adapter = new ItemList(this, R.layout.item_list_template,CatItems);
         mListView.setAdapter(adapter);
 
     }
 
+    // The code below sets up the UI in order to retrieve the data in each layout element (The IIE, 2022)
     private void setupUI() {
         ItemName = (EditText) findViewById(R.id.ItemNameBox);
         ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
@@ -141,6 +139,8 @@ public class ItemPage extends  AppCompatActivity {
         Header = (TextView) findViewById(R.id.ItemListHeader);
 
     }
+
+    // The code below populates the list view with data (The IIE, 2022)
     private void InitListData() {
         // Creation of item objects and adding them to ArrayList
         Item_Information obj1 = new Item_Information
