@@ -38,6 +38,7 @@ public class Item_Information
         this.Qty = Qty;
         this.item_Description = item_desc;
         this.item_date = item_date;
+        this.Desired_Qty = 1;
     }
 
     //Constructor for ItemListAll Add

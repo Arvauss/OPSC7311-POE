@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -100,6 +104,7 @@ public class Dashboard_Activity extends AppCompatActivity {
             }
         });
 
+
         /*btnViewAllItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,7 +116,7 @@ public class Dashboard_Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Category_Information catObj = (Category_Information) (CatListView.getItemAtPosition(position));
-                Intent displayCatItems = new Intent(getApplicationContext(), ItemPage.class);
+                Intent displayCatItems = new Intent(Dashboard_Activity.this, ItemPage.class);
                 displayCatItems.putExtra("id", position);
                 startActivity(displayCatItems);
             }

@@ -97,8 +97,6 @@ public class login extends AppCompatActivity  {
                  if(UsernameVal.equals(user.getUsername()) && PasswordVal.equals(user.getPassword())){
                      isUserValid = true;
                      return isUserValid;
-                 } else{
-                     isUserValid = false;
                  }
              }
          }

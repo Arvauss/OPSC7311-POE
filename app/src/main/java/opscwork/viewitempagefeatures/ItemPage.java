@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.Dashboard_Activity;
@@ -36,6 +40,8 @@ public class ItemPage extends  AppCompatActivity {
     Category_Information CurrentCategory;
     TextView Header;
 
+    ActivityResultLauncher<Intent> resultLauncher ;
+
     // Creation of array list
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
     Button ConfirmItem;
@@ -47,8 +53,11 @@ public class ItemPage extends  AppCompatActivity {
         Log.d(TAG, "onCreate: Started.");
 
 
+
         setupUI();
-        getCategory();
+        //try statement to catch any potential errors (W3Schools, 2022)
+        //https://www.w3schools.com/java/java_try_catch.asp
+        try {GetCategory();} catch (Exception e) { Log.d("ADDITEM", e.toString());};
         if (ItemArrayList.isEmpty())
             InitListData();
         setupListView();
@@ -56,19 +65,24 @@ public class ItemPage extends  AppCompatActivity {
 
 
     }
-    private void getCategory() {
-        Intent previousIntent = getIntent();
-        int CatName = previousIntent.getIntExtra("id", 0);
-        //Get category based on name received from intent utilising indexOf (TutorialsPoint, 2019);
-        //https://www.tutorialspoint.com/get-the-index-of-a-particular-element-in-an-arraylist-in-java#
-        CurrentCategory = Dashboard_Activity.catList.get(CatName);
+
+    private void GetCategory(){
+        Intent prevIntent = getIntent();
+        int pos = prevIntent.getIntExtra("id", 0);
+        CurrentCategory =  Dashboard_Activity.catList.get(pos);
         Header.setText(CurrentCategory.getCategory_Name());
+
+    }
+    private void GetCategory(int pos){
+        CurrentCategory =  Dashboard_Activity.catList.get(pos);
+        Header.setText(CurrentCategory.getCategory_Name());
+
     }
 
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
         addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
-        startActivity(addItem);
+        resultLauncher.launch(addItem);
 
     }
 
@@ -83,6 +97,18 @@ public class ItemPage extends  AppCompatActivity {
                 startActivity(displayItem);
             }
         });
+
+        resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if(result.getResultCode() == 1){
+                            Intent prevIntent = result.getData();
+                            int position = prevIntent.getIntExtra("id", 0);
+                            GetCategory(position);
+                        }
+                    }
+                });
     }
     private void setupListView() {
         mListView = (ListView) findViewById(R.id.itemListView);
@@ -137,5 +163,9 @@ public class ItemPage extends  AppCompatActivity {
                         6);
         ItemArrayList.add(obj3);
     }
+
+
+
+
 
 }
