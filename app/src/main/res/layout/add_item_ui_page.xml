@@ -154,7 +154,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/CategoryConfirm"
+        android:id="@+id/itemConfirm"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="5dp"
