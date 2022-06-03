@@ -25,7 +25,7 @@ public class Item_Information
         this.item_Name = item_Name;
         this.item_image = item_img;
     }
-    //Shopping list constructor
+    //Shopping list constructor (The IIE, 2022)
     public Item_Information(String item_Name, int item_img, double item_Price, int qty, String category) {
         this.item_Name = item_Name;
         this.item_image = item_img;
@@ -34,7 +34,7 @@ public class Item_Information
         this.Qty = qty;
         this.Category = category;
     }
-    //Constructor for ItemArrayList population
+    //Constructor for ItemArrayList population (The IIE, 2022)
     public Item_Information(String item_Name, String item_desc, int img, String item_date, double item_Price, String Category, int Qty) {
         this.item_Name = item_Name;
         this.item_Price = item_Price;
@@ -45,7 +45,7 @@ public class Item_Information
         this.item_date = item_date;
         this.Desired_Qty = 1;
     }
-    //Constructor for New Item Add
+    //Constructor for New Item Add (The IIE, 2022)
     public Item_Information(String item_Name, String item_desc, String item_date, double item_Price, String Category, int Qty, Bitmap bmp) {
         this.item_Name = item_Name;
         this.item_Price = item_Price;
@@ -57,7 +57,7 @@ public class Item_Information
         this.Item_bitmap = bmp;
     }
 
-    //Constructor for ItemListAll Add
+    //Constructor for ItemListAll Add (The IIE, 2022)
     public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, int Qty) {
         this.item_Name = item_Name;
         this.item_image = item_image;
@@ -67,7 +67,7 @@ public class Item_Information
         this.item_date = item_date;
     }
 
-
+    // The following is a constructor for the item list page (The IIE, 2022)
     public Item_Information(int item_image,String item_Name) {
         this.item_image = item_image;
         this.item_Name = item_Name;

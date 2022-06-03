@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
@@ -32,8 +31,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
-
-import java.io.IOException;
 
 
 public class Category_Page extends AppCompatActivity{
@@ -84,10 +81,10 @@ public class Category_Page extends AppCompatActivity{
             adapter made to push data (in the array string ) from the strings view to the
             activity_main view so all options display on UI (Android Drop Down List Tutorial, 2016).
          */
-        Spinner dropDown = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id
+        Spinner dropDown = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id (The IIE, 2022)
 
 
-        //array adapter created to get information from the string array in the string view
+        //array adapter created to get information from the string array in the string view (The IIE, 2022)
         ArrayAdapter<String> myAdapt = new ArrayAdapter<String>(Category_Page.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Colours));   //finding the array and layout of the dropdown menu
 
@@ -98,6 +95,7 @@ public class Category_Page extends AppCompatActivity{
         setUpListener();
     }
 
+    // The code below sets the UI so that each elements data is stored (The IIE, 2022)
     private void setUpUI() {
 
         image = (ImageView) findViewById(R.id.ImageCat);
@@ -107,7 +105,7 @@ public class Category_Page extends AppCompatActivity{
         Colour = (Spinner) findViewById(R.id.DropDown);
     };
 
-    //AR Launcher
+    //AR Launcher (The IIE, 2022)
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
@@ -119,6 +117,7 @@ public class Category_Page extends AppCompatActivity{
         }
     });
 
+    // The code below allows a user to choose an image for the category (The IIE, 2022)
     private void setUpListener() {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +135,7 @@ public class Category_Page extends AppCompatActivity{
         btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //gets String array based on array of colours, matches index of colours with dropdown list selected item to get colour
+                //gets String array based on array of colours, matches index of colours with dropdown list selected item to get colour (The IIE, 2022)
                 //(Danylyk D., 2012)  https://stackoverflow.com/questions/9114587/how-can-i-save-colors-in-array-xml-and-get-it-back-to-a-color-array
                 String[] ColoursList = getApplicationContext().getResources().getStringArray(R.array.clrs);
                 Catobj = new Category_Information(Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
@@ -192,11 +191,11 @@ public class Category_Page extends AppCompatActivity{
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            //Go to dashboard
+            //Go to dashboard (The IIE, 2022)
             Intent dashB = new Intent(this, Dashboard_Activity.class);
             startActivity(dashB);
         } else if (id == R.id.nav_shopping_list){
-            //Go to shopping list page
+            //Go to shopping list page (The IIE, 2022)
             Intent shopList = new Intent(this, ShoppingList_Page.class);
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
@@ -208,10 +207,10 @@ public class Category_Page extends AppCompatActivity{
         return true;
     }
 
-    // override the onOptionsItemSelected()
-    // function to implement
-    // the item click listener callback
-    // to open and close the navigation
+    // override the onOptionsItemSelected (The IIE, 2022)
+    // function to implement (The IIE, 2022)
+    // the item click listener callback (The IIE, 2022)
+    // to open and close the navigation (The IIE, 2022)
     // drawer when the icon is clicked (geeksforgeeks.org, 2022).
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -222,7 +221,7 @@ public class Category_Page extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-//android on click = view
+//android on click = view (The IIE, 2022)
     public void GoBackDash (View v) {
         Intent goBackDash = new Intent (this, Dashboard_Activity.class);
         startActivity(goBackDash);

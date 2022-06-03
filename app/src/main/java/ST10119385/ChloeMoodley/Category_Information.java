@@ -1,12 +1,12 @@
 package ST10119385.ChloeMoodley;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
 
 import com.example.test.R;
 
 public class Category_Information {
 
+    // Declaration of Variables (The IIE, 2022)
     private int category_Colour;
     private String category_Name;
     private String category_Description;

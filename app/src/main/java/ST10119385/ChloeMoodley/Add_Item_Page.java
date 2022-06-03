@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -42,6 +41,7 @@ import opscwork.viewitempagefeatures.ItemPage;
 
 public class Add_Item_Page extends AppCompatActivity {
 
+    // Declaration of variables (The IIE, 2022)
     private final int STORAGE_PERMISSION_CODE = 100;
     private final int CAMERA_PERMISSION_CODE = 101;
     ImageView picture;
@@ -75,7 +75,7 @@ public class Add_Item_Page extends AppCompatActivity {
         setUpUI();
         setUpListener();
 
-        // drawer layout instance to toggle the menu icon to open
+        // drawer layout instance to toggle the menu icon to open (The IIE, 2022)
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -86,7 +86,7 @@ public class Add_Item_Page extends AppCompatActivity {
         //Setting navigation item listener (Pulak, 2017).
         burgerNavigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
-        // pass the Open and Close toggle for the drawer layout listener
+        // pass the Open and Close toggle for the drawer layout listener (The IIE, 2022)
         // to toggle the button (geeksforgeeks.org, 2022).
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -94,36 +94,36 @@ public class Add_Item_Page extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /* the datapicker code to allow user to select year, month and day without
+        /* the datapicker code to allow user to select year, month and day without (The IIE, 2022)
         typing it (Android Beginner Tutorial #25  - DatePicker Dialog [Choosing a Date from a Dialog Pop-Up], 2017). */
 
         displayDate = (TextView) findViewById(R.id.DatePicker); //finding view by the text id
 
         /*
             When user clicks year, month, and day in a calender format
-            will pop up mid page when view goes to the activity_main2 view.
+            will pop up mid page when view goes to the activity_main2 view (The IIE, 2022)
          */
         displayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);  //year will display
-                int month = cal.get(Calendar.MONTH);    //month will display
-                int day = cal.get(Calendar.DAY_OF_MONTH); //day of month will display
+                int year = cal.get(Calendar.YEAR);  //year will display (The IIE, 2022)
+                int month = cal.get(Calendar.MONTH);    //month will display (The IIE, 2022)
+                int day = cal.get(Calendar.DAY_OF_MONTH); //day of month will display (The IIE, 2022)
 
-                //already installed in design of calender
+                //already installed in design of calender (The IIE, 2022)
                 DatePickerDialog di = new DatePickerDialog (Add_Item_Page.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateSetListener,
                         year, month, day);
 
-                //color of calender
+                //color of calender (The IIE, 2022)
                 di.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 di.show();
             }
         });
 
-        //month is automatically set a 0, when month displays we need to add one to make it the month the user selects
-        //automatically set it to today's date
+        //month is automatically set a 0, when month displays we need to add one to make it the month the user selects (The IIE, 2022)
+        //automatically set it to today's date (The IIE, 2022)
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -136,6 +136,7 @@ public class Add_Item_Page extends AppCompatActivity {
         };
     }
 
+    // The code below sets up the UI in order for all the data entered to be stored in each variable (The IIE, 2022)
     private void setUpUI() {
         ItemName = (EditText) findViewById(R.id.ItemNameBox);
         ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
@@ -145,7 +146,7 @@ public class Add_Item_Page extends AppCompatActivity {
         btnItemConfirm = (Button) findViewById(R.id.itemConfirm);
     }
 
-    //AR Launcher
+    //AR Launcher (The IIE, 2022)
     ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
@@ -159,15 +160,15 @@ public class Add_Item_Page extends AppCompatActivity {
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation view item clicks here (The IIE, 2022)
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            //Go to dashboard
+            //Go to dashboard (The IIE, 2022)
             Intent dashB = new Intent(this, Dashboard_Activity.class);
             startActivity(dashB);
         } else if (id == R.id.nav_shopping_list){
-            //Go to shopping list page
+            //Go to shopping list page (The IIE, 2022)
             Intent shopList = new Intent(this, ShoppingList_Page.class);
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
@@ -191,7 +192,7 @@ public class Add_Item_Page extends AppCompatActivity {
             }
         });
 
-        // Variable Declaration
+        // Variable Declaration (The IIE, 2022)
         String catName;
         Intent PrevoiusIntent = getIntent();
         catName = PrevoiusIntent.getStringExtra("categoryName");
@@ -221,10 +222,10 @@ public class Add_Item_Page extends AppCompatActivity {
         });
     }
 
-    // override the onOptionsItemSelected()
-    // function to implement
-    // the item click listener callback
-    // to open and close the navigation
+    // override the onOptionsItemSelected (The IIE, 2022)
+    // function to implement (The IIE, 2022)
+    // the item click listener callback (The IIE, 2022)
+    // to open and close the navigation (The IIE, 2022)
     // drawer when the icon is clicked (geeksforgeeks.org, 2022).
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -235,7 +236,7 @@ public class Add_Item_Page extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    // The code below checks for permission before the user can choose an image (The IIE, 2022)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -254,6 +255,7 @@ public class Add_Item_Page extends AppCompatActivity {
         }
     }
 
+    // The code below checks for permission before the user can choose an image (The IIE, 2022)
         public void checkPermissions(String permission, int requestCode) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(Add_Item_Page.this, new String[]{permission}, requestCode);
@@ -263,12 +265,14 @@ public class Add_Item_Page extends AppCompatActivity {
             }
         }
 
+    // The code below ensures a user can add an image (The IIE, 2022)
     public void ImageHandler(){
         Toast.makeText(Add_Item_Page.this, "Camera permission granted", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         resultLauncher.launch(i);
     }
 
+    // The code below takes the user to the dashboard (The IIE, 2022)
     public void goBackToList (View v, int pos) {
 
         Intent listBackItem = new Intent(getApplicationContext(), Dashboard_Activity.class);
