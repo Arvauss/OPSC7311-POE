@@ -144,6 +144,9 @@ public class ViewItem extends AppCompatActivity {
 
         category = (TextView) findViewById(R.id.CategoryNameTextView);
         category.setText(SelectedItem.getCategory());
+        if (SelectedItem.getItem_bitmap() != null){
+            itemImage.setImageBitmap(SelectedItem.getItem_bitmap());
+        }
     }
 
     //method to assign selected itemObj values to ui elements

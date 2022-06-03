@@ -3,6 +3,7 @@ package opscwork.viewitempagefeatures;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,10 +16,15 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
+import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
 
@@ -27,6 +33,8 @@ import java.util.ArrayList;
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Item_Information;
+import ST10119385.ChloeMoodley.ShoppingList_Page;
+
 public class ItemPage extends  AppCompatActivity {
 
     // Declaration of variables ()
@@ -163,8 +171,6 @@ public class ItemPage extends  AppCompatActivity {
                         6);
         ItemArrayList.add(obj3);
     }
-
-
 
 
 

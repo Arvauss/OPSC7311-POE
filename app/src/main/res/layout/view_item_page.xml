@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="VEGETABLES"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     </LinearLayout>
 
 

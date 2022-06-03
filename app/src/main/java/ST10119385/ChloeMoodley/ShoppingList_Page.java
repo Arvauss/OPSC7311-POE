@@ -38,7 +38,7 @@ public class ShoppingList_Page extends AppCompatActivity {
     ImageView ItemImageShoppingList;
     TextView ItemPriceShoppingList;
     TextView ItemQuantityShoppingList;
-
+    ListView mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,23 +66,31 @@ public class ShoppingList_Page extends AppCompatActivity {
 
         //adapter for shopping list
         Log.d(TAG, "onCreate : Started.");
-        ListView mList = (ListView) findViewById(R.id.shoppingListView);
+        //mList = (ListView) findViewById(R.id.shoppingListView);
 
-        Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
-                20.10, 2, "Drinks");
 
-        //add to list
-        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();
 
-        ShoppingListArrayList.add((slo));
 
-        ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
-        mList.setAdapter(adp);
+    setupListView();
+
+
 
         setOnClickListeners();
     }
 
-    ListView mList = (ListView) findViewById(R.id.shoppingListView);
+    public void setupListView(){
+        mList = (ListView) findViewById(R.id.shoppingListView);
+
+        //add to list
+        Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
+                20.10, 2, "Drinks");
+        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();
+        ShoppingListArrayList.add((slo));
+        ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
+        mList.setAdapter(adp);
+    }
+
+
     //On click listener used to show list of shopping items
     private void setOnClickListeners() {
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
