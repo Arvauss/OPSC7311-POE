@@ -21,7 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +52,7 @@ public class Add_Item_Page extends AppCompatActivity {
     Button btnItemConfirm;
 
     Item_Information obj;
+    Bitmap imageBMP;
 
 
     //adding second view and class (Add a Second Activity to your App, 2017).
@@ -62,6 +65,7 @@ public class Add_Item_Page extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +135,7 @@ public class Add_Item_Page extends AppCompatActivity {
             }
         };
     }
+
     private void setUpUI() {
         ItemName = (EditText) findViewById(R.id.ItemNameBox);
         ItemDescription = (EditText) findViewById(R.id.ItemDescTextBox);
@@ -139,6 +144,18 @@ public class Add_Item_Page extends AppCompatActivity {
         picture = (ImageView) findViewById(R.id.ImageItemPic);
         btnItemConfirm = (Button) findViewById(R.id.itemConfirm);
     }
+
+    //AR Launcher
+    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            Bundle imgBundle = result.getData().getExtras();
+            if (imgBundle != null){
+                imageBMP = (Bitmap) imgBundle.get("data");
+                picture.setImageBitmap(imageBMP);
+            }
+        }
+    });
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -162,20 +179,18 @@ public class Add_Item_Page extends AppCompatActivity {
         return true;
     }
     private void setUpListener() {
-/*        picture.setOnClickListener(new View.OnClickListener() {
+        picture.setOnClickListener(new View.OnClickListener() {
 
-            ActivityResultLauncher<Intent> acivityResultLauncher = null;
             @Override
             public void onClick(View view) {
                 if (view.getId()==R.id.ImageItemPic) {
-                    checkPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
+                    //checkPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE_PERMISSION_CODE);
                     checkPermissions(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE);
                 }else{
-                    Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    acivityResultLauncher.launch(i);
                 }
             }
-        });*/
+        });
+
         // Variable Declaration
         String catName;
         Intent PrevoiusIntent = getIntent();
@@ -186,11 +201,11 @@ public class Add_Item_Page extends AppCompatActivity {
             public void onClick(View view) {
                 obj = new Item_Information(ItemName.getText().toString(),
                         ItemDescription.getText().toString(),
-                        R.drawable.bodega_image,
                         ItemPurchaseDate.getText().toString(),
                         Double.parseDouble(ItemPrice.getText().toString()),
                         catName,
-                        1
+                        1,
+                        imageBMP
                 );
                 int position = 0;
                 for (Category_Information cat: Dashboard_Activity.catList) {
@@ -199,8 +214,6 @@ public class Add_Item_Page extends AppCompatActivity {
                         break;
                     }
                 }
-
-
                 ItemPage.ItemArrayList.add(obj);
                 goBackToList(view, position);
 
@@ -246,14 +259,14 @@ public class Add_Item_Page extends AppCompatActivity {
                 ActivityCompat.requestPermissions(Add_Item_Page.this, new String[]{permission}, requestCode);
             } else {
                 Toast.makeText(Add_Item_Page.this, "Permission already granted", Toast.LENGTH_SHORT).show();
-
+                ImageHandler();
             }
         }
-    public void onActivityResult(ActivityResult result){
-        Uri imageuri;
-        Bundle bundle = result.getData().getExtras();
-        Bitmap imageBitMap = (Bitmap) bundle.get("Data");
-        picture.setImageBitmap(imageBitMap);
+
+    public void ImageHandler(){
+        Toast.makeText(Add_Item_Page.this, "Camera permission granted", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        resultLauncher.launch(i);
     }
 
     public void goBackToList (View v, int pos) {

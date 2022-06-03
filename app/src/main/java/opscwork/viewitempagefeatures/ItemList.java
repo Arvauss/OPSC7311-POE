@@ -57,8 +57,9 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         String ItemCat = getItem(position).getCategory();
         int ItemImg = getItem(position).getItem_image();
 
+
         // Creation of item information object ()
-        Item_Information obj = new Item_Information(ItemName, ItemImg);
+        Item_Information obj = getItem(position);
         //Creation of inflater
         LayoutInflater inflater = LayoutInflater.from(mContext);
         //inflates item_list_template
@@ -72,9 +73,14 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         TextView txtItemCat = (TextView) convertView.findViewById(R.id.catNameitemAll);
         ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
 
-        txtItemName.setText(ItemName);
-        txtItemCat.setText(ItemCat);
-        imgItem.setImageResource(R.drawable.bodega_image);
+
+        txtItemName.setText(obj.getItem_Name());
+        txtItemCat.setText(obj.getCategory());
+
+        if (obj.getItem_bitmap() == null){
+            imgItem.setImageResource(R.drawable.bodega_image);}
+        else{
+            imgItem.setImageBitmap(obj.getItem_bitmap());}
 
         return convertView;
     }

@@ -51,13 +51,6 @@ public class Category_Page extends AppCompatActivity{
     private static final int REQUEST_IMAGE_CAPTURE = 0;
 
 
-    ActivityResultLauncher<String> _getContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
-        @Override
-        public void onActivityResult(Uri result) {
-
-        }
-    });
-
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
@@ -67,9 +60,6 @@ public class Category_Page extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_ui_page);
-
-
-
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).

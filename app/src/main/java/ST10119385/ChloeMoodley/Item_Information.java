@@ -1,5 +1,6 @@
 package ST10119385.ChloeMoodley;
 
+import android.graphics.Bitmap;
 import android.widget.ProgressBar;
 
 public class Item_Information
@@ -7,11 +8,15 @@ public class Item_Information
     private String item_Name;               //name variable declared (The IIE, 2022).
     private String item_Description;        //description variable declared (The IIE, 2022).
     private int item_image;                 //image variable declared (The IIE, 2022).
+    private Bitmap Item_bitmap = null;
     private String item_date;               //date variable declared (The IIE, 2022).
     private double item_Price;              //price variable declared (The IIE, 2022).
     private String Category;                //category variable declared (The IIE, 2022).
     private int Qty;                        //Qty variable declared (The IIE, 2022).
     private int Desired_Qty;                //Desired_Qty variable declared (The IIE, 2022).
+
+
+
     private ProgressBar ItemBar;            //ItemBar variable declared (The IIE, 2022).
 
     //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
@@ -29,16 +34,27 @@ public class Item_Information
         this.Qty = qty;
         this.Category = category;
     }
-    //Constructor for New Item Add
-    public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, String Category, int Qty) {
+    //Constructor for ItemArrayList population
+    public Item_Information(String item_Name, String item_desc, int img, String item_date, double item_Price, String Category, int Qty) {
         this.item_Name = item_Name;
-        this.item_image = item_image;
+        this.item_Price = item_Price;
+        this.item_image = img;
+        this.Category = Category;
+        this.Qty = Qty;
+        this.item_Description = item_desc;
+        this.item_date = item_date;
+        this.Desired_Qty = 1;
+    }
+    //Constructor for New Item Add
+    public Item_Information(String item_Name, String item_desc, String item_date, double item_Price, String Category, int Qty, Bitmap bmp) {
+        this.item_Name = item_Name;
         this.item_Price = item_Price;
         this.Category = Category;
         this.Qty = Qty;
         this.item_Description = item_desc;
         this.item_date = item_date;
         this.Desired_Qty = 1;
+        this.Item_bitmap = bmp;
     }
 
     //Constructor for ItemListAll Add
@@ -133,6 +149,14 @@ public class Item_Information
     public int DecreaseDesiredQty(){
         Desired_Qty--;
         return Desired_Qty;
+    }
+
+    public Bitmap getItem_bitmap() {
+        return Item_bitmap;
+    }
+
+    public void setItem_bitmap(Bitmap item_bitmap) {
+        Item_bitmap = item_bitmap;
     }
 
 }

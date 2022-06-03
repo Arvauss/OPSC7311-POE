@@ -107,7 +107,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:paddingTop="5dp"
-            android:contentDescription="image" />
+            android:contentDescription="image"
+            android:background="@drawable/add_icon"/>
 
         <TextView
             android:id="@+id/DateText"
