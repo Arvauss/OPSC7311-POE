@@ -67,6 +67,7 @@ public class ItemPage extends  AppCompatActivity {
 
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
+        addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
         startActivity(addItem);
     }
 
@@ -127,4 +128,5 @@ public class ItemPage extends  AppCompatActivity {
                         6);
         ItemArrayList.add(obj3);
     }
+
 }
