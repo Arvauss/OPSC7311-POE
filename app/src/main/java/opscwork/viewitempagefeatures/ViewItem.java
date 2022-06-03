@@ -129,7 +129,6 @@ public class ViewItem extends AppCompatActivity {
         itemDate.setText(SelectedItem.getItem_date());
         ItemPrice.setText(Double.toString(SelectedItem.getItem_Price()));
         itemCount.setText(Integer.toString(SelectedItem.getQty()));
-        // decrease.setClickable(SelectedItem.DecreaseQty());
 
     }
 

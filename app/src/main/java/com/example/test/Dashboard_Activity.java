@@ -165,20 +165,9 @@ public class Dashboard_Activity extends AppCompatActivity {
         startActivity(addCat);
     }
 
-    public void GoToHome (View v) {
-        Intent home = new Intent(this, Dashboard_Activity.class);
-        startActivity(home);
-    }
-
     public void GoToViewAllItem (View v) {
         Intent viewItemAll = new Intent(this, item_list_all.class);
         startActivity(viewItemAll);
     }
-
-    
-     public void GoToViewItem (View v) {
-        Intent ViewItem = new Intent(this, opscwork.viewitempagefeatures.ViewItem.class);
-        startActivity(ViewItem);
-     }
 
 }

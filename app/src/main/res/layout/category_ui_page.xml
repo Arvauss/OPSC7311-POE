@@ -144,7 +144,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/greenbutton_background"
-        android:onClick="GoBackDash"
         android:text="CONFIRM"
         android:layout_gravity="bottom"
         android:textSize="25sp"

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -40,7 +41,7 @@ public class Category_Page extends AppCompatActivity{
     EditText CategoryDescription;
     Spinner Colour;
     Button btnConfirmCategory;
-    public static Category_Information Catobj = null;
+    Category_Information Catobj;
 
     private static final int REQUEST_IMAGE_CAPTURE = 0;
 
@@ -53,10 +54,7 @@ public class Category_Page extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_ui_page);
-        CategoryName = (EditText) findViewById(R.id.NameTextBox);
-        CategoryDescription = (EditText) findViewById(R.id.DescriptionTextBox);
-        Colour = (Spinner) findViewById(R.id.DropDown);
-        image = (ImageView) findViewById(R.id.ImageCat);
+
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -83,7 +81,6 @@ public class Category_Page extends AppCompatActivity{
          */
         Spinner dropDown = (Spinner) findViewById(R.id.DropDown);   //find spinner by the id
 
-        Button but = (Button) findViewById(R.id.CategoryConfirm);
 
         //array adapter created to get information from the string array in the string view
         ArrayAdapter<String> myAdapt = new ArrayAdapter<String>(Category_Page.this,
@@ -93,33 +90,17 @@ public class Category_Page extends AppCompatActivity{
         dropDown.setAdapter(myAdapt);   //setting the spinner to the adapter
 
         setUpUI();
-       // setUpListener();
+        setUpListener();
     }
 
     private void setUpUI() {
 
-        ImageView image = (ImageView) findViewById(R.id.ImageCat);
+        image = (ImageView) findViewById(R.id.ImageCat);
         btnConfirmCategory = (Button) findViewById(R.id.CategoryConfirm);
-    }
-
-    public void setupOnclickListeners(){
-
-        // Variable Declaration
-        String CategoryName;
-        Intent PrevoiusIntent = getIntent();
-        CategoryName = PrevoiusIntent.getStringExtra("categoryName");
-
-        btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Catobj.setCategory_Colour(int.class.cast(Colour));
-                Catobj.setCategory_Name(CategoryName.toString());
-                Catobj.setCategory_Description(CategoryDescription.toString());
-                Catobj.setCategory_Icon(int.class.cast(image));
-                Dashboard_Activity.catList.add(Catobj);
-                GoBackDash(view);
-            }
-        });}
+        CategoryName = (EditText) findViewById(R.id.NameTextBox);
+        CategoryDescription = (EditText) findViewById(R.id.DescriptionTextBox);
+        Colour = (Spinner) findViewById(R.id.DropDown);
+    };
 
     private void setUpListener() {
         image.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +116,22 @@ public class Category_Page extends AppCompatActivity{
                     acivityResultLauncher.launch(i);
                 }
 
+            }
+        });
+        // Variable Declaration
+
+        btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*int[] colourList = getApplicationContext().getResources().getIntArray(R.array.clrs);
+                int colour = colourList[Colour.getSelectedItemPosition()];*/
+                String[] ColoursList = getApplicationContext().getResources().getStringArray(R.array.clrs);
+                Catobj = new Category_Information(Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
+                        CategoryName.getText().toString(),
+                        CategoryDescription.getText().toString());
+
+                Dashboard_Activity.catList.add(Catobj);
+                GoBackDash(view);
             }
         });
     }

@@ -24,6 +24,14 @@
         <item>Pink</item>
         <item>Yellow</item>
     </string-array>
+    <string-array name="clrs" size="15">
+        <item>#0ECC1D</item>
+        <item>#E30F0F</item>
+        <item>#0F3FE3</item>
+        <item>#8F0FE3</item>
+        <item>#F11898</item>
+        <item>#F7F000</item>
+    </string-array>
 
     //naming conventions for textViews in item page
     <string name="add_Item">ADD ITEM</string>
