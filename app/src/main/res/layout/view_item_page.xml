@@ -87,6 +87,38 @@
         <!-- (The IIE, 2022) -->
 
         <TextView
+            android:id="@+id/itemViewName3"
+            android:layout_width="102dp"
+            android:layout_height="20dp"
+            android:text="Desired QTY"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.004" />
+
+        <TextView
+            android:id="@+id/itemViewName"
+            android:layout_width="40dp"
+            android:layout_height="19dp"
+            android:text="QTY"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.006" />
+
+        <TextView
             android:id="@+id/ItemNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
