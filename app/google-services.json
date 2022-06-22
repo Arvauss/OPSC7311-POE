@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357030504576",
+    "project_id": "bodegaapp-opscpoe",
+    "storage_bucket": "bodegaapp-opscpoe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357030504576:android:a29eb8a3935d169fd21e65",
+        "android_client_info": {
+          "package_name": "ST10119385.ChloeMoodley"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357030504576-ckn46gotf632dmg5s820asple3dl0cm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqpFhjU9gqGuGGTMzeq_BOC6jZLgRO40Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357030504576-ckn46gotf632dmg5s820asple3dl0cm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
