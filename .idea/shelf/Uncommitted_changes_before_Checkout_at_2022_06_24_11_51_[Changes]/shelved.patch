@@ -1,0 +1,69 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/Dewald/Desktop/CS/2022/OPSC7/Test/app/src/main/res/layout/activity_register.xml\" value=\"0.31567028985507245\" />\r\n        <entry key=\"..\\:/Users/Dewald/Desktop/CS/2022/OPSC7/Test/app/src/main/res/layout/login.xml\" value=\"0.2391304347826087\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/button_background.xml\" value=\"0.137\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/buttont_background.xml\" value=\"0.137\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/edit_text.xml\" value=\"0.137\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/itempagebackground.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/loginpagebackground.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/loginpagebackround.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/roundbutton.xml\" value=\"0.2115\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/layout/activity_main.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/layout/login.xml\" value=\"0.27447916666666666\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision b3a209c5e911162ba80ad3fb40fc958c653ecac9)
++++ b/.idea/misc.xml	(date 1656064196962)
+@@ -3,17 +3,47 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
+-        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/Test/app/src/main/res/layout/activity_register.xml" value="0.31567028985507245" />
+-        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/Test/app/src/main/res/layout/login.xml" value="0.2391304347826087" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/button_background.xml" value="0.137" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/buttont_background.xml" value="0.137" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/edit_text.xml" value="0.137" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/itempagebackground.xml" value="0.2115" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/loginpagebackground.xml" value="0.2115" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/loginpagebackround.xml" value="0.2115" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/drawable/roundbutton.xml" value="0.2115" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+-        <entry key="..\:/Users/kagis/AndroidStudioProjects/Register2/app/src/main/res/layout/login.xml" value="0.27447916666666666" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/drawable/headerbox.xml" value="0.2535" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/drawable/headingbox.xml" value="0.2535" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/drawable/item_bg.xml" value="0.2535" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/activity_register.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/add_item_ui_page.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/category_card_layout.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/category_ui_page.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/item_list_page.xml" value="0.264" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/item_list_template.xml" value="0.264" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/login.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/shopping_list_page.xml" value="0.264" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/shopping_list_template.xml" value="0.264" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/layout/view_item_page.xml" value="0.25" />
++        <entry key="..\:/OPSC-POE/app/src/main/res/menu/burger_menu.xml" value="0.264" />
++        <entry key="..\:/Users/27796/Downloads/Task Two View Item Page/app/src/main/res/layout/view_item_page.xml" value="0.22327898550724637" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/OPSC POE/OPSC POE/BodegaApp/app/src/main/res/layout/activity_register.xml" value="0.20364583333333333" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/OPSC POE/OPSC POE/BodegaApp/app/src/main/res/layout/graph_page.xml" value="0.1" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/OPSC POE/OPSC POE/BodegaApp/app/src/main/res/layout/item_list_page.xml" value="0.33605072463768115" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/OPSC POE/OPSC POE/BodegaApp/app/src/main/res/layout/login.xml" value="0.3283514492753623" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/OPSC POE/OPSC POE/BodegaApp/app/src/main/res/layout/view_item_page.xml" value="0.33605072463768115" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/2022/OPSC7/Test/app/src/main/res/layout/activity_main.xml" value="0.2667572463768116" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/drawable/add_icon.xml" value="0.224" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/activity_dashboard.xml" value="0.20208333333333334" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/activity_register.xml" value="0.12129629629629629" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/add_item_ui_page.xml" value="0.33605072463768115" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/category_card_layout.xml" value="0.20208333333333334" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/category_ui_page.xml" value="0.33605072463768115" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/item_list_page.xml" value="0.33605072463768115" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/item_list_template.xml" value="0.20208333333333334" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/login.xml" value="0.20208333333333334" />
++        <entry key="..\:/Users/Dewald/Desktop/CS/Bodega/app/src/main/res/layout/view_item_page.xml" value="0.25" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/activity_dashboard.xml" value="0.1983695652173913" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/activity_main.xml" value="0.1983695652173913" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/category_ui_page.xml" value="0.12715298885511653" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/item_list_page.xml" value="0.12715298885511653" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/shopping_list_page.xml" value="0.1983695652173913" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/shopping_list_template.xml" value="0.1983695652173913" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/layout/view_item_page.xml" value="0.1983695652173913" />
++        <entry key="..\:/Users/chloe/Documents/Code/AndroidStudio/OPSC-POE/app/src/main/res/menu/burger_menu.xml" value="0.25743589743589745" />
+       </map>
+     </option>
+   </component>
