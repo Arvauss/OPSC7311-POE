@@ -9,10 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +21,7 @@ import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Category_Page;
+import ST10119385.ChloeMoodley.Graph_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 import ST10119385.ChloeMoodley.item_list_all;
 import opscwork.viewitempagefeatures.ItemPage;
@@ -153,8 +150,8 @@ public class Dashboard_Activity extends AppCompatActivity {
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
             //Go to Graph page
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+            Intent graphPage = new Intent(this, Graph_Page.class);
+            startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
