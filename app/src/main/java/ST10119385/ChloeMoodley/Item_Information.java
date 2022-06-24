@@ -14,7 +14,7 @@ public class Item_Information
     private String Category;                //category variable declared (The IIE, 2022).
     private int Qty;                        //Qty variable declared (The IIE, 2022).
     private int Desired_Qty;                //Desired_Qty variable declared (The IIE, 2022).
-
+    private double TotalCost;               //TotalCost variable declared (The IIE, 2022).
 
 
     private ProgressBar ItemBar;            //ItemBar variable declared (The IIE, 2022).
@@ -33,6 +33,7 @@ public class Item_Information
         this.item_Price = item_Price;
         this.Qty = qty;
         this.Category = category;
+        this.TotalCost = TotalCost;
     }
     //Constructor for ItemArrayList population
     public Item_Information(String item_Name, String item_desc, int img, String item_date, double item_Price, String Category, int Qty) {
@@ -122,6 +123,10 @@ public class Item_Information
     public int getQty() { return Qty; }
 
     public void setQty(int qty) { Qty = qty; }
+
+    public int getTotalCost() { return Qty; }
+
+    public void setTotalCost(int Total) { TotalCost = Total; }
 
     public int getDesired_Qty() { return Desired_Qty; }
 
