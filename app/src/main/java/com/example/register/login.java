@@ -48,7 +48,7 @@ public class login extends AppCompatActivity {
         setupListener();
     }
 
-    // This method retreives the data entered in each of the textboxes as well as the login button (The IIE, 2022)
+    // This method retrieves the data entered in each of the textboxes as well as the login button (The IIE, 2022)
     private void setupUI() {
         Email = findViewById((R.id.Email_EditText));
         //Username = findViewById(R.id.UsernameEditText);
