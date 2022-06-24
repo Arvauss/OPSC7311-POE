@@ -9,6 +9,9 @@ public class LoginPageDataModel {
         private String Username;
         private String Password;
 
+    public LoginPageDataModel(){
+
+    }
         // This constructor accepts two string inputs for the username and password (The IIE, 2022)
         public LoginPageDataModel(String email, String username, String password) {
             this.Email = email;
@@ -16,9 +19,6 @@ public class LoginPageDataModel {
             this.Password = password;
         }
 
-public LoginPageDataModel(){
-
-}
     public String getEmail() {return Email;}
 
     // The following is a set method to set the username (The IIE, 2022)

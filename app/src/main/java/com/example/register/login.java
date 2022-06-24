@@ -169,7 +169,7 @@ public class login extends AppCompatActivity {
 
    textView.setOnClickListener(new View.OnClickListener){
        public void onClick(View RegisterHyperLink){
-            Intent intent = new Intent(this, MainActivity.class);
+         //   Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
 

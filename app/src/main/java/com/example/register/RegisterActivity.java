@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-
+//Method to check if email inserted is correct
     boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
@@ -86,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // This method forces the user to enter a username and password (The IIE, 2022)
     boolean checkDataEntered() {
+        //Boolean method is used to check if the data a user enters is correct
         boolean dataValid = true;
 
         if (isEmail(email_EditText)==false) {
@@ -103,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return dataValid;
     }
-
+//Method used to update the user in database
     private void updateUI(FirebaseUser user) {
     }
 
