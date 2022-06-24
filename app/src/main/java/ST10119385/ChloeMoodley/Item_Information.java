@@ -19,6 +19,10 @@ public class Item_Information
 
     private ProgressBar ItemBar;            //ItemBar variable declared (The IIE, 2022).
 
+    public Item_Information(){
+
+    }
+
     //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
     //Constructor for ItemList adapter
     public Item_Information(String item_Name, int item_img) {

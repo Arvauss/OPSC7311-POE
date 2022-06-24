@@ -28,6 +28,7 @@ public class ViewItem extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
 
+
     //Init of item obj to store info from getIntent (The IIE, 2022)
     Item_Information SelectedItem;
     TextView nameItem ,itemDescription, itemDate, ItemPrice, category, itemCount, DesiredItemCount;
@@ -65,7 +66,6 @@ public class ViewItem extends AppCompatActivity {
         setupUI();
         setValues();
         setOnclickListeners();
-
     }
 
     // The code below sets up the UI in order to get the data entered by the user (The IIE, 2022)
