@@ -36,6 +36,7 @@
         <activity android:name="ST10119385.ChloeMoodley.Add_Item_Page" />
         <activity android:name="com.example.register.RegisterActivity" />
         <activity android:name="opscwork.viewitempagefeatures.ItemPage"/>
+        <activity android:name="ST10119385.ChloeMoodley.Graph_Page"/>
     </application>
 
 </manifest>
