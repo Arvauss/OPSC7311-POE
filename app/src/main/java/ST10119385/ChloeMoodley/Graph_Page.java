@@ -4,15 +4,19 @@ package ST10119385.ChloeMoodley;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.util.ArrayList;
 
@@ -41,6 +45,32 @@ public class Graph_Page extends AppCompatActivity {
         PIE.setDrawEntryLabels(true);
 
         dataSet();
+
+        PIE.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                Log.d(TAG, "OnValueSelected: Value select from chart.");
+                Log.d(TAG, "OnValueSelected: " + e.toString());
+                Log.d(TAG, "OnValueSelected: " + h.toString());
+
+                int p1 = e.toString().indexOf("(sum): ");
+                String cat = e.toString().substring(p1 + 7);
+
+                for (int i = 0; i < yData.length; i++) {
+                    if (yData[i] == Float.parseFloat(cat)) {
+                        p1 = i;
+                        break;
+                    }
+                }
+                String sup = xData[p1 + 1];
+                Toast.makeText(Graph_Page.this, "Category " + sup + "\n" + "Number of Items: " +"\n" +cat, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
     }
 
     public void dataSet () {
@@ -80,6 +110,8 @@ public class Graph_Page extends AppCompatActivity {
         PieData pieData = new PieData(pieDataSet);
         PIE.setData(pieData);
         PIE.invalidate();
+
+
 
     }
 
