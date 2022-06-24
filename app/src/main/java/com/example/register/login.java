@@ -62,7 +62,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //if (verifyUsername()) {
-                signIn(Email.getText().toString(), Password.getText().toString());
+                signIn(Email.getText().toString(), Password.getText().toString(), view);
                 //Login(view);
                 //   } else {
                 //prompt if user makes a wong input on password or username (The IIE, 2022)
@@ -72,6 +72,53 @@ public class login extends AppCompatActivity {
 
             // }
         });
+    }
+
+
+
+
+    //boolean is used to evaluate any empty editTexts (The IIE, 2022)
+    boolean isEmpty(EditText Username) {
+        CharSequence str = Username.getText().toString();
+        return TextUtils.isEmpty(str);
+    }
+
+    public void signIn(String email, String password, View view) {
+        Auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(login.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
+
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = Auth.getCurrentUser();
+                            updateUI(user);
+                            Login(view);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+
+
+
+
+    private void updateUI(FirebaseUser user) {
+    }
+    // This redirects the user to the register page (The IIE, 2022)
+    public void GoToRegister(View view){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    //Opening the Dashboard page when logged in (The IIE, 2022)
+    public void Login(View view){
+        Intent intent = new Intent(this, Dashboard_Activity.class);
+        startActivity(intent);
     }
 
     //This method is used to verify the username and password (The IIE, 2022)
@@ -117,50 +164,6 @@ public class login extends AppCompatActivity {
             return isUserValid;
         }
     }*/
-
-
-    //boolean is used to evaluate any empty editTexts (The IIE, 2022)
-    boolean isEmpty(EditText Username) {
-        CharSequence str = Username.getText().toString();
-        return TextUtils.isEmpty(str);
-    }
-
-    public void signIn(String email, String password) {
-        Auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(login.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
-
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = Auth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
-    }
-
-
-
-
-    private void updateUI(FirebaseUser user) {
-    }
-    // This redirets the user to the register page (The IIE, 2022)
-    public void GoToRegister(View view){
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
-    }
-
-    //Opening the Dashboard page when logged in (The IIE, 2022)
-    public void Login(View view){
-        Intent intent = new Intent(this, Dashboard_Activity.class);
-        startActivity(intent);
-    }
 
     /*TextView RegisterHyperLink = (TextView) this.findViewById(R.id.RegisterHyperLink);
     RegisterHyperLink.setOnClickListener(new OnClickListener(){

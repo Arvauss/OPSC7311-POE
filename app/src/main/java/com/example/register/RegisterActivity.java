@@ -47,15 +47,15 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkDataEntered()) {
-                    createAccount(email_EditText.getText().toString(), password_EditText.getText().toString());
+                    createAccount(email_EditText.getText().toString(), password_EditText.getText().toString(), view);
                     //LoginPageDataModel NewUser = new LoginPageDataModel(username.getText().toString(), password.getText().toString());
                     //login.userList.add(NewUser);
                     //Toast t = Toast.makeText(getApplicationContext(), "New user created", Toast.LENGTH_SHORT);
                     //t.show();
-                    Intent intent = new Intent(getApplicationContext(), login.class);
+                  //  Intent intent = new Intent(getApplicationContext(), login.class);
                     //intent.putExtra("username", username.toString());
                     //intent.putExtra("password", password.toString());
-                    startActivity(intent);
+                  //  startActivity(intent);
                 }
 
             }
@@ -104,12 +104,10 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return dataValid;
     }
-//Method used to update the user in database
-    private void updateUI(FirebaseUser user) {
-    }
+
 
     //method is used to create an account
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, String password, View view) {
         //create user with email
         Auth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -122,17 +120,11 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseUser firebaseUser = Auth.getCurrentUser();
 
 
-                            // Write a message to the database
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference myRef = database.getReference("users");
-                            myRef.child(firebaseUser.getUid()).setValue(accountUser);
-
                             Toast.makeText(RegisterActivity.this, "User Created"+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
-                            //updateUI(user);
+                            GoToLogin(view);
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // If registration fails, display a message to the user.
                             Toast.makeText(RegisterActivity.this, "Registration failed.",Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
                     }
                 });

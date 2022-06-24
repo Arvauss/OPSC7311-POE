@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.register.login"
     android:orientation="vertical"
-    android:weightSum="8">
+    android:weightSum="8"
+    tools:ignore="HardcodedText">
 
     <!--Page header-->
     <LinearLayout
@@ -82,7 +83,7 @@
             android:elevation="5dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress"/>
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -118,7 +119,7 @@
             android:text="LOGIN"
             android:padding="10dp"
             android:textColor="#8B8000"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginBottom="10dp"/>
 
