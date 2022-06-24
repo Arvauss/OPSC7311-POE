@@ -51,96 +51,131 @@
     </LinearLayout>
 
     <!-- (Rectfy, 2017) -->
-    <LinearLayout
-        android:layout_width="273dp"
-        android:layout_height="447dp"
-        android:background="@drawable/loginpagebackround"
-        android:elevation="10dp"
-        android:orientation="vertical"
-        android:gravity="center">
+        <LinearLayout
+            android:layout_width="273dp"
+            android:layout_height="447dp"
+            android:background="@drawable/loginpagebackround"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/UsernameTextView"
-            android:layout_width="145dp"
-            android:layout_height="33dp"
-            android:text="USERNAME"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            <!-- (The IIE, 2022) -->
+            <TextView
+                android:id="@+id/EmailTextView"
+                android:layout_width="145dp"
+                android:layout_height="33dp"
+                android:gravity="center"
+                android:text="EMAIL"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <!-- (Professor DK, 2017) -->
-        <EditText
-            android:id="@+id/RegUsernameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
-            android:background="@drawable/text_box"
-            android:elevation="5dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="35dp"/>
+            <!-- (Professor DK, 2017) -->
 
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/PasswordTextView"
-            android:layout_width="145dp"
-            android:layout_height="33dp"
-            android:text="PASSWORD"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            <!-- (The IIE, 2022) -->
 
-        <!-- (Professor DK, 2017) -->
-        <EditText
-            android:id="@+id/RegPasswordEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
-            android:background="@drawable/text_box"
-            android:elevation="5dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:layout_marginBottom="45dp"/>
+            <EditText
+                android:id="@+id/RegEmailEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/text_box"
+                android:elegantTextHeight="true"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textWebEmailAddress|textEmailAddress"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <!-- (Any Technology, 2017) -->
-        <Button
-            android:id="@+id/RegisterButton"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="@drawable/roundbutton"
-            android:elevation="20dp"
-            android:text="REGISTER"
-            android:padding="10dp"
-            android:textColor="#8B8000"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/UsernameTextView"
+                android:layout_width="145dp"
+                android:layout_height="33dp"
+                android:gravity="center"
+                android:text="USERNAME"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <!-- (The IIE, 2022) -->
-        <TextView
-            android:id="@+id/AccountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ALREADY HAVE AN ACCOUNT?"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp"/>
+            <EditText
+                android:id="@+id/RegUsernameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/text_box"
+                android:elegantTextHeight="true"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <!-- (Phys Whiz, 2016) -->
-        <TextView
-            android:id="@+id/LoginHyperLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CLICK HERE"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
-            android:onClick= "GoToLogin" />
+            <TextView
+                android:id="@+id/PasswordEditText"
+                android:layout_width="145dp"
+                android:layout_height="33dp"
+                android:gravity="center"
+                android:text="PASSWORD"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <!-- (Professor DK, 2017) -->
+
+            <!-- (Any Technology, 2017) -->
+
+            <EditText
+                android:id="@+id/RegPasswordEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="45dp"
+                android:background="@drawable/text_box"
+                android:elegantTextHeight="true"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/RegisterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/roundbutton"
+                android:elevation="20dp"
+                android:padding="10dp"
+                android:text="REGISTER"
+                android:textColor="#8B8000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <!-- (The IIE, 2022) -->
+            <TextView
+                android:id="@+id/AccountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="ALREADY HAVE AN ACCOUNT?"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- (Phys Whiz, 2016) -->
+            <TextView
+                android:id="@+id/LoginHyperLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:onClick="GoToLogin"
+                android:text="CLICK HERE"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="bold" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <!--Page footer-->

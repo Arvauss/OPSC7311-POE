@@ -3,31 +3,42 @@ package com.example.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
     // Declaration of variables (The IIE, 2022)
-    EditText username, password;
+    EditText username_EditText, password_EditText, email_EditText;
     Button btn_register;
     TextView login_link;
+    private FirebaseAuth Auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        Auth = FirebaseAuth.getInstance();
         // Storing data from different elements into the variables (The IIE, 2022)
-        username = (EditText) findViewById(R.id.RegUsernameEditText);
-        password = (EditText) findViewById(R.id.RegPasswordEditText);
+        email_EditText = (EditText) findViewById(R.id.RegEmailEditText);
+        username_EditText = (EditText) findViewById(R.id.RegUsernameEditText);
+        password_EditText = (EditText) findViewById(R.id.RegPasswordEditText);
         btn_register = (Button) findViewById(R.id.RegisterButton);
         login_link = (TextView) findViewById(R.id.LoginHyperLink);
 
@@ -35,14 +46,15 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkDataEntered()){
-                    LoginPageDataModel NewUser = new LoginPageDataModel(username.getText().toString(), password.getText().toString());
-                    login.userList.add(NewUser);
-                    Toast t = Toast.makeText(getApplicationContext(), "New user created", Toast.LENGTH_SHORT);
-                    t.show();
+                if (checkDataEntered()) {
+                    createAccount(email_EditText.getText().toString(), password_EditText.getText().toString());
+                    //LoginPageDataModel NewUser = new LoginPageDataModel(username.getText().toString(), password.getText().toString());
+                    //login.userList.add(NewUser);
+                    //Toast t = Toast.makeText(getApplicationContext(), "New user created", Toast.LENGTH_SHORT);
+                    //t.show();
                     Intent intent = new Intent(getApplicationContext(), login.class);
-                    intent.putExtra("username", username.toString());
-                    intent.putExtra("password", password.toString());
+                    //intent.putExtra("username", username.toString());
+                    //intent.putExtra("password", password.toString());
                     startActivity(intent);
                 }
 
@@ -61,27 +73,69 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    boolean isEmail(EditText text) {
+        CharSequence email = text.getText().toString();
+        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    }
+
     // This method checks if the textboxes are empty (The IIE, 2022)
-    boolean isEmpty(EditText text){
+    boolean isEmpty(EditText text) {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
 
     // This method forces the user to enter a username and password (The IIE, 2022)
-    public boolean checkDataEntered() {
+    boolean checkDataEntered() {
+        boolean dataValid = true;
 
-        if(isEmpty(username)){
-            Toast t = Toast.makeText(this,"You must enter a username", Toast.LENGTH_SHORT);
+        if (isEmail(email_EditText)==false) {
+            email_EditText.setError("Enter a valid email!");
+            dataValid = false;
+        }
+        if (isEmpty(username_EditText)) {
+            Toast t = Toast.makeText(this, "You must enter a username", Toast.LENGTH_SHORT);
             t.show();
             return false;
         }
-        if(isEmpty(password)){
-            password.setError("Password is required");
-            return false;
+        if (isEmpty(password_EditText)) {
+            password_EditText.setError("Password is required");
+            dataValid = false;
         }
-        return true;
+        return dataValid;
     }
 
+    private void updateUI(FirebaseUser user) {
+    }
+
+    //method is used to create an account
+    private void createAccount(String email, String password) {
+        //create user with email
+        Auth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            String Username = username_EditText.getText().toString();
+                            LoginPageDataModel accountUser = new LoginPageDataModel(Username,email,password);
+                            // Registration success, update UI with the signed-in user's information
+                            FirebaseUser firebaseUser = Auth.getCurrentUser();
+
+
+                            // Write a message to the database
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference myRef = database.getReference("users");
+                            myRef.child(firebaseUser.getUid()).setValue(accountUser);
+
+                            Toast.makeText(RegisterActivity.this, "User Created"+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(RegisterActivity.this, "Registration failed.",Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
 
     // This method redirects the user to the login page after they have registered (The IIE, 2022)
     public void GoToLogin(View view){

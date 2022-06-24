@@ -62,10 +62,10 @@
 
         <!-- (The IIE, 2022) -->
         <TextView
-            android:id="@+id/UsernameTextView"
+            android:id="@+id/MailTextView"
             android:layout_width="145dp"
             android:layout_height="33dp"
-            android:text="USERNAME"
+            android:text="EMAIL"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -73,15 +73,16 @@
 
         <!-- (Professor DK, 2017) -->
         <EditText
-            android:id="@+id/UsernameEditText"
+            android:id="@+id/Email_EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
+            android:layout_marginBottom="35dp"
             android:background="@drawable/text_box"
+            android:elegantTextHeight="true"
             android:elevation="5dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="35dp"/>
+            android:hint="Email"
+            android:inputType="textPersonName" />
 
         <!-- (The IIE, 2022) -->
         <TextView
@@ -96,15 +97,16 @@
 
         <!-- (Professor DK, 2017) -->
         <EditText
-            android:id="@+id/PasswordEditText"
+            android:id="@+id/Password_EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elegantTextHeight="true"
+            android:layout_marginBottom="45dp"
             android:background="@drawable/text_box"
+            android:elegantTextHeight="true"
             android:elevation="5dp"
             android:ems="10"
-            android:inputType="textPassword"
-            android:layout_marginBottom="45dp"/>
+            android:hint="Password"
+            android:inputType="textPassword" />
 
         <!-- (Any Technology, 2017) -->
         <Button
