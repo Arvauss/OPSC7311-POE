@@ -34,6 +34,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
 
@@ -53,6 +54,9 @@ public class Add_Item_Page extends AppCompatActivity {
 
     Item_Information obj;
     Bitmap imageBMP;
+
+
+
 
 
     //adding second view and class (Add a Second Activity to your App, 2017).
