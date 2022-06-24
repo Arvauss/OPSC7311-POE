@@ -31,6 +31,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Category_Page extends AppCompatActivity{
@@ -47,6 +49,9 @@ public class Category_Page extends AppCompatActivity{
 
     private static final int REQUEST_IMAGE_CAPTURE = 0;
 
+    private DatabaseReference dbRef;
+
+
 
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
@@ -57,6 +62,8 @@ public class Category_Page extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_ui_page);
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -135,15 +142,23 @@ public class Category_Page extends AppCompatActivity{
         btnConfirmCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //gets timestamp at category creation, for use as category ID in database (Android Developers, 2022)
+                Long timestamp = System.currentTimeMillis()/1000;
+                String catID = "CAT" + timestamp.toString();
                 //gets String array based on array of colours, matches index of colours with dropdown list selected item to get colour (The IIE, 2022)
                 //(Danylyk D., 2012)  https://stackoverflow.com/questions/9114587/how-can-i-save-colors-in-array-xml-and-get-it-back-to-a-color-array
                 String[] ColoursList = getApplicationContext().getResources().getStringArray(R.array.clrs);
-                Catobj = new Category_Information(Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
+                Catobj = new Category_Information(catID,
+                        Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
                         CategoryName.getText().toString(),
                         CategoryDescription.getText().toString(),
                         img);
 
                 Dashboard_Activity.catList.add(Catobj);
+
+
+                //adds new category object to database, with identifier being timestamp at creation (Firebase, 2022)
+                dbRef.child("categories").child(Catobj.getCatID()).setValue(Catobj);
                 GoBackDash(view);
             }
         });
