@@ -48,13 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkDataEntered()) {
                     createAccount(email_EditText.getText().toString(), password_EditText.getText().toString());
-                    //LoginPageDataModel NewUser = new LoginPageDataModel(username.getText().toString(), password.getText().toString());
-                    //login.userList.add(NewUser);
-                    //Toast t = Toast.makeText(getApplicationContext(), "New user created", Toast.LENGTH_SHORT);
-                    //t.show();
                     Intent intent = new Intent(getApplicationContext(), login.class);
-                    //intent.putExtra("username", username.toString());
-                    //intent.putExtra("password", password.toString());
                     startActivity(intent);
                 }
 
@@ -86,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // This method forces the user to enter a username and password (The IIE, 2022)
     boolean checkDataEntered() {
+
         //Boolean method is used to check if the data a user enters is correct
         boolean dataValid = true;
 
@@ -118,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             String Username = username_EditText.getText().toString();
                             LoginPageDataModel accountUser = new LoginPageDataModel(Username,email,password);
-                            // Registration success, update UI with the signed-in user's information
+                            // Registration is successful, update UI with the newly added user's information
                             FirebaseUser firebaseUser = Auth.getCurrentUser();
 
 
@@ -130,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "User Created"+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
                             //updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // If the registration fails, display a message to the user.
                             Toast.makeText(RegisterActivity.this, "Registration failed.",Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -145,11 +140,3 @@ public class RegisterActivity extends AppCompatActivity {
     }
 }
 
-    //String Username = username.getText().toString();
-   // String Password = password.getText().toString();
-
-           //     if (username.equals("") || password.equals("")) {
-              //          Toast.makeText(getApplicationContext(), "Fields Required", Toast.LENGTH_SHORT).show();
-              //          } else {
-                 //       Toast.makeText(getApplicationContext(), "User name taken", Toast.LENGTH_SHORT).show();
-                 //       }
