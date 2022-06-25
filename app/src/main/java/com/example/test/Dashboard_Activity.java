@@ -3,6 +3,7 @@ package com.example.test;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -34,11 +42,14 @@ public class Dashboard_Activity extends AppCompatActivity {
     Button btnAddCategory, btnViewAllItems;
     ListView CatListView;
     public static ArrayList<Category_Information> catList = new ArrayList<Category_Information>();
+    DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
 
         // drawer layout instance to toggle the menu icon to open (The IIE, 2022)
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -62,10 +73,13 @@ public class Dashboard_Activity extends AppCompatActivity {
 
         setupUI();
         //method to populate ArrayList with demo data (The IIE, 2022)
-        if (catList.size() < 3)
+       /* if (catList.size() < 3)
             InitListData();
-        //Setups listview and connects adapter (The IIE, 2022)
-        SetupListView();
+        else {
+
+        }*/
+        InitListData(dbRef);
+
         setupOnclickListeners();
 
     }
@@ -78,14 +92,25 @@ public class Dashboard_Activity extends AppCompatActivity {
         CatListView.setAdapter(adapter);
     }
 
-    // The method below populates the category list with data when the application is run (The IIE, 2022)
-    private void InitListData() {
-        Category_Information Vegetables = new Category_Information(Color.parseColor("#41FC00"), "Vegetables", "Vegetables");
-        catList.add(Vegetables);
-        Category_Information Fruits = new Category_Information(Color.parseColor("#FC8A00"), "Fruits", "Fruits");
-        catList.add(Fruits);
-        Category_Information Wines = new Category_Information(Color.parseColor("#FF0074"), "Wines", "Wines");
-        catList.add(Wines);
+    // The method below populates the category list with data from DB when the application is run (Firebase, 2022)
+    private void InitListData(DatabaseReference ref){
+        catList.clear();
+        //gets snapshot of all categories
+        ref.child("categories").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Category_Information obj;
+                //adds every category object in DB to catList
+                for(DataSnapshot ds : task.getResult().getChildren()){
+                    obj = ds.getValue(Category_Information.class);
+                    //obj = new Category_Information(ds.getKey(), ds.child("category_Colour").getValue(Integer.class), ds.child("category_Name").getValue(String.class), ds.child("category_Description").getValue(String.class))
+                    catList.add(obj);
+                }
+
+                //Setups listview and connects adapter (The IIE, 2022)
+                SetupListView();
+            }
+        });
     }
 
     // The method below sets up the UI by assigning each button on the page (The IIE, 2022)
