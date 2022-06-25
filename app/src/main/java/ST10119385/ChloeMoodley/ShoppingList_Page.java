@@ -101,7 +101,7 @@ public class ShoppingList_Page extends AppCompatActivity {
 
             Total = Total + (RetrievedQty - RetrievedDesiredQty) * RetrievedPrice;
             ItemTotalCost.setText(String.valueOf(Total));
-
+            ++i;
         }
 
     }
