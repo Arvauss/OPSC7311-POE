@@ -80,7 +80,7 @@ public class Dashboard_Activity extends AppCompatActivity {
         }*/
         InitListData(dbRef);
 
-        setupOnclickListeners();
+
 
     }
 
@@ -90,6 +90,8 @@ public class Dashboard_Activity extends AppCompatActivity {
 
         DashAdapter adapter = new DashAdapter(getApplicationContext(), 0, catList);
         CatListView.setAdapter(adapter);
+
+        setupOnclickListeners();
     }
 
     // The method below populates the category list with data from DB when the application is run (Firebase, 2022)

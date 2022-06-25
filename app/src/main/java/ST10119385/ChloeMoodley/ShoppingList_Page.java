@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
+import opscwork.viewitempagefeatures.ItemList;
 import opscwork.viewitempagefeatures.ViewItem;
 
 public class ShoppingList_Page extends AppCompatActivity {
@@ -71,10 +72,8 @@ public class ShoppingList_Page extends AppCompatActivity {
 
 
     setupListView();
+    setOnClickListeners();
 
-
-
-        setOnClickListeners();
     }
 
     public void setupListView(){
@@ -83,7 +82,8 @@ public class ShoppingList_Page extends AppCompatActivity {
         //add to list
         Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
                 20.10, 2, "Drinks");
-        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<>();
+        ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<Item_Information>();
+
         ShoppingListArrayList.add((slo));
         ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
         mList.setAdapter(adp);

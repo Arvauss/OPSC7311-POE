@@ -34,6 +34,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
@@ -56,9 +58,6 @@ public class Add_Item_Page extends AppCompatActivity {
     Bitmap imageBMP;
 
 
-
-
-
     //adding second view and class (Add a Second Activity to your App, 2017).
     private static final String TAG = "MainActivity2";
 
@@ -70,11 +69,15 @@ public class Add_Item_Page extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
 
+    DatabaseReference dbRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_ui_page);
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
 
         setUpUI();
         setUpListener();
@@ -198,17 +201,24 @@ public class Add_Item_Page extends AppCompatActivity {
 
         // Variable Declaration (The IIE, 2022)
         String catName;
+        String catid;
         Intent PrevoiusIntent = getIntent();
         catName = PrevoiusIntent.getStringExtra("categoryName");
+        catid = PrevoiusIntent.getStringExtra("catID");
 
         btnItemConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                obj = new Item_Information(ItemName.getText().toString(),
+                //gets timestamp at category creation, for use as category ID in database (Android Developers, 2022)
+                Long timestamp = System.currentTimeMillis()/1000;
+                String itmID = "ITM" + timestamp.toString();
+                obj = new Item_Information(itmID,
+                        ItemName.getText().toString(),
                         ItemDescription.getText().toString(),
                         ItemPurchaseDate.getText().toString(),
                         Double.parseDouble(ItemPrice.getText().toString()),
                         catName,
+                        catid,
                         1,
                         imageBMP
                 );
@@ -220,6 +230,9 @@ public class Add_Item_Page extends AppCompatActivity {
                     }
                 }
                 ItemPage.ItemArrayList.add(obj);
+
+                //adds new item object to database, with identifier being timestamp at creation (Firebase, 2022)
+                dbRef.child("items").child(obj.getItem_ID()).setValue(obj);
                 goBackToList(view, position);
 
             }

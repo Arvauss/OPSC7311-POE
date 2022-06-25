@@ -41,6 +41,8 @@ public class ItemPage extends  AppCompatActivity {
 
     ActivityResultLauncher<Intent> resultLauncher ;
 
+    String curCatName, curCatID;
+
     // Creation of array list (The IIE, 2022)
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
     Button ConfirmItem;
@@ -58,7 +60,7 @@ public class ItemPage extends  AppCompatActivity {
         //https://www.w3schools.com/java/java_try_catch.asp
         try {GetCategory();} catch (Exception e) { Log.d("ADDITEM", e.toString());};
         if (ItemArrayList.isEmpty())
-            InitListData();
+            //InitListData();
         setupListView();
         setupOnClickListeners();
 
@@ -77,14 +79,17 @@ public class ItemPage extends  AppCompatActivity {
     // The code below gets the category for the dashboard (The IIE, 2022)
     private void GetCategory(int pos){
         CurrentCategory =  Dashboard_Activity.catList.get(pos);
-        Header.setText(CurrentCategory.getCategory_Name());
+        curCatName = CurrentCategory.getCategory_Name();
+        curCatID = CurrentCategory.getCatID();
+        Header.setText(curCatName);
 
     }
 
     // The code below redirects the user to the add item page (The IIE, 2022)
     public void GoToAddItem (View v) {
         Intent addItem = new Intent(this, Add_Item_Page.class);
-        addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
+        addItem.putExtra("categoryName", curCatName);
+        addItem.putExtra("catID", curCatID);
         resultLauncher.launch(addItem);
 
     }
