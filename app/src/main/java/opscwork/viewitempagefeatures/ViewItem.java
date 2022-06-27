@@ -1,6 +1,7 @@
 package opscwork.viewitempagefeatures;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -143,8 +144,8 @@ public class ViewItem extends AppCompatActivity {
 
         category = (TextView) findViewById(R.id.CategoryNameTextView);
         category.setText(SelectedItem.getCategory());
-        if (SelectedItem.getItem_bitmap() != null){
-            itemImage.setImageBitmap(SelectedItem.getItem_bitmap());
+        if (SelectedItem.getItem_img() != null){
+            itemImage.setImageURI(Uri.parse(SelectedItem.getItem_img()));
         }
     }
 
@@ -154,7 +155,7 @@ public class ViewItem extends AppCompatActivity {
         //setting the information of the selected item (The IIE, 2022)
         nameItem.setText(SelectedItem.getItem_Name());
         itemDescription.setText(SelectedItem.getItem_Description());
-        itemImage.setImageResource(SelectedItem.getItem_image());
+        itemImage.setImageResource(SelectedItem.getItem_icon());
         itemDate.setText(SelectedItem.getItem_date());
         ItemPrice.setText(Double.toString(SelectedItem.getItem_Price()));
         itemCount.setText(Integer.toString(SelectedItem.getQty()));

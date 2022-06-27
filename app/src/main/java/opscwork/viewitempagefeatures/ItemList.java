@@ -55,7 +55,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String ItemName = getItem(position).getItem_Name();
         String ItemCat = getItem(position).getCategory();
-        int ItemImg = getItem(position).getItem_image();
+        int ItemImg = getItem(position).getItem_icon();
 
 
         // Creation of item information object (The IIE, 2022)
@@ -77,10 +77,11 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         txtItemName.setText(obj.getItem_Name());
         txtItemCat.setText(obj.getCategory());
 
-        if (obj.getItem_bitmap() == null){
+        if (obj.getItem_img() == null){
             imgItem.setImageResource(R.drawable.bodega_image);}
         else{
-            imgItem.setImageBitmap(obj.getItem_bitmap());}
+          //  imgItem.setImageBitmap(obj.getItem_bitmap());
+            }
 
         // The code below returns the convert view (The IIE, 2022)
         return convertView;

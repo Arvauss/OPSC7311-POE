@@ -32,7 +32,7 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         //getting shoppingList information
         String ItemName = getItem(position).getItem_Name();
         String CatName = getItem(position).getCategory();
-        int ItemImage = getItem(position).getItem_image();
+        int ItemImage = getItem(position).getItem_icon();
         double ItemPrice = getItem(position).getItem_Price();
         int ItemQty = getItem(position).getQty();
         String ItemCat = getItem(position).getCategory();

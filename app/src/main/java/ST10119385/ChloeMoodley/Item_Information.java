@@ -10,13 +10,13 @@ public class Item_Information
     private String item_ID;
     private String item_Name;               //name variable declared (The IIE, 2022).
     private String item_Description;    //description variable declared (The IIE, 2022).
-    private int item_image;
+    private int item_icon;
     //image variable declared (The IIE, 2022).
-    private Bitmap Item_bitmap = null;
     private String item_date;               //date variable declared (The IIE, 2022).
     private double item_Price;              //price variable declared (The IIE, 2022).
     private String Category;                //category variable declared (The IIE, 2022).
     private String cat_ID;
+    private String item_img;
 
 
     private int Qty;                        //Qty variable declared (The IIE, 2022).
@@ -33,12 +33,12 @@ public class Item_Information
     //Constructor for ItemList adapter
     public Item_Information(String item_Name, int item_img) {
         this.item_Name = item_Name;
-        this.item_image = item_img;
+        this.item_icon = item_img;
     }
     //Shopping list constructor (The IIE, 2022)
     public Item_Information(String item_Name, int item_img, double item_Price, int qty, String category) {
         this.item_Name = item_Name;
-        this.item_image = item_img;
+        this.item_icon = item_img;
         this.item_date = item_date;
         this.item_Price = item_Price;
         this.Qty = qty;
@@ -48,7 +48,7 @@ public class Item_Information
     public Item_Information(String item_Name, String item_desc, int img, String item_date, double item_Price, String Category, int Qty) {
         this.item_Name = item_Name;
         this.item_Price = item_Price;
-        this.item_image = img;
+        this.item_icon = img;
         this.Category = Category;
         this.Qty = Qty;
         this.item_Description = item_desc;
@@ -56,7 +56,7 @@ public class Item_Information
         this.Desired_Qty = 1;
     }
     //Constructor for New Item Add (The IIE, 2022)
-    public Item_Information(String id, String item_Name, String item_desc, String item_date, double item_Price, String Category, String catid ,int Qty, Bitmap bmp) {
+    public Item_Information(String id, String item_Name, String item_desc, String item_date, double item_Price, String Category, String catid ,int Qty, String img) {
         this.item_ID = id;
         this.item_Name = item_Name;
         this.item_Price = item_Price;
@@ -66,13 +66,13 @@ public class Item_Information
         this.item_Description = item_desc;
         this.item_date = item_date;
         this.Desired_Qty = 2;
-        this.Item_bitmap = bmp;
+        this.item_img = img;
     }
 
     //Constructor for ItemListAll Add (The IIE, 2022)
     public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, int Qty) {
         this.item_Name = item_Name;
-        this.item_image = item_image;
+        this.item_icon = item_image;
         this.item_Price = item_Price;
         this.Qty = Qty;
         this.item_Description = item_desc;
@@ -81,11 +81,27 @@ public class Item_Information
 
     // The following is a constructor for the item list page (The IIE, 2022)
     public Item_Information(int item_image,String item_Name) {
-        this.item_image = item_image;
+        this.item_icon = item_image;
         this.item_Name = item_Name;
     }
 /* below are the getter and setter methods for all the variables in the item model class
      (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017). */
+
+    public String getCat_ID() {
+        return cat_ID;
+    }
+
+    public void setCat_ID(String cat_ID) {
+        this.cat_ID = cat_ID;
+    }
+
+    public String getItem_img() {
+        return item_img;
+    }
+
+    public void setItem_img(String item_img) {
+        this.item_img = item_img;
+    }
 
     public String getItem_ID() {
         return item_ID;
@@ -111,12 +127,12 @@ public class Item_Information
         this.item_Description = item_Description;
     }
 
-    public int getItem_image() {
-        return item_image;
+    public int getItem_icon() {
+        return item_icon;
     }
 
-    public void setItem_image(int item_image) {
-        this.item_image = item_image;
+    public void setItem_icon(int item_image) {
+        this.item_icon = item_image;
     }
 
     public String getItem_date() {
@@ -169,15 +185,6 @@ public class Item_Information
     public int DecreaseDesiredQty(){
         Desired_Qty--;
         return Desired_Qty;
-    }
-
-    @Exclude
-    public Bitmap getItem_bitmap() {
-        return Item_bitmap;
-    }
-
-    public void setItem_bitmap(Bitmap item_bitmap) {
-        Item_bitmap = item_bitmap;
     }
 
 }
