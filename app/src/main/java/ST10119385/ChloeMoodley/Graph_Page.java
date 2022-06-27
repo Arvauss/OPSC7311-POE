@@ -53,17 +53,18 @@ public class Graph_Page extends AppCompatActivity {
                 Log.d(TAG, "OnValueSelected: " + e.toString());
                 Log.d(TAG, "OnValueSelected: " + h.toString());
 
-                int p1 = e.toString().indexOf("(sum): ");
-                String cat = e.toString().substring(p1 + 7);
+                int p1 = 0;
+                int yVal = (int) h.getY();
+                int xVal = (int) h.getX();
 
-                for (int i = 0; i < yData.length; i++) {
-                    if (yData[i] == Float.parseFloat(cat)) {
-                        p1 = i;
-                        break;
-                    }
-                }
-                String sup = xData[p1 + 1];
-                Toast.makeText(Graph_Page.this, "Category " + sup + "\n" + "Number of Items: " +"\n" +cat, Toast.LENGTH_LONG).show();
+                //String cat = e.toString().substring(p1 + 11, 14);
+              //  Log.d(TAG, "OnValueSelected: p1= " + p1);
+               // Log.d(TAG, "OnValueSelected: cat= " + cat);
+
+
+                String sup = xData[xVal];
+                int numItems = yVal;
+                Toast.makeText(Graph_Page.this, "Category " + sup + "\n" + "Number of Items: " +"\n" +numItems, Toast.LENGTH_LONG).show();
             }
 
             @Override
