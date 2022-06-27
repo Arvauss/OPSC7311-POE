@@ -262,7 +262,7 @@ public class Add_Item_Page extends AppCompatActivity {
         String catName;
         String catid;
         Intent PrevoiusIntent = getIntent();
-        catName = PrevoiusIntent.getStringExtra("categoryName");
+        catName = PrevoiusIntent.getStringExtra("catName");
         catid = PrevoiusIntent.getStringExtra("catID");
 
         btnItemConfirm.setOnClickListener(new View.OnClickListener() {

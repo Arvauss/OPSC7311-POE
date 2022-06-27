@@ -148,9 +148,7 @@ public class item_list_all extends AppCompatActivity {
 
     private void DisplayListData() {
         // Creation of item objects and adding them to ArrayList
-        Item_Information obj1 = new Item_Information
-                ("Item1", "Item1 Desc", R.drawable.bodega_image, "28/05/2022", 11.11, 4);
-        ItemPage.ItemArrayList.add(obj1);
+
     }
 
 

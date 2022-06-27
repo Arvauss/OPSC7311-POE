@@ -30,31 +30,7 @@ public class Item_Information
     public Item_Information(){}
 
     //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
-    //Constructor for ItemList adapter
-    public Item_Information(String item_Name, int item_img) {
-        this.item_Name = item_Name;
-        this.item_icon = item_img;
-    }
-    //Shopping list constructor (The IIE, 2022)
-    public Item_Information(String item_Name, int item_img, double item_Price, int qty, String category) {
-        this.item_Name = item_Name;
-        this.item_icon = item_img;
-        this.item_date = item_date;
-        this.item_Price = item_Price;
-        this.Qty = qty;
-        this.Category = category;
-    }
-    //Constructor for ItemArrayList population (The IIE, 2022)
-    public Item_Information(String item_Name, String item_desc, int img, String item_date, double item_Price, String Category, int Qty) {
-        this.item_Name = item_Name;
-        this.item_Price = item_Price;
-        this.item_icon = img;
-        this.Category = Category;
-        this.Qty = Qty;
-        this.item_Description = item_desc;
-        this.item_date = item_date;
-        this.Desired_Qty = 1;
-    }
+
     //Constructor for New Item Add (The IIE, 2022)
     public Item_Information(String id, String item_Name, String item_desc, String item_date, double item_Price, String Category, String catid ,int Qty, String img) {
         this.item_ID = id;
@@ -69,21 +45,7 @@ public class Item_Information
         this.item_img = img;
     }
 
-    //Constructor for ItemListAll Add (The IIE, 2022)
-    public Item_Information(String item_Name, String item_desc, int item_image, String item_date, double item_Price, int Qty) {
-        this.item_Name = item_Name;
-        this.item_icon = item_image;
-        this.item_Price = item_Price;
-        this.Qty = Qty;
-        this.item_Description = item_desc;
-        this.item_date = item_date;
-    }
 
-    // The following is a constructor for the item list page (The IIE, 2022)
-    public Item_Information(int item_image,String item_Name) {
-        this.item_icon = item_image;
-        this.item_Name = item_Name;
-    }
 /* below are the getter and setter methods for all the variables in the item model class
      (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017). */
 
