@@ -124,7 +124,6 @@ public class Dashboard_Activity extends AppCompatActivity {
     private void setupUI() {
         btnAddCategory = (Button) findViewById(R.id.DashboardAddButton);
       //  btnViewAllItems = (Button) findViewById(R.id.DashboardViewAllButton);
-        btnViewAllItems = (Button) findViewById(R.id.DashboardDeleteButton);
     }
 
     // The following is a click method that executes when the add button is clicked (The IIE, 2022)

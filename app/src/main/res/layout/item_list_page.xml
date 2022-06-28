@@ -10,9 +10,8 @@
     tools:context="opscwork.viewitempagefeatures.ItemPage"
     tools:ignore="HardcodedText">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
 
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -61,26 +60,15 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/ItemListAdd"
+            android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text="Add"
-            android:background="@drawable/greenbutton_background"
-            android:textSize="25sp"
             android:layout_weight="1"
-            android:id="@+id/ItemListAdd">
+            android:background="@drawable/greenbutton_background"
+            android:text="Add"
+            android:textSize="25sp">
 
         </Button>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:text="Delete"
-        android:textSize="25sp"
-        android:layout_weight="1"
-        android:background="@drawable/greenbutton_background"
-        android:id="@+id/DashboardDeleteButton">
-
-    </Button>
 
 
     </LinearLayout>
