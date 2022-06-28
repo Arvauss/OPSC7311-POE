@@ -1,6 +1,5 @@
 package ST10119385.ChloeMoodley;
 
-import android.graphics.Bitmap;
 import android.widget.ProgressBar;
 
 import com.google.firebase.database.Exclude;
