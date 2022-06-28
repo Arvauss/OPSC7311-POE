@@ -105,8 +105,8 @@ public class item_list_all extends AppCompatActivity {
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
             //Go to Graph page
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+            Intent graphPage = new Intent(this, Graph_Page.class);
+            startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
