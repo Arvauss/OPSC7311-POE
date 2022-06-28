@@ -29,6 +29,7 @@ import java.util.ArrayList;
 
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Category_Page;
+import ST10119385.ChloeMoodley.Graph_Page;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 import ST10119385.ChloeMoodley.item_list_all;
 import opscwork.viewitempagefeatures.ItemPage;
@@ -178,9 +179,9 @@ public class Dashboard_Activity extends AppCompatActivity {
             Intent shopList = new Intent(this, ShoppingList_Page.class);
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
-            //Go to Graph page (The IIE, 2022)
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+            //Go to Graph page
+            Intent graphPage = new Intent(this, Graph_Page.class);
+            startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

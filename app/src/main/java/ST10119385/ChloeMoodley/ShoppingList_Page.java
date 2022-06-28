@@ -31,12 +31,14 @@ public class ShoppingList_Page extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
+    public double Total;
 
     TextView ItemNameShoppingList;
     TextView CategoryNameShoppingList;
     ImageView ItemImageShoppingList;
     TextView ItemPriceShoppingList;
     TextView ItemQuantityShoppingList;
+    TextView ItemTotalCost;
     ListView mList;
 
     @Override
@@ -79,6 +81,7 @@ public class ShoppingList_Page extends AppCompatActivity {
 
     public void setupListView(){
         mList = (ListView) findViewById(R.id.shoppingListView);
+        ItemTotalCost = (TextView) findViewById(R.id.CalculatedCostValue);
 
         //add to list
         Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
@@ -87,8 +90,21 @@ public class ShoppingList_Page extends AppCompatActivity {
         ShoppingListArrayList.add((slo));
         ShoppingList_Adapter adp = new ShoppingList_Adapter(this, R.layout.shopping_list_template, ShoppingListArrayList);
         mList.setAdapter(adp);
-    }
 
+        // The for loop goes through the array list in order to get the total cost(The IIE, 2022)
+        for( int i = 0; i < ShoppingListArrayList.size(); ++i){
+            ItemTotalCost.setText(0);
+
+            int RetrievedQty = ShoppingListArrayList.get(i).getQty();
+            int RetrievedDesiredQty = ShoppingListArrayList.get(i).getDesired_Qty();
+            double RetrievedPrice = ShoppingListArrayList.get(i).getItem_Price();
+
+            Total = Total + (RetrievedQty - RetrievedDesiredQty) * RetrievedPrice;
+            ItemTotalCost.setText(String.valueOf(Total));
+            ++i;
+        }
+
+    }
 
     //On click listener used to show list of shopping items
     private void setOnClickListeners() {
