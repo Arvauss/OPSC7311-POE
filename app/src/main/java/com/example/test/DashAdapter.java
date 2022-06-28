@@ -41,7 +41,7 @@ public class DashAdapter extends ArrayAdapter<Category_Information> {
         if(catObj.getCat_Image()==null){
             img.setImageResource(catObj.getCategory_Icon());
         } else{
-            img.setImageBitmap(catObj.getCat_Image());
+            //img.setImageBitmap(catObj.getCat_Image());
         }
 
         // The code below sets the category name and description (The IIE, 2022)

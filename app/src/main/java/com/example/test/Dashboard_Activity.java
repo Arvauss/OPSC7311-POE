@@ -81,7 +81,7 @@ public class Dashboard_Activity extends AppCompatActivity {
         }*/
         InitListData(dbRef);
 
-        setupOnclickListeners();
+
 
     }
 
@@ -91,6 +91,8 @@ public class Dashboard_Activity extends AppCompatActivity {
 
         DashAdapter adapter = new DashAdapter(getApplicationContext(), 0, catList);
         CatListView.setAdapter(adapter);
+
+        setupOnclickListeners();
     }
 
     // The method below populates the category list with data from DB when the application is run (Firebase, 2022)
@@ -144,7 +146,7 @@ public class Dashboard_Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Category_Information catObj = (Category_Information) (CatListView.getItemAtPosition(position));
                 Intent displayCatItems = new Intent(Dashboard_Activity.this, ItemPage.class);
-                displayCatItems.putExtra("id", position);
+                displayCatItems.putExtra("catID", catObj.getCatID());
                 startActivity(displayCatItems);
             }
         });

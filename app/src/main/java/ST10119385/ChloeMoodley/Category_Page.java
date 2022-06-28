@@ -1,10 +1,12 @@
 package ST10119385.ChloeMoodley;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
@@ -13,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,9 +33,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 
 public class Category_Page extends AppCompatActivity{
@@ -46,10 +57,13 @@ public class Category_Page extends AppCompatActivity{
     Button btnConfirmCategory;
     Category_Information Catobj;
     Bitmap img;
+    Uri imgURI;
 
     private static final int REQUEST_IMAGE_CAPTURE = 0;
 
     private DatabaseReference dbRef;
+    private FirebaseStorage fbStorage;
+    private StorageReference storRef;
 
 
 
@@ -64,6 +78,8 @@ public class Category_Page extends AppCompatActivity{
         setContentView(R.layout.category_ui_page);
 
         dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
+        fbStorage = FirebaseStorage.getInstance();
+        storRef = fbStorage.getReference();
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -120,9 +136,56 @@ public class Category_Page extends AppCompatActivity{
             if (imgBundle != null){
                 img = (Bitmap) imgBundle.get("data");
                 image.setImageBitmap(img);
+
+                //gets timestamp at image creation, for use as image ID in database (Android Developers, 2022)
+                Long timestamp = System.currentTimeMillis()/1000;
+                String imgID = "IMG" + timestamp.toString();
+
+                ByteArrayOutputStream boas = new ByteArrayOutputStream();
+                img.compress(Bitmap.CompressFormat.JPEG, 100, boas);
+                byte[] imgData = boas.toByteArray();
+                String imgPath = MediaStore.Images.Media.insertImage(getContentResolver(), img, imgID, null);
+                imgURI = Uri.parse(imgPath);
+
+                uploadImg(imgID);
+
             }
         }
     });
+
+    private void uploadImg(String imgid) {
+        StorageReference imgRef = storRef.child("images/" + imgid);
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading image");
+        pd.show();
+
+        imgRef.putFile(imgURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(Category_Page.this, "Image uploaded", Toast.LENGTH_SHORT).show();
+                pd.dismiss();
+                imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        imgURI = uri;
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+            Toast.makeText(Category_Page.this, "Image upload failed", Toast.LENGTH_LONG).show();
+            pd.dismiss();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                pd.setMessage("Percentage: " + (int) progress + "%");
+            }
+        });
+    }
 
     // The code below allows a user to choose an image for the category (The IIE, 2022)
     private void setUpListener() {
@@ -152,7 +215,7 @@ public class Category_Page extends AppCompatActivity{
                         Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
                         CategoryName.getText().toString(),
                         CategoryDescription.getText().toString(),
-                        img);
+                        imgURI.toString());
 
                 Dashboard_Activity.catList.add(Catobj);
 

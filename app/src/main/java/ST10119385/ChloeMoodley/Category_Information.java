@@ -1,6 +1,7 @@
 package ST10119385.ChloeMoodley;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 import com.example.test.R;
 import com.google.firebase.database.Exclude;
@@ -12,16 +13,16 @@ public class Category_Information {
     private String category_Name;
     private String category_Description;
     private int category_Icon;
-    private Bitmap cat_Image = null;
+    private String cat_Image;
    // private String UserID;
     private String CatID;
 
-    @Exclude
-    public Bitmap getCat_Image() {
+
+    public String getCat_Image() {
         return cat_Image;
     }
 
-    public void setCat_Image(Bitmap cat_Image) {
+    public void setCat_Image(String cat_Image) {
         this.cat_Image = cat_Image;
     }
 
@@ -35,7 +36,7 @@ public class Category_Information {
         this.category_Description = category_Description;
         this.category_Icon = R.drawable.bodega_image;
     }
-    public Category_Information(String catid, int category_Colour, String category_Name, String category_Description, Bitmap img) {
+    public Category_Information(String catid, int category_Colour, String category_Name, String category_Description, String img) {
         this.CatID = catid;
         this.category_Colour = category_Colour;
         this.category_Name = category_Name;

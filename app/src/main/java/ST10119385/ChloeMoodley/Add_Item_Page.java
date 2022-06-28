@@ -2,11 +2,13 @@ package ST10119385.ChloeMoodley;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -33,9 +35,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 
 import opscwork.viewitempagefeatures.ItemPage;
@@ -54,9 +64,7 @@ public class Add_Item_Page extends AppCompatActivity {
 
     Item_Information obj;
     Bitmap imageBMP;
-
-
-
+    Uri imgUri;
 
 
     //adding second view and class (Add a Second Activity to your App, 2017).
@@ -70,11 +78,19 @@ public class Add_Item_Page extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView burgerNavigationView;
 
+    private DatabaseReference dbRef;
+    private FirebaseStorage fbStorage;
+    private StorageReference storRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_ui_page);
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
+        fbStorage = FirebaseStorage.getInstance();
+        storRef = fbStorage.getReference();
 
         setUpUI();
         setUpListener();
@@ -158,9 +174,55 @@ public class Add_Item_Page extends AppCompatActivity {
             if (imgBundle != null){
                 imageBMP = (Bitmap) imgBundle.get("data");
                 picture.setImageBitmap(imageBMP);
+
+                //gets timestamp at image creation, for use as image ID in database (Android Developers, 2022)
+                Long timestamp = System.currentTimeMillis()/1000;
+                String imgID = "IMG" + timestamp.toString();
+
+                ByteArrayOutputStream boas = new ByteArrayOutputStream();
+                imageBMP.compress(Bitmap.CompressFormat.JPEG, 100, boas);
+                byte[] imgData = boas.toByteArray();
+                String imgPath = MediaStore.Images.Media.insertImage(getContentResolver(), imageBMP, imgID, null);
+                imgUri = Uri.parse(imgPath);
+
+                uploadImg(imgID);
             }
         }
     });
+
+    private void uploadImg(String imgid) {
+        StorageReference imgRef = storRef.child("images/" + imgid);
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading image");
+        pd.show();
+
+        imgRef.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(Add_Item_Page.this, "Image uploaded", Toast.LENGTH_SHORT).show();
+                pd.dismiss();
+                imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        imgUri = uri;
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Add_Item_Page.this, "Image upload failed", Toast.LENGTH_LONG).show();
+                pd.dismiss();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                pd.setMessage("Percentage: " + (int) progress + "%");
+            }
+        });
+    }
 
     //Method to handle the OnCLicked events within the burger menu (Pulak, 2017)
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -198,19 +260,26 @@ public class Add_Item_Page extends AppCompatActivity {
 
         // Variable Declaration (The IIE, 2022)
         String catName;
+        String catid;
         Intent PrevoiusIntent = getIntent();
-        catName = PrevoiusIntent.getStringExtra("categoryName");
+        catName = PrevoiusIntent.getStringExtra("catName");
+        catid = PrevoiusIntent.getStringExtra("catID");
 
         btnItemConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                obj = new Item_Information(ItemName.getText().toString(),
+                //gets timestamp at category creation, for use as category ID in database (Android Developers, 2022)
+                Long timestamp = System.currentTimeMillis()/1000;
+                String itmID = "ITM" + timestamp.toString();
+                obj = new Item_Information(itmID,
+                        ItemName.getText().toString(),
                         ItemDescription.getText().toString(),
                         ItemPurchaseDate.getText().toString(),
                         Double.parseDouble(ItemPrice.getText().toString()),
                         catName,
+                        catid,
                         1,
-                        imageBMP
+                        imgUri.toString()
                 );
                 int position = 0;
                 for (Category_Information cat: Dashboard_Activity.catList) {
@@ -220,6 +289,9 @@ public class Add_Item_Page extends AppCompatActivity {
                     }
                 }
                 ItemPage.ItemArrayList.add(obj);
+
+                //adds new item object to database, with identifier being timestamp at creation (Firebase, 2022)
+                dbRef.child("items").child(obj.getItem_ID()).setValue(obj);
                 goBackToList(view, position);
 
             }

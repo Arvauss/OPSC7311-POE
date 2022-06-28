@@ -64,7 +64,6 @@
             android:layout_height="70dp"
             android:text="Add"
             android:background="@drawable/greenbutton_background"
-            android:onClick="GoToAddItem"
             android:textSize="25sp"
             android:layout_weight="1"
             android:id="@+id/ItemListAdd">

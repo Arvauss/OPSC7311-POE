@@ -20,6 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import opscwork.viewitempagefeatures.ItemList;
 import opscwork.viewitempagefeatures.ItemPage;
@@ -36,6 +38,8 @@ public class item_list_all extends AppCompatActivity {
     ImageView ItemImageAll;
     ListView ListViewAll;
 
+    DatabaseReference dbRef;
+
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
@@ -46,6 +50,8 @@ public class item_list_all extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_list_all);
         Log.d(TAG, "onCreate: Started.");
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -142,9 +148,7 @@ public class item_list_all extends AppCompatActivity {
 
     private void DisplayListData() {
         // Creation of item objects and adding them to ArrayList
-        Item_Information obj1 = new Item_Information
-                ("Item1", "Item1 Desc", R.drawable.bodega_image, "28/05/2022", 11.11, 4);
-        ItemPage.ItemArrayList.add(obj1);
+
     }
 
 

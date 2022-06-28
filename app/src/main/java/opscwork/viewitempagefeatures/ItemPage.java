@@ -15,12 +15,19 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import ST10119385.ChloeMoodley.Add_Item_Page;
 import ST10119385.ChloeMoodley.Category_Information;
@@ -38,8 +45,13 @@ public class ItemPage extends  AppCompatActivity {
     ListView mListView;
     Category_Information CurrentCategory;
     TextView Header;
+    Button AddItem;
 
     ActivityResultLauncher<Intent> resultLauncher ;
+
+    String curCatName, curCatID;
+
+    DatabaseReference dbRef;
 
     // Creation of array list (The IIE, 2022)
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
@@ -51,42 +63,38 @@ public class ItemPage extends  AppCompatActivity {
         setContentView(R.layout.item_list_page);
         Log.d(TAG, "onCreate: Started.");
 
-
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
 
         setupUI();
         //try statement to catch any potential errors (W3Schools, 2022)
         //https://www.w3schools.com/java/java_try_catch.asp
         try {GetCategory();} catch (Exception e) { Log.d("ADDITEM", e.toString());};
-        if (ItemArrayList.isEmpty())
-            InitListData();
-        setupListView();
-        setupOnClickListeners();
-
 
     }
 
     // The code below gets the category in order to for each item to have a category (The IIE, 2022)
     private void GetCategory(){
         Intent prevIntent = getIntent();
-        int pos = prevIntent.getIntExtra("id", 0);
-        CurrentCategory =  Dashboard_Activity.catList.get(pos);
-        Header.setText(CurrentCategory.getCategory_Name());
+        curCatID = prevIntent.getStringExtra("catID");
+        curCatName = prevIntent.getStringExtra("catName");
 
-    }
+        DatabaseReference catRef = dbRef.child("categories");
 
-    // The code below gets the category for the dashboard (The IIE, 2022)
-    private void GetCategory(int pos){
-        CurrentCategory =  Dashboard_Activity.catList.get(pos);
-        Header.setText(CurrentCategory.getCategory_Name());
-
-    }
-
-    // The code below redirects the user to the add item page (The IIE, 2022)
-    public void GoToAddItem (View v) {
-        Intent addItem = new Intent(this, Add_Item_Page.class);
-        addItem.putExtra("categoryName", CurrentCategory.getCategory_Name());
-        resultLauncher.launch(addItem);
-
+        catRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                //adds every category object in DB to catList
+                for(DataSnapshot ds : task.getResult().getChildren()){
+                    if (Objects.equals(ds.getKey(), curCatID)){
+                        CurrentCategory = ds.getValue(Category_Information.class);
+                        break;
+                    }
+                }
+                Header.setText(CurrentCategory.getCategory_Name());
+                //Initialises list data
+                InitListData();
+            }
+        });
     }
 
     private void setupOnClickListeners() {
@@ -101,7 +109,19 @@ public class ItemPage extends  AppCompatActivity {
             }
         });
 
-        resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+        AddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addItem = new Intent(getApplicationContext(), Add_Item_Page.class);
+                addItem.putExtra("catID", curCatID);
+                addItem.putExtra("catName", curCatName);
+                startActivity(addItem);
+            }
+        });
+
+
+
+        /*resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
@@ -111,21 +131,18 @@ public class ItemPage extends  AppCompatActivity {
                             GetCategory(position);
                         }
                     }
-                });
+                });*/
     }
 
     // The code below populates the list view (The IIE, 2022)
     private void setupListView() {
         mListView = (ListView) findViewById(R.id.itemListView);
-        ArrayList<Item_Information> CatItems = new ArrayList<Item_Information>();
-        for (Item_Information item: ItemArrayList) {
-            if (item.getCategory().equals(CurrentCategory.getCategory_Name())){
-                CatItems.add(item);
-            }
-        }
+
         // Creation of adapter (The IIE, 2022)
-        ItemList adapter = new ItemList(this, R.layout.item_list_template,CatItems);
+        ItemList adapter = new ItemList(this, R.layout.item_list_template,ItemArrayList);
         mListView.setAdapter(adapter);
+
+        setupOnClickListeners();
 
     }
 
@@ -137,41 +154,33 @@ public class ItemPage extends  AppCompatActivity {
         ItemPrice = (EditText) findViewById(R.id.priceTextBox);
         ItemImage = (ImageView) findViewById(R.id.ImageItemPic);
         Header = (TextView) findViewById(R.id.ItemListHeader);
-
+        AddItem = (Button) findViewById(R.id.ItemListAdd);
     }
 
     // The code below populates the list view with data (The IIE, 2022)
     private void InitListData() {
-        // Creation of item objects and adding them to ArrayList
-        Item_Information obj1 = new Item_Information
-                ("Item1",
-                        "Item1 Desc",
-                        R.drawable.bodega_image,
-                        "28/05/2022",
-                        11.11,
-                        CurrentCategory.getCategory_Name(),
-                        4);
-        ItemArrayList.add(obj1);
-        Item_Information obj2 = new Item_Information
-                ("Item2",
-                        "Item2 Desc",
-                        R.drawable.bodega_image,
-                        "29/05/2022",
-                        22.22,
-                        CurrentCategory.getCategory_Name(),
-                        5);
-        ItemArrayList.add(obj2);
-        Item_Information obj3 = new Item_Information
-                ("Item3",
-                        "Item3 Desc",
-                        R.drawable.bodega_image,
-                        "28/05/2022",
-                        33.33,
-                        CurrentCategory.getCategory_Name(),
-                        6);
-        ItemArrayList.add(obj3);
+        ItemArrayList.clear();
+
+        DatabaseReference itmRef = dbRef.child("items");
+
+        //gets snapshot of all items
+        itmRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Item_Information item;
+                //adds every category object in DB to catList
+                for(DataSnapshot ds : task.getResult().getChildren()){
+                    item = ds.getValue(Item_Information.class);
+                    if (item.getCat_ID() !=null )
+                        if (item.getCat_ID().equals(curCatID))
+                            ItemArrayList.add(item);
+                }
+
+                //Setups listview and connects adapter (The IIE, 2022)
+                setupListView();
+
+            }
+        });
+
     }
-
-
-
 }
