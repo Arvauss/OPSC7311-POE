@@ -8,31 +8,30 @@
     android:layout_height="match_parent"
     tools:context="ST10119385.ChloeMoodley.Category_Page"
     tools:ignore="HardcodedText">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_marginTop="30dp">
+    android:layout_marginTop="10dp">
 
     <!--Header box and text -->
     <TextView
         android:id="@+id/BoxCreate"
         android:layout_width="300dp"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/box"
         android:backgroundTint="#fffdd0"
-        android:paddingTop="15dp"
-        android:layout_marginTop="50dp"
-        android:textColor="#8B8000"
-        android:text="CREATE CATEGORY"
-        android:textStyle="bold"
         android:fontFamily="arial"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="CREATE CATEGORY"
         android:textAlignment="center"
+        android:textColor="#8B8000"
         android:textSize="20sp"
-        android:layout_marginBottom="15dp"/>
+        android:textStyle="bold" />
 
     //Information on how to create textViews and editViews(Android Developers, 2021)
     //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
@@ -41,11 +40,11 @@
 
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="438dp"
+        android:layout_height="455dp"
         android:background="@drawable/box"
         android:orientation="vertical"
-        tools:context=".Category_Page"
-        android:padding="15dp">
+        android:padding="15dp"
+        tools:context=".Category_Page">
 
         <TextView
             android:id="@+id/TextColor"
@@ -58,16 +57,17 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        //added drop down box in view Code (Envato Tuts+, 2022) and (Android Drop Down List Tutorial, 2016).
+        //added drop down box in view Code (Envato Tuts+, 2022) and (Android Drop Down List
+        Tutorial, 2016).
 
         <Spinner
             android:id="@+id/DropDown"
             android:layout_width="250dp"
             android:layout_height="48dp"
-            android:paddingBottom="5dp"
             android:layout_marginEnd="68dp"
             android:contentDescription="ColoursBox"
             android:minHeight="48dp"
+            android:paddingBottom="5dp"
             android:spinnerMode="dropdown"
             android:textSize="12sp" />
 
@@ -77,13 +77,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="36dp"
             android:fontFamily="arial"
-            android:text="Please enter the name of your category"
             android:paddingTop="10dp"
             android:paddingBottom="5dp"
+            android:text="Please enter the name of your category"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         //autofill for the name (Android Developers, 2022)
+
         <EditText
             android:id="@+id/NameTextBox"
             android:layout_width="250dp"
@@ -91,9 +92,9 @@
             android:layout_marginEnd="52dp"
             android:autofillHints="name"
             android:ems="15"
-            android:paddingTop="5dp"
             android:hint="Name"
             android:inputType="textPersonName"
+            android:paddingTop="5dp"
             android:textSize="15sp" />
 
         <TextView
@@ -112,9 +113,9 @@
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:ems="15"
-            android:paddingTop="5dp"
             android:hint="Description"
             android:inputType="textPersonName"
+            android:paddingTop="5dp"
             android:textSize="15sp" />
 
         <TextView
@@ -131,11 +132,11 @@
         <ImageView
             android:id="@+id/ImageCat"
             android:layout_width="75dp"
-            android:paddingTop="5dp"
             android:layout_height="75dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/add_icon"
             android:contentDescription="image"
-            android:background="@drawable/add_icon"/>
+            android:paddingTop="5dp" />
 
     </LinearLayout>
 
@@ -144,11 +145,11 @@
         android:id="@+id/CategoryConfirm"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
         android:background="@drawable/greenbutton_background"
         android:text="CONFIRM"
-        android:layout_gravity="bottom"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="25sp" />
 
 </LinearLayout>
 

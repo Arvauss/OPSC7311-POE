@@ -61,7 +61,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:text="Delete"
+                android:text=""
                 android:textSize="25sp"
                 android:background="@drawable/greenbutton_background"
                 android:layout_weight="1"

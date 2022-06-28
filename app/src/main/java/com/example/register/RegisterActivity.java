@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
 
     // Declaration of variables (The IIE, 2022)
-    EditText username_EditText, password_EditText, email_EditText;
+    EditText  password_EditText, email_EditText;
     Button btn_register;
     TextView login_link;
     private FirebaseAuth Auth;
@@ -37,7 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
         Auth = FirebaseAuth.getInstance();
         // Storing data from different elements into the variables (The IIE, 2022)
         email_EditText = (EditText) findViewById(R.id.RegEmailEditText);
-        username_EditText = (EditText) findViewById(R.id.RegUsernameEditText);
         password_EditText = (EditText) findViewById(R.id.RegPasswordEditText);
         btn_register = (Button) findViewById(R.id.RegisterButton);
         login_link = (TextView) findViewById(R.id.LoginHyperLink);
@@ -88,11 +87,6 @@ public class RegisterActivity extends AppCompatActivity {
             email_EditText.setError("Enter a valid email!");
             dataValid = false;
         }
-        if (isEmpty(username_EditText)) {
-            Toast t = Toast.makeText(this, "You must enter a username", Toast.LENGTH_SHORT);
-            t.show();
-            return false;
-        }
         if (isEmpty(password_EditText)) {
             password_EditText.setError("Password is required");
             dataValid = false;
@@ -111,23 +105,23 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            String Username = username_EditText.getText().toString();
+                            /*String Username = username_EditText.getText().toString();
                             LoginPageDataModel accountUser = new LoginPageDataModel(Username,email,password);
                             // Registration is successful, update UI with the newly added user's information
-                            FirebaseUser firebaseUser = Auth.getCurrentUser();
+
 
 
                             // Write a message to the database
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference myRef = database.getReference("users");
-                            myRef.child(firebaseUser.getUid()).setValue(accountUser);
+                            myRef.child(firebaseUser.getUid()).setValue(accountUser);*/
+                            FirebaseUser firebaseUser = Auth.getCurrentUser();
 
-                            Toast.makeText(RegisterActivity.this, "User Created"+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
-                            //updateUI(user);
+                            Toast.makeText(getApplicationContext(), "User Created for "+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
+                            GoToLogin();
                         } else {
                             // If the registration fails, display a message to the user.
-                            Toast.makeText(RegisterActivity.this, "Registration failed.",Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            Toast.makeText(getApplicationContext(), "Registration failed.",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -135,6 +129,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     // This method redirects the user to the login page after they have registered (The IIE, 2022)
     public void GoToLogin(View view){
+        Intent intent = new Intent(this, login.class);
+        startActivity(intent);
+    }
+    public void GoToLogin(){
         Intent intent = new Intent(this, login.class);
         startActivity(intent);
     }

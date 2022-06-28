@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class login extends AppCompatActivity {
 
     // Declaration of variables (The IIE, 2022)
-    EditText Username, Password, Email;
+    EditText  Password, Email;
     Button LoginButton;
     private FirebaseAuth Auth;
 
@@ -41,7 +41,7 @@ public class login extends AppCompatActivity {
         setupListener();
     }
 
-    // This method retreives the data entered in each of the textboxes as well as the login button (The IIE, 2022)
+    // This method retrieves the data entered in each of the textboxes as well as the login button (The IIE, 2022)
     private void setupUI() {
         Email = findViewById((R.id.Email_EditText));
         Password = findViewById(R.id.Password_EditText);
@@ -117,7 +117,7 @@ public class login extends AppCompatActivity {
                                 updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(login.this, "Authentication failed. User not found", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Authentication failed. Credentials incorrect", Toast.LENGTH_SHORT).show();
                                 updateUI(null);
                             }
                         }

@@ -32,6 +32,7 @@ import com.squareup.picasso.Picasso;
 import java.util.Objects;
 
 import ST10119385.ChloeMoodley.Category_Information;
+import ST10119385.ChloeMoodley.Graph_Page;
 import ST10119385.ChloeMoodley.Item_Information;
 import ST10119385.ChloeMoodley.ShoppingList_Page;
 
@@ -260,8 +261,8 @@ public class ViewItem extends AppCompatActivity {
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
             //Go to Graph page (The IIE, 2022)
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+            Intent graphPage = new Intent(this, Graph_Page.class);
+            startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

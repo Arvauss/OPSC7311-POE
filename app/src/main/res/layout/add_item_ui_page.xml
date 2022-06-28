@@ -38,13 +38,14 @@
     //Information on how to create textViews and editViews(Android Developers, 2021)
     //add a shape (Create box, square or rectangle shape in XML – Android, 2017)
     //background colour (11. HOW TO CHANGE TEXT AND BACKGROUND COLOR IN ANDROID STUDIO | ANDROID APP DEVELOPMENT, 2016).
+
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="453dp"
+        android:layout_height="419dp"
         android:background="@drawable/box"
         android:orientation="vertical"
-        tools:context=".Category_Page"
-        android:padding="15dp">
+        android:padding="15dp"
+        tools:context=".Category_Page">
 
 
         <TextView
@@ -53,10 +54,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="64dp"
             android:fontFamily="arial"
+            android:paddingBottom="5dp"
             android:text="Please enter the name of your item"
             android:textSize="15sp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/ItemNameBox"
@@ -75,9 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="36dp"
             android:fontFamily="arial"
+            android:paddingTop="10dp"
             android:text="Please provide a description of this item"
             android:textSize="15sp"
-            android:paddingTop="10dp"
             android:textStyle="bold" />
 
         <EditText
@@ -86,10 +87,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:ems="10"
-            android:paddingTop="5dp"
             android:hint="Description"
             android:inputType="textPersonName"
-            android:textSize="12sp"/>
+            android:paddingTop="5dp"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/ImageText"
@@ -97,18 +98,18 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="56dp"
             android:fontFamily="arial"
+            android:paddingTop="10dp"
             android:text="Please upload an image of your item"
             android:textSize="15sp"
-            android:paddingTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ImageItemPic"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:paddingTop="5dp"
+            android:background="@drawable/add_icon"
             android:contentDescription="image"
-            android:background="@drawable/add_icon"/>
+            android:paddingTop="5dp" />
 
         <TextView
             android:id="@+id/DateText"
@@ -126,10 +127,10 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="112dp"
-            android:paddingTop="10dp"
             android:ems="10"
             android:fontFamily="arial"
             android:hint="Select Date: mm/dd/yyyy"
+            android:paddingTop="10dp"
             android:textSize="12sp" />
 
         <TextView
@@ -148,8 +149,8 @@
             android:layout_width="203dp"
             android:layout_height="48dp"
             android:ems="10"
-            android:paddingTop="5dp"
             android:hint="Amount: R0.00"
+            android:paddingTop="5dp"
             android:textSize="12sp" />
 
     </LinearLayout>
@@ -159,6 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="5dp"
+        android:layout_gravity="bottom"
         android:background="@drawable/greenbutton_background"
         android:text="CONFIRM"
         android:textSize="25sp" />

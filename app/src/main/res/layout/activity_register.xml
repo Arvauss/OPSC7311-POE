@@ -89,30 +89,6 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/UsernameTextView"
-                android:layout_width="145dp"
-                android:layout_height="33dp"
-                android:gravity="center"
-                android:text="USERNAME"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/RegUsernameEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="35dp"
-                android:background="@drawable/text_box"
-                android:elegantTextHeight="true"
-                android:elevation="5dp"
-                android:ems="10"
-                android:hint="Username"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
                 android:id="@+id/PasswordEditText"
                 android:layout_width="145dp"
                 android:layout_height="33dp"
