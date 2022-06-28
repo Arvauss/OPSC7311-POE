@@ -239,8 +239,8 @@ public class Add_Item_Page extends AppCompatActivity {
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
             //Go to Graph page
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+               Intent graphPage = new Intent(this, Graph_Page.class);
+               startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -271,6 +271,7 @@ public class Add_Item_Page extends AppCompatActivity {
                 //gets timestamp at category creation, for use as category ID in database (Android Developers, 2022)
                 Long timestamp = System.currentTimeMillis()/1000;
                 String itmID = "ITM" + timestamp.toString();
+
                 obj = new Item_Information(itmID,
                         ItemName.getText().toString(),
                         ItemDescription.getText().toString(),

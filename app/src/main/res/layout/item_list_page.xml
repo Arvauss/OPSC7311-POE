@@ -32,7 +32,8 @@
         android:text="CATEGORY"
         android:textAlignment="center"
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#8B8000"/>
 
     <LinearLayout
         android:layout_width="match_parent"

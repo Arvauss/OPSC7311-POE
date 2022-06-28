@@ -3,6 +3,7 @@ package opscwork.viewitempagefeatures;
 import static com.example.test.Dashboard_Activity.catList;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.example.test.Dashboard_Activity;
 import com.example.test.R;
@@ -33,17 +37,7 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     int mitem_list_template;
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
 
- /*   private ProgressBar itemProgressBar;
 
-    private int progressStatus = 0;
-
-    private Handler mHandler = new Handler();*/
-
-    // Creation of Constructor
-//    public ItemList(@NonNull Context context, int resource, @NonNull ArrayList<Item_Information> objects, Context mContext) {
-//        super(context, resource, objects);
-//        this.mContext = context;
-//    }
 
     //constructor for itemList (The IIE, 2022)
     public ItemList(ItemPage context, int item_list_template, ArrayList<Item_Information> itemArrayList) {
@@ -101,38 +95,8 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         if (obj.getItem_img() != null){
             //Category images are set using Picasso library (Picasso, 2022)
             Picasso.get().load(obj.getItem_img()).resize(150,150).centerCrop().into(imgItem);}
-        else{
-          //  imgItem.setImageBitmap(obj.getItem_bitmap());
-            }
-
-        int bgColour = 1;
-
-        for (Category_Information cat: catList) {
-            if (obj.getCat_ID()== cat.getCatID()) {
-                bgColour = cat.getCategory_Colour();
-                break;
-            }
-        }
-
-        convertView.setBackgroundColor(bgColour);
 
 
-       // itemProgressBar.set
-
-        /*new Thread(new Runnable() {
-            @Override
-            public void run(){
-               // while (progressStatus < 100){
-                    progressStatus = progress;
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            itemProgressBar.setProgress((progressStatus));
-                        }
-                    });
-              //  }
-            }
-        }).start();*/
 
         // The code below returns the convert view (The IIE, 2022)
         return convertView;

@@ -35,6 +35,8 @@ import com.example.test.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -63,6 +65,8 @@ public class Category_Page extends AppCompatActivity{
     private DatabaseReference dbRef;
     private FirebaseStorage fbStorage;
     private StorageReference storRef;
+    private FirebaseAuth Auth;
+    FirebaseUser user;
 
 
 
@@ -79,6 +83,8 @@ public class Category_Page extends AppCompatActivity{
         dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
         fbStorage = FirebaseStorage.getInstance();
         storRef = fbStorage.getReference();
+        Auth = FirebaseAuth.getInstance();
+        user = Auth.getCurrentUser();
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -214,7 +220,8 @@ public class Category_Page extends AppCompatActivity{
                         Color.parseColor(ColoursList[Colour.getSelectedItemPosition()]),
                         CategoryName.getText().toString(),
                         CategoryDescription.getText().toString(),
-                        imgURI.toString());
+                        imgURI.toString(),
+                        user.getUid());
 
                 Dashboard_Activity.catList.add(Catobj);
 

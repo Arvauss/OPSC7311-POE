@@ -50,6 +50,7 @@ public class ItemPage extends  AppCompatActivity {
     ActivityResultLauncher<Intent> resultLauncher ;
 
     String curCatName, curCatID;
+    int curCatColour;
 
     DatabaseReference dbRef;
 
@@ -104,7 +105,7 @@ public class ItemPage extends  AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Item_Information itemObj = (Item_Information) (mListView.getItemAtPosition(position));
                 Intent displayItem = new Intent(getApplicationContext(), ViewItem.class);
-                displayItem.putExtra("id", position);
+                displayItem.putExtra("id", itemObj.getItem_ID());
                 startActivity(displayItem);
             }
         });
@@ -141,6 +142,7 @@ public class ItemPage extends  AppCompatActivity {
         // Creation of adapter (The IIE, 2022)
         ItemList adapter = new ItemList(this, R.layout.item_list_template,ItemArrayList);
         mListView.setAdapter(adapter);
+      //  mListView.setBackgroundColor(curCatColour);
 
         setupOnClickListeners();
 

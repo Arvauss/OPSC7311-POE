@@ -14,7 +14,7 @@ public class Category_Information {
     private String category_Description;
     private int category_Icon;
     private String cat_Image;
-   // private String UserID;
+    private String UID;
     private String CatID;
 
 
@@ -29,28 +29,23 @@ public class Category_Information {
     //default constructor
     public Category_Information(){};
 
-    public Category_Information(String catid ,int category_Colour, String category_Name, String category_Description) {
-        this.CatID = catid;
-        this.category_Colour = category_Colour;
-        this.category_Name = category_Name;
-        this.category_Description = category_Description;
-        this.category_Icon = R.drawable.bodega_image;
-    }
-    public Category_Information(String catid, int category_Colour, String category_Name, String category_Description, String img) {
+
+    public Category_Information(String catid, int category_Colour, String category_Name, String category_Description, String img, String uid) {
         this.CatID = catid;
         this.category_Colour = category_Colour;
         this.category_Name = category_Name;
         this.category_Description = category_Description;
         this.cat_Image = img;
+        this.UID = uid;
     }
 
-    /*public String getUserID() {
-        return UserID;
+    public String getUID() {
+        return UID;
     }
 
-    public void setUserID(String userID) {
-        UserID = userID;
-    }*/
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
 
     public String getCatID() {
         return CatID;

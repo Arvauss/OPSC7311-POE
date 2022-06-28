@@ -66,15 +66,10 @@ public class ShoppingList_Page extends AppCompatActivity {
         // to make the Navigation drawer icon always appear on the action bar (geeksforgeeks.org, 2022).
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //adapter for shopping list
         Log.d(TAG, "onCreate : Started.");
-        //mList = (ListView) findViewById(R.id.shoppingListView);
 
-
-
-
-    setupListView();
-    setOnClickListeners();
+        setupListView();
+        setOnClickListeners();
 
     }
 
@@ -82,9 +77,10 @@ public class ShoppingList_Page extends AppCompatActivity {
         mList = (ListView) findViewById(R.id.shoppingListView);
         ItemTotalCost = (TextView) findViewById(R.id.CalculatedCostValue);
 
-        //add to list
-        /*Item_Information slo = new Item_Information("Water", R.drawable.bodega_image,
-                20.10, 2, "Drinks");*/
+        Item_Information item;
+
+
+
         ArrayList<Item_Information> ShoppingListArrayList = new ArrayList<Item_Information>();
 
        // ShoppingListArrayList.add((slo));

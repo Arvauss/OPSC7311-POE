@@ -19,6 +19,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Category_Page;
@@ -44,6 +47,9 @@ public class Dashboard_Activity extends AppCompatActivity {
     ListView CatListView;
     public static ArrayList<Category_Information> catList = new ArrayList<Category_Information>();
     DatabaseReference dbRef;
+    private FirebaseAuth Auth;
+    FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,8 @@ public class Dashboard_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
+        Auth = FirebaseAuth.getInstance();
+        user = Auth.getCurrentUser();
 
         // drawer layout instance to toggle the menu icon to open (The IIE, 2022)
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -73,12 +81,6 @@ public class Dashboard_Activity extends AppCompatActivity {
 
 
         setupUI();
-        //method to populate ArrayList with demo data (The IIE, 2022)
-       /* if (catList.size() < 3)
-            InitListData();
-        else {
-
-        }*/
         InitListData(dbRef);
 
     }
@@ -96,6 +98,8 @@ public class Dashboard_Activity extends AppCompatActivity {
     // The method below populates the category list with data from DB when the application is run (Firebase, 2022)
     private void InitListData(DatabaseReference ref){
         catList.clear();
+
+
         //gets snapshot of all categories
         ref.child("categories").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -103,9 +107,11 @@ public class Dashboard_Activity extends AppCompatActivity {
                 Category_Information obj;
                 //adds every category object in DB to catList
                 for(DataSnapshot ds : task.getResult().getChildren()){
-                    obj = ds.getValue(Category_Information.class);
-                    //obj = new Category_Information(ds.getKey(), ds.child("category_Colour").getValue(Integer.class), ds.child("category_Name").getValue(String.class), ds.child("category_Description").getValue(String.class))
-                    catList.add(obj);
+                    if (Objects.equals(ds.child("uid").getValue(String.class), user.getUid())){
+                        obj = ds.getValue(Category_Information.class);
+                        //obj = new Category_Information(ds.getKey(), ds.child("category_Colour").getValue(Integer.class), ds.child("category_Name").getValue(String.class), ds.child("category_Description").getValue(String.class))
+                        catList.add(obj);
+                    }
                 }
 
                 //Setups listview and connects adapter (The IIE, 2022)
@@ -145,6 +151,8 @@ public class Dashboard_Activity extends AppCompatActivity {
                 Category_Information catObj = (Category_Information) (CatListView.getItemAtPosition(position));
                 Intent displayCatItems = new Intent(Dashboard_Activity.this, ItemPage.class);
                 displayCatItems.putExtra("catID", catObj.getCatID());
+               // displayCatItems.putExtra("bgColour", catObj.getCategory_Colour());
+                displayCatItems.putExtra("catName", catObj.getCategory_Name());
                 startActivity(displayCatItems);
             }
         });

@@ -43,9 +43,6 @@ public class DashAdapter extends ArrayAdapter<Category_Information> {
         if(catObj.getCat_Image()!=null){
             //Category images are set using Picasso library (Picasso, 2022)
             Picasso.get().load(catObj.getCat_Image()).resize(150,150).centerCrop().into(img);}
-        else{
-            //img.setImageBitmap(catObj.getCat_Image());
-        }
 
         // The code below sets the category name and description (The IIE, 2022)
         catName.setText(catObj.getCategory_Name());
