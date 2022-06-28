@@ -178,9 +178,6 @@ public class item_list_all extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     private void PopulateItemList(){

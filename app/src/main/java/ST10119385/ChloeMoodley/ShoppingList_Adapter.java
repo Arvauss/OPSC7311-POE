@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.test.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -29,17 +30,8 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //getting shoppingList information
-        String ItemName = getItem(position).getItem_Name();
-        String CatName = getItem(position).getCategory();
-        int ItemImage = getItem(position).getItem_icon();
-        double ItemPrice = getItem(position).getItem_Price();
-        int ItemQty = getItem(position).getQty();
-        String ItemCat = getItem(position).getCategory();
-        double TotalCost = getItem(position).getTotalCost();
-
         //create object
-       // Item_Information item = new Item_Information(ItemName, ItemImage, ItemPrice, ItemQty, ItemCat);
+        Item_Information obj = getItem(position);
 
         LayoutInflater inflater = LayoutInflater.from(con);
         convertView = inflater.inflate(re, parent, false);
@@ -50,11 +42,14 @@ public class ShoppingList_Adapter extends ArrayAdapter<Item_Information> {
         TextView qtyItem = (TextView) convertView.findViewById(R.id.qtyshoppinglisttemeplate);
         TextView priceItem = (TextView) convertView.findViewById(R.id.priceshoppinglisttemeplate);
 
-        nameItem.setText(ItemName);
-        imageItem.setImageResource(ItemImage);
-        priceItem.setText(Double.toString(ItemPrice));
-        nameCat.setText(CatName);
-        qtyItem.setText(Integer.toString(ItemQty));
+        nameItem.setText(obj.getItem_Name());
+        priceItem.setText("R " + obj.getItem_Price());
+        nameCat.setText(obj.getCategory());
+        int qtyDiff = obj.getDesired_Qty() - obj.getQty();
+        qtyItem.setText("QTY: " + qtyDiff);
+
+        if (obj.getItem_img() != null){
+            Picasso.get().load(obj.getItem_img()).resize(150,150).centerCrop().into(imageItem);}
 
 
         return convertView;
