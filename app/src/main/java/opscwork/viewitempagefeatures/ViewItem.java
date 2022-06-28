@@ -3,6 +3,7 @@ package opscwork.viewitempagefeatures;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -42,8 +43,6 @@ public class ViewItem extends AppCompatActivity {
     public NavigationView burgerNavigationView;
 
     DatabaseReference dbRef;
-    private FirebaseAuth Auth;
-    FirebaseUser user;
 
     //Init of item obj to store info from getIntent (The IIE, 2022)
     Item_Information SelectedItem;
@@ -110,7 +109,12 @@ public class ViewItem extends AppCompatActivity {
         decrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SelectedItem.DecreaseQty();
+                if (SelectedItem.getQty() > 0)
+                    SelectedItem.DecreaseQty();
+
+                DatabaseReference itmRef = dbRef.child("items").child(SelectedItem.getItem_ID());
+                itmRef.setValue(SelectedItem);
+
                 //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
@@ -122,7 +126,14 @@ public class ViewItem extends AppCompatActivity {
         increase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SelectedItem.IncreaseQty();
+                if(SelectedItem.getQty() == SelectedItem.getDesired_Qty()){
+                    SelectedItem.IncreaseQty();
+                    SelectedItem.IncreaseDesiredQty();
+                }
+                else {SelectedItem.IncreaseQty();}
+                DatabaseReference itmRef = dbRef.child("items").child(SelectedItem.getItem_ID());
+                itmRef.setValue(SelectedItem);
+
                 //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
@@ -135,6 +146,10 @@ public class ViewItem extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SelectedItem.IncreaseDesiredQty();
+
+                DatabaseReference itmRef = dbRef.child("items").child(SelectedItem.getItem_ID());
+                itmRef.setValue(SelectedItem);
+
                 //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
                 finish();
                 overridePendingTransition(0, 0);
@@ -145,14 +160,19 @@ public class ViewItem extends AppCompatActivity {
         dec_desired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (SelectedItem.getQty() <= SelectedItem.getDesired_Qty()) {
+                if (SelectedItem.getQty() == SelectedItem.getDesired_Qty()) {
                     SelectedItem.DecreaseDesiredQty();
-                    //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
-                    finish();
-                    overridePendingTransition(0, 0);
-                    startActivity(getIntent());
-                    overridePendingTransition(0, 0);
-                }
+                    SelectedItem.DecreaseQty();
+                } else SelectedItem.DecreaseDesiredQty();
+
+                DatabaseReference itmRef = dbRef.child("items").child(SelectedItem.getItem_ID());
+                itmRef.setValue(SelectedItem);
+
+                //reloads activity to display new info | overridePendingTransition removes blinking transition (The IIE, 2022)
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
             }
         });
     }
@@ -162,7 +182,9 @@ public class ViewItem extends AppCompatActivity {
         Intent previousIntent = getIntent();
         String itemID = previousIntent.getStringExtra("id");
 
-        dbRef.child("items").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        DatabaseReference itmRef = dbRef;
+
+        itmRef.child("items").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 for(DataSnapshot ds : task.getResult().getChildren()){
@@ -188,13 +210,13 @@ public class ViewItem extends AppCompatActivity {
         nameItem.setText(SelectedItem.getItem_Name());
         itemDescription.setText(SelectedItem.getItem_Description());
         itemDate.setText(SelectedItem.getItem_date());
-        ItemPrice.setText(Double.toString(SelectedItem.getItem_Price()));
+        ItemPrice.setText("R "+ SelectedItem.getItem_Price());
         itemCount.setText(Integer.toString(SelectedItem.getQty()));
         DesiredItemCount.setText(Integer.toString(SelectedItem.getDesired_Qty()));
         if (SelectedItem.getItem_img() != null){
             Picasso.get().load(SelectedItem.getItem_img()).resize(150,150).centerCrop().into(itemImage);}
 
-        ProgressBar itemProgressBar = (ProgressBar) findViewById(R.id.itemProgressGraph);
+        ProgressBar itemProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
 
@@ -202,7 +224,6 @@ public class ViewItem extends AppCompatActivity {
         int quantity = SelectedItem.getQty();
         //Get desired quantity of the specific item
         int desiredQuantity = SelectedItem.getDesired_Qty();
-        int progress = (quantity/desiredQuantity)*100;
 
         itemProgressBar.setMax(desiredQuantity);
         itemProgressBar.setProgress(quantity);

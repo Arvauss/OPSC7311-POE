@@ -42,7 +42,7 @@
             android:id="@+id/CategoryNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VEGETABLES"
+            android:text=""
             android:textSize="30sp"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -138,7 +138,7 @@
             android:id="@+id/ItemViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LETTUCE"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -170,7 +170,7 @@
             android:id="@+id/Description"
             android:layout_width="300dp"
             android:layout_height="67dp"
-            android:text="The green element of lettuce is made from soil and oil which is great in protein and is amazing to eat if you are hungry or broke"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -202,7 +202,7 @@
             android:id="@+id/DateOfAcquisition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20/04/2021"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -235,7 +235,7 @@
             android:id="@+id/Price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="R 29.55"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -256,7 +256,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.012"
-            app:srcCompat="@drawable/lettuce" />
+             />
 
         <!-- (The IIE, 2022) -->
 
@@ -285,7 +285,7 @@
             android:background="@drawable/loginpagebackround"
             android:backgroundTint="#58A93A"
             android:textAlignment="center"
-            android:text="10"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -308,7 +308,7 @@
             android:backgroundTint="#58A93A"
             android:elevation="20dp"
             android:gravity="center"
-            android:text="10"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
