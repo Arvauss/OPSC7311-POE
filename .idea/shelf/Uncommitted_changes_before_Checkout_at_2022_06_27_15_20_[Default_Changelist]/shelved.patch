@@ -1,0 +1,17 @@
+Index: app/src/main/java/ST10119385/ChloeMoodley/Item_list_template_class.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ST10119385.ChloeMoodley;\r\n\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.widget.ProgressBar;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.example.test.R;\r\n\r\npublic class Item_list_template_class extends AppCompatActivity {\r\n\r\n    private ProgressBar itemProgressBar;\r\n\r\n    private int progressStatus = 0;\r\n\r\n    private Handler mHandler = new Handler();\r\n    //Declaration of object for the item class\r\n    Item_Information item = new Item_Information();\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.item_list_template);\r\n        //Code for progress bars\r\n        //Connecting the declared progress bar to the progressbar in\r\n        itemProgressBar = (ProgressBar) findViewById(R.id.progressBar);\r\n\r\n        //Get quantity of the specific item\r\n        int quantity = item.getQty();\r\n        //Get desired quantity of the specific item\r\n        int desiredQuantity = item.getDesired_Qty();\r\n        int progress = (quantity/100)*desiredQuantity;\r\n\r\n        new Thread(new Runnable() {\r\n            @Override\r\n            public void run(){\r\n                while (progressStatus < desiredQuantity){\r\n                    progressStatus = progress;\r\n                    mHandler.post(new Runnable() {\r\n                        @Override\r\n                        public void run() {\r\n                            itemProgressBar.setProgress((progressStatus));\r\n                        }\r\n                    });\r\n                }\r\n            }\r\n        }).start();\r\n\r\n    }\r\n\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/ST10119385/ChloeMoodley/Item_list_template_class.java b/app/src/main/java/ST10119385/ChloeMoodley/Item_list_template_class.java
+--- a/app/src/main/java/ST10119385/ChloeMoodley/Item_list_template_class.java	
++++ b/app/src/main/java/ST10119385/ChloeMoodley/Item_list_template_class.java	
+@@ -36,7 +36,7 @@
+         new Thread(new Runnable() {
+             @Override
+             public void run(){
+-                while (progressStatus < desiredQuantity){
++                while (progressStatus < 100){
+                     progressStatus = progress;
+                     mHandler.post(new Runnable() {
+                         @Override
