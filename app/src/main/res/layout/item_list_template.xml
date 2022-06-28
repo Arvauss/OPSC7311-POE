@@ -38,7 +38,7 @@
             <TextView
                 android:id="@+id/itemNameitemAll"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_weight="1.4"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="5dp"
@@ -52,29 +52,41 @@
             <TextView
                 android:id="@+id/catNameitemAll"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
+                android:layout_height="25dp"
                 android:layout_weight="1.4"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="5dp"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="3dp"
                 android:textAlignment="center"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
+            <ProgressBar
+                android:id="@+id/itemProgressGraph"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="3dp"
+                style="?android:attr/progressBarStyleHorizontal"/>
+
+
         </LinearLayout>
 
-        /*Item count progress bar*/
+        <!--/*Item count progress bar*/
         <ProgressBar
             android:id="@+id/itemProgressGraph"
 
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
             android:layout_marginVertical="10dp"
-            style="?android:attr/progressBarStyleHorizontal"/>
+            style="?android:attr/progressBarStyleHorizontal"/>-->
      <!--   -->
 
     </LinearLayout>
