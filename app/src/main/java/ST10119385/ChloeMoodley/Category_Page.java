@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -278,8 +277,8 @@ public class Category_Page extends AppCompatActivity{
             startActivity(shopList);
         } else if (id == R.id.nav_graph_screen) {
             //Go to Graph page
-            //   Intent graphPage = new Intent(this, ShoppingList_Page.class);
-            //   startActivity(graphPage);
+            Intent graphPage = new Intent(this, Graph_Page.class);
+            startActivity(graphPage);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
