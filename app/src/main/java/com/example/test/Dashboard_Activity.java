@@ -81,8 +81,6 @@ public class Dashboard_Activity extends AppCompatActivity {
         }*/
         InitListData(dbRef);
 
-
-
     }
 
     // The method below populates the list view for the category page (The IIE, 2022)

@@ -67,13 +67,15 @@
         /*Item count progress bar*/
         <ProgressBar
             android:id="@+id/itemProgressGraph"
-            style="?android:attr/progressBarStyleHorizontal"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="10dp"/>
+            android:layout_marginVertical="10dp"
+            style="?android:attr/progressBarStyleHorizontal"/>
+     <!--   -->
 
     </LinearLayout>
 

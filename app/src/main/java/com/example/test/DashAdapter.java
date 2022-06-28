@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ST10119385.ChloeMoodley.Category_Information;
@@ -38,9 +40,10 @@ public class DashAdapter extends ArrayAdapter<Category_Information> {
         TextView catDesc = (TextView) convertView.findViewById(R.id.txt_Category_Desc);
 
         // This if-else checks if each element is empty or not (The IIE, 2022)
-        if(catObj.getCat_Image()==null){
-            img.setImageResource(catObj.getCategory_Icon());
-        } else{
+        if(catObj.getCat_Image()!=null){
+            //Category images are set using Picasso library (Picasso, 2022)
+            Picasso.get().load(catObj.getCat_Image()).resize(150,150).centerCrop().into(img);}
+        else{
             //img.setImageBitmap(catObj.getCat_Image());
         }
 

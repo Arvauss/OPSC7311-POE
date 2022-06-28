@@ -28,8 +28,6 @@ public class Item_Information
     //empty constructor
     public Item_Information(){}
 
-    //constructor for item_model class (Android Beginner Tutorial #8 - Custom ListView Adapter For Displaying Multiple Columns, 2017).
-
     //Constructor for New Item Add (The IIE, 2022)
     public Item_Information(String id, String item_Name, String item_desc, String item_date, double item_Price, String Category, String catid ,int Qty, String img) {
         this.item_ID = id;

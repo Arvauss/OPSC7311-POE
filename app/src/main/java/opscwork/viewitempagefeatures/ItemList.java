@@ -1,20 +1,27 @@
 package opscwork.viewitempagefeatures;
 
+import static com.example.test.Dashboard_Activity.catList;
+
 import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.test.Dashboard_Activity;
 import com.example.test.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import ST10119385.ChloeMoodley.Category_Information;
 import ST10119385.ChloeMoodley.Item_Information;
 import ST10119385.ChloeMoodley.item_list_all;
 
@@ -25,6 +32,12 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     private Context mContext;
     int mitem_list_template;
     public static ArrayList<Item_Information> ItemArrayList = new ArrayList<>();
+
+ /*   private ProgressBar itemProgressBar;
+
+    private int progressStatus = 0;
+
+    private Handler mHandler = new Handler();*/
 
     // Creation of Constructor
 //    public ItemList(@NonNull Context context, int resource, @NonNull ArrayList<Item_Information> objects, Context mContext) {
@@ -53,10 +66,6 @@ public class ItemList extends ArrayAdapter<Item_Information> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        String ItemName = getItem(position).getItem_Name();
-        String ItemCat = getItem(position).getCategory();
-        int ItemImg = getItem(position).getItem_icon();
-
 
         // Creation of item information object (The IIE, 2022)
         Item_Information obj = getItem(position);
@@ -72,16 +81,58 @@ public class ItemList extends ArrayAdapter<Item_Information> {
         TextView txtItemName = (TextView) convertView.findViewById(R.id.itemNameitemAll);
         TextView txtItemCat = (TextView) convertView.findViewById(R.id.catNameitemAll);
         ImageView imgItem = (ImageView) convertView.findViewById(R.id.ItemTemplate_Img);
+        ProgressBar itemProgressBar = (ProgressBar) convertView.findViewById(R.id.itemProgressGraph);
+
+
+
+        //Get quantity of the specific item
+        int quantity = obj.getQty();
+        //Get desired quantity of the specific item
+        int desiredQuantity = obj.getDesired_Qty();
+        int progress = (quantity/desiredQuantity)*100;
+
+        itemProgressBar.setMax(desiredQuantity);
+        itemProgressBar.setProgress(quantity);
 
         // The code below sets the item name and item category (The IIE, 2022)
         txtItemName.setText(obj.getItem_Name());
-        txtItemCat.setText(obj.getCategory());
+        txtItemCat.setText(obj.getItem_Description());
 
-        if (obj.getItem_img() == null){
-            imgItem.setImageResource(R.drawable.bodega_image);}
+        if (obj.getItem_img() != null){
+            //Category images are set using Picasso library (Picasso, 2022)
+            Picasso.get().load(obj.getItem_img()).resize(150,150).centerCrop().into(imgItem);}
         else{
           //  imgItem.setImageBitmap(obj.getItem_bitmap());
             }
+
+        int bgColour = 1;
+
+        for (Category_Information cat: catList) {
+            if (obj.getCat_ID()== cat.getCatID()) {
+                bgColour = cat.getCategory_Colour();
+                break;
+            }
+        }
+
+        convertView.setBackgroundColor(bgColour);
+
+
+       // itemProgressBar.set
+
+        /*new Thread(new Runnable() {
+            @Override
+            public void run(){
+               // while (progressStatus < 100){
+                    progressStatus = progress;
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            itemProgressBar.setProgress((progressStatus));
+                        }
+                    });
+              //  }
+            }
+        }).start();*/
 
         // The code below returns the convert view (The IIE, 2022)
         return convertView;
