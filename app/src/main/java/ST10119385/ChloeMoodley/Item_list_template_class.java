@@ -31,12 +31,12 @@ public class Item_list_template_class extends AppCompatActivity {
         int quantity = item.getQty();
         //Get desired quantity of the specific item
         int desiredQuantity = item.getDesired_Qty();
-        int progress = (quantity/100)*desiredQuantity;
+        int progress = (quantity/desiredQuantity)*100;
 
         new Thread(new Runnable() {
             @Override
             public void run(){
-                while (progressStatus < desiredQuantity){
+                while (progressStatus < 100){
                     progressStatus = progress;
                     mHandler.post(new Runnable() {
                         @Override
