@@ -1,6 +1,7 @@
 package ST10119385.ChloeMoodley;
 
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,17 +25,32 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Graph_Page extends AppCompatActivity {
 
     private static String TAG = "Graph_Page";
 
-    private float [] yData = {2f, 3f, 5f, 9f, 5f};
-    private String [] xData = {"Vegetables", "Spices", "Liquids", "Fruits", "Snacks"};
+    private static float [] yData;
+    private static String [] xData;
     PieChart PIE;
+    float ItemsTotal = 0;
+
+    ArrayList<Item_Information> ItemList = new ArrayList<>();
+    ArrayList<Category_Information> catList = new ArrayList<>();
+    DatabaseReference dbRef;
+    private FirebaseAuth Auth;
+    FirebaseUser user;
 
     //Declarations for DrawerLayout (geeksforgeeks.org, 2022)
     public DrawerLayout drawerLayout;
@@ -45,6 +61,10 @@ public class Graph_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.graph_page);
+
+        dbRef = FirebaseDatabase.getInstance("https://bodegaapp-opscpoe-default-rtdb.firebaseio.com/").getReference();
+        Auth = FirebaseAuth.getInstance();
+        user = Auth.getCurrentUser();
 
         // drawer layout instance to toggle the menu icon to open
         //drawer and back button to close drawer (geeksforgeeks.org, 2022).
@@ -67,16 +87,67 @@ public class Graph_Page extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: create chart");
 
+        InitListData();
+
+
+    }
+
+    private void InitListData() {
+        catList.clear();
+        DatabaseReference catRef = dbRef.child("categories");
+
+
+        //stores all user categories into arraylist
+        catRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Category_Information catObj;
+                for(DataSnapshot ds : task.getResult().getChildren()){
+                    if (Objects.equals(ds.child("uid").getValue(String.class), user.getUid())){
+                        catObj = ds.getValue(Category_Information.class);
+                        catList.add(catObj);
+                    }
+                }
+                PopulateItemList();
+            }
+        });
+    }
+
+    private void PopulateItemList() {
+        // pulling data from DB into ArrayList for ListView
+        ItemList.clear();
+
+        DatabaseReference itmRef = dbRef.child("items");
+        //gets snapshot of all items
+        itmRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Item_Information item;
+                //adds every category object in DB to catList
+                for(DataSnapshot ds : task.getResult().getChildren()){
+                    for(Category_Information cat: catList){
+                        if(ds.child("cat_ID").getValue(String.class).equals(cat.getCatID())){
+                            item = ds.getValue(Item_Information.class);
+                            ItemList.add(item);
+                        }
+                    }
+                }
+                InitPieChart();
+            }
+        });
+    }
+
+    private void InitPieChart() {
         PIE = (PieChart) findViewById(R.id.PieChart);
 
-        //PIE.setDescription("DJ ");
         PIE.setRotationEnabled(true);
         PIE.setHoleRadius(15);
         PIE.setTransparentCircleAlpha(0);
         PIE.setCenterText("BODEGA");
-        //PIE.setCenterText(4);
+
         PIE.setDrawEntryLabels(true);
 
+        InitPieData();
         dataSet();
 
         PIE.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -87,17 +158,12 @@ public class Graph_Page extends AppCompatActivity {
                 Log.d(TAG, "OnValueSelected: " + h.toString());
 
                 int p1 = 0;
-                int yVal = (int) h.getY();
+                float yVal = h.getY();
                 int xVal = (int) h.getX();
 
-                //String cat = e.toString().substring(p1 + 11, 14);
-              //  Log.d(TAG, "OnValueSelected: p1= " + p1);
-               // Log.d(TAG, "OnValueSelected: cat= " + cat);
-
-
-                String sup = xData[xVal];
-                int numItems = yVal;
-                Toast.makeText(Graph_Page.this, "Category " + sup + "\n" + "Number of Items: " +"\n" +numItems, Toast.LENGTH_LONG).show();
+                String sup = catList.get(xVal).getCategory_Name();
+                float numItems = yVal;
+                Toast.makeText(Graph_Page.this, "Category " + sup + "\n" + "Percentage of Items: " +"\n" +numItems, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -107,17 +173,41 @@ public class Graph_Page extends AppCompatActivity {
         });
     }
 
+    public void InitPieData(){
+
+
+        //yData = ;
+        //xData = ;
+    }
+
     public void dataSet () {
         Log.d(TAG, "addDataSet start");
+        ArrayList<Integer> tempCatTotals = new ArrayList<Integer>();
         ArrayList<PieEntry> yEntrys = new ArrayList<>();
         ArrayList<String> xEntrys = new ArrayList<>();
+        int catPos = 0;
+        //Initialises dataset for xEntry
+        for(Category_Information cat: catList){
 
-        for (int i = 0; i < yData.length; i++) {
-            yEntrys.add(new PieEntry(yData[i], i));
+            xEntrys.add(cat.getCategory_Name());
+            int catTotalItems = 0;
+            //calculates total num of items per category
+            for(Item_Information item: ItemList){
+                if (item.getCat_ID().equals(cat.getCatID())){
+                    catTotalItems += item.getQty();
+                }
+
+            }
+            tempCatTotals.add(catTotalItems);
+            ItemsTotal += catTotalItems;
         }
 
-        for (int i = 0; i < xData.length; i++) {
-            xEntrys.add(xData[i]);
+        //adds percentage of items for each category to yEntrys
+        for (int i = 0; i < tempCatTotals.size(); i++) {
+            float percentage = (tempCatTotals.get(i)/ItemsTotal) * 100;
+
+            yEntrys.add(new PieEntry(percentage, i));
+
         }
 
         //data list
@@ -127,11 +217,14 @@ public class Graph_Page extends AppCompatActivity {
 
         //add colour
         ArrayList<Integer> col = new ArrayList<>();
-        col.add(Color.GREEN);
+        for(Category_Information cat: catList){
+            col.add(cat.getCategory_Colour());
+        }
+        /*col.add(Color.GREEN);
         col.add(Color.RED);
         col.add(Color.BLUE);
         col.add(Color.YELLOW);
-        col.add(Color.GRAY);
+        col.add(Color.GRAY);*/
 
         pieDataSet.setColors(col);
 
