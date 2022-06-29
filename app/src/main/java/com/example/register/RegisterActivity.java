@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
     }
 
-    //method is used to create an account
+    //method is used to create an account (Firebase, 2022)
     private void createAccount(String email, String password) {
         //create user with email
         Auth.createUserWithEmailAndPassword(email,password)
@@ -105,16 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            /*String Username = username_EditText.getText().toString();
-                            LoginPageDataModel accountUser = new LoginPageDataModel(Username,email,password);
-                            // Registration is successful, update UI with the newly added user's information
-
-
-
-                            // Write a message to the database
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference myRef = database.getReference("users");
-                            myRef.child(firebaseUser.getUid()).setValue(accountUser);*/
                             FirebaseUser firebaseUser = Auth.getCurrentUser();
 
                             Toast.makeText(getApplicationContext(), "User Created for "+ firebaseUser.getEmail(), Toast.LENGTH_LONG).show();
