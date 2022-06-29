@@ -102,7 +102,7 @@ public class login extends AppCompatActivity {
         return isInputValid;
     }
 
-//This method is used to sign in a user with the correct login details
+//This method is used to sign in a user with the correct login details (Firebase, 2022)
         public void signIn (String email, String password){
             Auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
